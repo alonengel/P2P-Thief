@@ -2,10 +2,10 @@
   "_schema": "p2p-thief-artifacts",
   "audit": "Verified OK",
   "digest_match": true,
-  "end_state_digest": "fc738b42a7f44a4dc4a395cc96f03b5b5b9553af26f602e044577d71342911b1",
+  "end_state_digest": "6e69390f2979f8a926e66cab5b9b37c1c665a5abc9f4ff566b18058dca45c03e",
   "game_id": "anrbj666-vs-anrbj666",
-  "game_uid": "ed38b0fb225b43a28558d233b8d95c5a",
-  "github_commit": "07c1e569ed062fdbbf710afc75a40b7a1d41e2eb",
+  "game_uid": "e13eb2a4a5ad4cb1a597da7df4979702",
+  "github_commit": "0b60fd8bef1ca412a8ab9de7095420acd842bdcc",
   "group_id": "anrbj666",
   "links": {
     "cop": "https://github.com/alonengel/P2P-Police",
@@ -13,7 +13,7 @@
   },
   "outcome": "survival",
   "report_type": "result",
-  "reported_at": "2026-07-13T18:01:41+00:00",
+  "reported_at": "2026-07-13T18:19:41+00:00",
   "schema_version": "1.00",
   "score": {
     "cop": 5,

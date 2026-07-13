@@ -1,0 +1,27 @@
+{
+  "_schema": "p2p-thief-artifacts",
+  "game_id": "anrbj666-vs-unknown",
+  "game_uid": "8c3b02384ae647e0869f0a60a6a31758",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "opponent_records": [],
+  "records": [],
+  "report_type": "log",
+  "schema_version": "1.00",
+  "sub_game_number": 1,
+  "summary": {
+    "audit": "unavailable (technical loss)",
+    "digest_match": false,
+    "end_state_digest": "cf10bd9476faee345e36347146e745355aabe345326927b5d0f9bbaf8f07a5fc",
+    "ended_at": "2026-07-13T18:15:41+00:00",
+    "failure": "HTTPStatusError: Server error '502 Bad Gateway' for url 'https://cop-mcp.alon.website/mcp'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502",
+    "group_id": "anrbj666",
+    "opponent_group_id": "unknown",
+    "outcome": "technical_loss",
+    "role": "thief",
+    "steps_sealed": 0,
+    "turns_completed": 0
+  }
+}
