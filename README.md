@@ -128,8 +128,22 @@ evasion brain, `strategy/thief_brain.py`:
 Measured: evasion survives a random cop ≥20/25 (blind: ≥15/25) and, in the
 blind cross-repo match, ran the full 35-turn clock against the pursuit twin
 that had captured it in 13 turns under full information — **uncertainty is the
-thief's best weapon, working exactly as the rulebook intends**. (No RL was
-used; learning curves are therefore not applicable.)
+thief's best weapon, working exactly as the rulebook intends**.
+
+**Reinforcement learning (optional path, implemented):** a linear-FA
+Q-learner (`strategy/rl_brain.py`, TD(0), ε-greedy) exposes a genuinely
+interesting asymmetry: **from-scratch evasion fails** (0% survival after 600
+episodes — one corner mistake is terminal, a classic hard-exploration
+problem), while from an informed prior encoding the heuristic's features RL
+**maintains 1.00 survival and amplifies exactly the right weights**
+(distance 1.0→2.1, escape-openness 0.5→1.4). Pursuit, by contrast, trains
+from zero to 1.00 (see the twin repo) — chasing is easy to learn, escaping
+must be taught:
+
+![RL learning curve](assets/rl_learning_curve.png)
+
+Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain"`;
+the hand-tuned ThiefBrain remains the league default.
 
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 
