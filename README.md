@@ -136,7 +136,7 @@ used; learning curves are therefore not applicable.)
 | Live GUI — local truth only | Replay witness |
 |---|---|
 | ![Live belief map](assets/live_belief_map.png) | ![Verified OK](assets/replay_verified_ok.png) |
-| Belief heatmap (deeper red = higher P(thief)), ME marker, turn banner, rival's hint | Green **Verified OK (70 sealed steps)** over the reconstructed game |
+| Belief heatmap (deeper red = higher P(cop)), ME marker, turn banner, rival's hint | Green **Verified OK (70 sealed steps)** over the reconstructed game |
 
 `verify-log` on the same log: genuine → `Verified OK`; one rewritten move →
 `TAMPERED` (exit 1).
