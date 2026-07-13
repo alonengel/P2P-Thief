@@ -17,8 +17,9 @@ from p2p_thief.strategy.brain_base import BrainBase
 class ThiefBrain(BrainBase):
     """Distance-maximizing, corner-averse evasion."""
 
-    def decide(self, engine: GameEngine) -> dict:
-        cop = engine.positions[Role.POLICE]
+    def decide(self, engine: GameEngine, belief=None) -> dict:
+        # Blind mode (real games): flee the belief peak, never the true cell.
+        cop = belief.argmax_cell() if belief is not None else engine.positions[Role.POLICE]
         me = engine.positions[Role.THIEF]
         distances = bfs_distances(engine.board, cop)
 
@@ -52,8 +53,8 @@ class CopForArena(BrainBase):
     """Pursuit sparring partner for OUR self-play arena only (the real police
     brain lives in the P2P-Police repo): minimize BFS distance to the thief."""
 
-    def decide(self, engine: GameEngine) -> dict:
-        thief = engine.positions[Role.THIEF]
+    def decide(self, engine: GameEngine, belief=None) -> dict:
+        thief = belief.argmax_cell() if belief is not None else engine.positions[Role.THIEF]
         me = engine.positions[Role.POLICE]
         distances = bfs_distances(engine.board, thief)
         best_move, best = Move.STAY, distances.get(me, UNREACHABLE)
