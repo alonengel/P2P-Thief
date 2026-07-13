@@ -23,7 +23,7 @@ truth; Appendix ה = 55 mandatory rules). Grading: `../docs/software_submission_
 ## Mirrored-twin protocol (ADR-0001)
 
 `src/p2p_thief/domain/` and `tests/vectors/` must stay byte-identical with the
-sibling (package name aside). Any change there → port to `../P2P-Thief` in the
+sibling (package name aside). Any change there → port to `../P2P-Police` in the
 SAME session (paired commit) → `uv run python scripts/check_physics_parity.py`
 must pass. NEVER import across repos; duplication is deliberate and rule-driven.
 
