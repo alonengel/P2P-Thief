@@ -1,12 +1,12 @@
 {
   "_schema": "p2p-thief-artifacts",
-  "declared_at": "2026-07-13T15:27:21+00:00",
+  "declared_at": "2026-07-13T15:42:33+00:00",
   "game_id": "anrbj666-vs-anrbj666",
-  "game_uid": "07642ba1c20b4b55b52db7e51cd60a21",
+  "game_uid": "d55cedd0e086490f810e7c53bad61601",
   "group": {
     "code_version": "1.00",
     "counted_games_played": 0,
-    "github_commit": "cc6b307e7d836b27d6becf81138c12908413262d",
+    "github_commit": "4e30e87afdf55c623db3b631e586e4a9fc9388ef",
     "group_id": "anrbj666",
     "hardware_spec": {
       "cpu_cores": 24,
