@@ -206,10 +206,16 @@ verified independently from this repo: **v1 survives cop v3 at 1.00 over
 (ensemble of trap cops + belief-noise,
 `results/experiments/deep_rl_training_v2_ensemble.json`) **collapsed to
 0.06** — a deliberately recorded negative result: robustness training is
-not a free lunch, and the shipped weights remain the v1 specialist. Net
-outcome of the two-round arms race: the evader holds the structural
-advantage at this barrier budget, exactly as pursuit-evasion theory
-predicts.
+not a free lunch, and the shipped weights remain the v1 specialist. A
+follow-up warm-start fine-tune (from v1, lr 0.003, hard promotion gate —
+`results/experiments/deep_rl_finetune.json`) sharpened the finding into a
+knife-edge theorem-in-practice: v1 survives **1.00 with exact opponent
+information and 0.00 under radius-2 belief noise**, and even the gentlest
+retraining collapses the specialist within ~100 episodes. Evasion at this
+level *requires* exact information — which is the evidence-backed reason
+the robust hand-coded ThiefBrain stays league default. Net outcome of the
+two-round arms race: the evader holds the structural advantage at this
+barrier budget, exactly as pursuit-evasion theory predicts.
 
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 
