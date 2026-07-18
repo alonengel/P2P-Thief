@@ -168,15 +168,35 @@ Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain
 (exercised end-to-end by `tests/unit/test_strategy/test_rl_brain.py`);
 the hand-tuned ThiefBrain remains the league default.
 
-The pursuit side goes further: the twin repo's **deep-RL experiment**
-(MLP Q-network with barrier actions, Double-DQN training) *learns* the trap
-strategy movement-only pursuit provably lacks — 0.00 → **0.74** capture vs
-the perfect evader, statistically tying the hand-engineered barrier
-tactics (0.73). Barriers are cop-only physics, so that experiment lives
-in [P2P-Police](https://github.com/alonengel/P2P-Police); for the thief the
-strategic lesson is inverted and sobering: against a barrier-armed rival,
-pure distance-maximizing evasion is no longer provably safe — which is
-exactly why ThiefBrain's corner-aversion term exists.
+**Deep RL closes the arms race (`strategy/rl_deep.py`).** The twin repo's
+Double-DQN cop *learns barrier trapping* — 0.74 capture vs a perfect
+movement-evader, tying its hand-engineered tactics (0.73). That makes the
+linear evasion brain's training regime obsolete: it never faced a barrier in
+training. So the thief now trains a **Double-DQN evasion MLP
+(9→tanh(12)→1, pure Python) against exactly that learned trap cop** —
+`strategy/arena_cop.py` replays the twin's trained cop from copied weight
+*data* with locally duplicated logic (mirrored-twin rule: no cross-repo
+imports, no shared live state; static duplication is the sanctioned
+mechanism). Features track precisely what traps destroy: escape routes,
+reachable region, wall distance, barrier density, chase parity. Result,
+100 held-out games vs the learned trap cop:
+
+| Policy | Survival vs learned trap cop |
+|---|---|
+| Random-init net (episode 0) | **0.00** |
+| Hand-coded ThiefBrain | **0.49** |
+| **Learned Double-DQN thief (best checkpoint)** | **1.00** |
+
+![Deep RL curve](assets/deep_rl_curve.png)
+
+The learned evader **fully neutralizes** the adversary that halves the
+hand-coded brain's survival — with the honest caveats recorded in
+`results/experiments/deep_rl_training.json`: the 1.00 is against a *fixed*
+deterministic adversary (counter-policy exploitation, not a universal
+guarantee), and the training curve collapses late (1.00 → 0.20, catastrophic
+forgetting) which is why the shipped weights are the best-eval checkpoint.
+ThiefBrain stays the league default; the deep brain loads via
+`[strategy] thief_class = "p2p_thief.strategy.rl_deep:DeepQBrain"`.
 
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 

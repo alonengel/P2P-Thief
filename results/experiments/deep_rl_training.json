@@ -1,0 +1,221 @@
+{
+  "curve": [
+    {
+      "episode": 0,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 1.0
+    },
+    {
+      "episode": 100,
+      "survival_vs_deep_cop": 0.32,
+      "epsilon": 0.972
+    },
+    {
+      "episode": 200,
+      "survival_vs_deep_cop": 0.52,
+      "epsilon": 0.944
+    },
+    {
+      "episode": 300,
+      "survival_vs_deep_cop": 0.28,
+      "epsilon": 0.917
+    },
+    {
+      "episode": 400,
+      "survival_vs_deep_cop": 0.52,
+      "epsilon": 0.889
+    },
+    {
+      "episode": 500,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.861
+    },
+    {
+      "episode": 600,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.833
+    },
+    {
+      "episode": 700,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.806
+    },
+    {
+      "episode": 800,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.778
+    },
+    {
+      "episode": 900,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.75
+    },
+    {
+      "episode": 1000,
+      "survival_vs_deep_cop": 0.88,
+      "epsilon": 0.722
+    },
+    {
+      "episode": 1100,
+      "survival_vs_deep_cop": 0.72,
+      "epsilon": 0.694
+    },
+    {
+      "episode": 1200,
+      "survival_vs_deep_cop": 0.6,
+      "epsilon": 0.667
+    },
+    {
+      "episode": 1300,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.639
+    },
+    {
+      "episode": 1400,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.611
+    },
+    {
+      "episode": 1500,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.583
+    },
+    {
+      "episode": 1600,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.556
+    },
+    {
+      "episode": 1700,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.528
+    },
+    {
+      "episode": 1800,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.5
+    },
+    {
+      "episode": 1900,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.472
+    },
+    {
+      "episode": 2000,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.444
+    },
+    {
+      "episode": 2100,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.417
+    },
+    {
+      "episode": 2200,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.389
+    },
+    {
+      "episode": 2300,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.361
+    },
+    {
+      "episode": 2400,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.333
+    },
+    {
+      "episode": 2500,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.306
+    },
+    {
+      "episode": 2600,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.278
+    },
+    {
+      "episode": 2700,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.25
+    },
+    {
+      "episode": 2800,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.222
+    },
+    {
+      "episode": 2900,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.194
+    },
+    {
+      "episode": 3000,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.167
+    },
+    {
+      "episode": 3100,
+      "survival_vs_deep_cop": 1.0,
+      "epsilon": 0.139
+    },
+    {
+      "episode": 3200,
+      "survival_vs_deep_cop": 0.2,
+      "epsilon": 0.111
+    },
+    {
+      "episode": 3300,
+      "survival_vs_deep_cop": 0.56,
+      "epsilon": 0.083
+    },
+    {
+      "episode": 3400,
+      "survival_vs_deep_cop": 0.44,
+      "epsilon": 0.056
+    },
+    {
+      "episode": 3500,
+      "survival_vs_deep_cop": 0.36,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3600,
+      "survival_vs_deep_cop": 0.56,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3700,
+      "survival_vs_deep_cop": 0.56,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3800,
+      "survival_vs_deep_cop": 0.6,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3900,
+      "survival_vs_deep_cop": 0.56,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3999,
+      "survival_vs_deep_cop": 0.6,
+      "epsilon": 0.05
+    }
+  ],
+  "base_seed": 7,
+  "eval_games_per_point": 25,
+  "adversary": "DeepTrapCop - the twin's trained Double-DQN barrier cop (0.74 capture vs a perfect movement evader), replayed from copied weight data",
+  "final_survival_vs_deep_cop": {
+    "win_rate": 1.0,
+    "games": 100
+  },
+  "hand_coded_thiefbrain_benchmark": {
+    "win_rate": 0.49,
+    "games": 100
+  },
+  "note": "the linear evasion brain never trained against barriers"
+}
