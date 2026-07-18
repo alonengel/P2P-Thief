@@ -168,6 +168,15 @@ Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain
 (exercised end-to-end by `tests/unit/test_strategy/test_rl_brain.py`);
 the hand-tuned ThiefBrain remains the league default.
 
+The pursuit side goes further: the twin repo's **deep-RL experiment**
+(MLP Q-network with barrier actions, DQN-style training) *learns* the trap
+strategy movement-only pursuit provably lacks — 0.00 → **0.74** capture vs
+the perfect evader. Barriers are cop-only physics, so that experiment lives
+in [P2P-Police](https://github.com/alonengel/P2P-Police); for the thief the
+strategic lesson is inverted and sobering: against a barrier-armed rival,
+pure distance-maximizing evasion is no longer provably safe — which is
+exactly why ThiefBrain's corner-aversion term exists.
+
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 
 | Live GUI — local truth only | Replay witness |
