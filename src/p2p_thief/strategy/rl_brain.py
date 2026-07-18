@@ -3,9 +3,9 @@
 RL is the book's optional third path: Q(s,a) = w . phi(s,a) with TD(0)
 updates and epsilon-greedy exploration. Features are barrier-aware BFS
 quantities, so the policy generalizes across board layouts instead of
-memorizing cells (a 7x7 tabular Q would not survive barriers). Trained by
-self-play (scripts/train_rl.py); weights load through the [strategy] seam:
-    [strategy] police_class = "p2p_thief.strategy.rl_brain:LinearQBrain"
+memorizing cells (a 7x7 tabular Q would not survive barriers). Trained vs a
+scripted pursuing cop (scripts/train_rl.py); weights load via the seam:
+    [strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain"
 The MOVE stays pure Python - this is an algorithm, not an LLM (rule 25).
 """
 
@@ -18,7 +18,8 @@ from p2p_thief.domain.engine import GameEngine
 from p2p_thief.domain.pathfind import UNREACHABLE, bfs_distances
 from p2p_thief.domain.primitives import Cell, Move, Role
 
-WEIGHTS_PATH = Path("results/rl_weights.json")
+REPO_ROOT = Path(__file__).resolve().parents[3]  # anchor: cwd-independent load
+WEIGHTS_PATH = REPO_ROOT / "results" / "rl_weights.json"
 FEATURE_NAMES = ("bias", "distance", "distance_delta", "openness", "stay")
 
 

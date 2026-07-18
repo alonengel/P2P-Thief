@@ -1,76 +1,166 @@
 {
-  "curve": [
-    {
-      "episode": 0,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.3
+  "runs": {
+    "from_scratch": {
+      "curve": [
+        {
+          "episode": 0,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.3
+        },
+        {
+          "episode": 50,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.275
+        },
+        {
+          "episode": 100,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.25
+        },
+        {
+          "episode": 150,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.225
+        },
+        {
+          "episode": 200,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.2
+        },
+        {
+          "episode": 250,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.175
+        },
+        {
+          "episode": 300,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.15
+        },
+        {
+          "episode": 350,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.125
+        },
+        {
+          "episode": 400,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.1
+        },
+        {
+          "episode": 450,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.075
+        },
+        {
+          "episode": 500,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.05
+        },
+        {
+          "episode": 550,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.05
+        },
+        {
+          "episode": 599,
+          "eval_win_rate": 0.0,
+          "epsilon": 0.05
+        }
+      ],
+      "final_weights": [
+        0.015067485006142587,
+        0.2992242692276765,
+        0.089291573117891,
+        0.010710868790470403,
+        0.07106927964504271
+      ]
     },
-    {
-      "episode": 50,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.275
-    },
-    {
-      "episode": 100,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.25
-    },
-    {
-      "episode": 150,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.225
-    },
-    {
-      "episode": 200,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.2
-    },
-    {
-      "episode": 250,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.175
-    },
-    {
-      "episode": 300,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.15
-    },
-    {
-      "episode": 350,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.125
-    },
-    {
-      "episode": 400,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.1
-    },
-    {
-      "episode": 450,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.075
-    },
-    {
-      "episode": 500,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.05
-    },
-    {
-      "episode": 550,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.05
-    },
-    {
-      "episode": 599,
-      "eval_win_rate": 1.0,
-      "epsilon": 0.05
+    "informed_prior": {
+      "curve": [
+        {
+          "episode": 0,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.3
+        },
+        {
+          "episode": 50,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.275
+        },
+        {
+          "episode": 100,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.25
+        },
+        {
+          "episode": 150,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.225
+        },
+        {
+          "episode": 200,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.2
+        },
+        {
+          "episode": 250,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.175
+        },
+        {
+          "episode": 300,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.15
+        },
+        {
+          "episode": 350,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.125
+        },
+        {
+          "episode": 400,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.1
+        },
+        {
+          "episode": 450,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.075
+        },
+        {
+          "episode": 500,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.05
+        },
+        {
+          "episode": 550,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.05
+        },
+        {
+          "episode": 599,
+          "eval_win_rate": 1.0,
+          "epsilon": 0.05
+        }
+      ],
+      "final_weights": [
+        -0.24805578727189262,
+        2.38802679980846,
+        2.0528382259349924,
+        1.52301173154695,
+        -0.06246369739924304
+      ]
     }
-  ],
+  },
   "final_weights": [
-    -0.29228195980932203,
-    2.0960706704082113,
-    1.9047366903250043,
-    1.4348693171596016,
-    -0.07921031965247613
-  ]
+    -0.24805578727189262,
+    2.38802679980846,
+    2.0528382259349924,
+    1.52301173154695,
+    -0.06246369739924304
+  ],
+  "eval_games_per_point": 50,
+  "base_seed": 7,
+  "negative_result_note": "from-scratch evasion fails the hard-exploration problem: capture ends every episode before the first survival reward is ever observed"
 }

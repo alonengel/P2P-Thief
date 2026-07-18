@@ -151,17 +151,21 @@ thief's best weapon, working exactly as the rulebook intends**.
 
 **Reinforcement learning (optional path, implemented):** a linear-FA
 Q-learner (`strategy/rl_brain.py`, TD(0), ε-greedy) exposes a genuinely
-interesting asymmetry: **from-scratch evasion fails** (0% survival after 600
-episodes — one corner mistake is terminal, a classic hard-exploration
-problem), while from an informed prior encoding the heuristic's features RL
-**maintains 1.00 survival and amplifies exactly the right weights**
-(distance 1.0→2.1, escape-openness 0.5→1.4). Pursuit, by contrast, trains
-from zero to 1.00 (see the twin repo) — chasing is easy to learn, escaping
-must be taught:
+interesting asymmetry, and BOTH sides of it are now recorded runs in
+`results/experiments/rl_training.json` and overlaid in the curve below:
+**from-scratch evasion fails** (flat 0% survival across all 600 episodes,
+red — one corner mistake is terminal and capture ends every episode before
+the first +1 is ever observed: a classic hard-exploration problem), while
+from an informed prior encoding the heuristic's features RL **maintains 1.00
+survival and amplifies exactly the right weights** (distance 1.0→2.4,
+escape-openness 0.5→1.5; 50-game evals, dedicated eval RNG). Pursuit, by
+contrast, trains from zero to 1.00 (see the twin repo) — chasing is easy to
+learn, escaping must be taught:
 
 ![RL learning curve](assets/rl_learning_curve.png)
 
-Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain"`;
+Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain"`
+(exercised end-to-end by `tests/unit/test_strategy/test_rl_brain.py`);
 the hand-tuned ThiefBrain remains the league default.
 
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
