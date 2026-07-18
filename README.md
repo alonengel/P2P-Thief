@@ -198,6 +198,19 @@ forgetting) which is why the shipped weights are the best-eval checkpoint.
 ThiefBrain stays the league default; the deep brain loads via
 `[strategy] thief_class = "p2p_thief.strategy.rl_deep:DeepQBrain"`.
 
+**Round 2 — the specialist beats the generalist.** The twin retrained its
+cop against our counter-evader (ensemble + belief-noise, its v3): it kept
+0.74 vs the perfect evader but **still captures our v1 evader 0.00** —
+verified independently from this repo: **v1 survives cop v3 at 1.00 over
+100 games**. Our own attempt to make the evader *robust* the same way
+(ensemble of trap cops + belief-noise,
+`results/experiments/deep_rl_training_v2_ensemble.json`) **collapsed to
+0.06** — a deliberately recorded negative result: robustness training is
+not a free lunch, and the shipped weights remain the v1 specialist. Net
+outcome of the two-round arms race: the evader holds the structural
+advantage at this barrier budget, exactly as pursuit-evasion theory
+predicts.
+
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 
 | Live GUI — local truth only | Replay witness |

@@ -1,11 +1,11 @@
-"""Double-DQN evasion training vs the twin's LEARNED barrier-trap cop.
+"""Double-DQN evasion training v2: ENSEMBLE trap cops + belief-noise.
 
-The linear evasion brain only ever faced a movement cop; the twin repo's
-Double-DQN cop captures even a perfect movement-evader 0.74 by trapping.
-This trains the MLP thief against exactly that adversary (DeepTrapCop -
-replayed from copied weight data, see strategy/arena_cop.py), with the
-heuristic TrapCop as a secondary benchmark. Experience replay + frozen
-target + best-eval checkpoint.
+Arms-race round 2. v1 fully neutralized ONE fixed learned cop (1.00) - an
+exploit, not robustness. v2 trains against an ENSEMBLE (the twin's learned
+trap cop replayed from copied weight data + the heuristic TrapCop) and adds
+BELIEF-NOISE domain randomization: part of the time the thief is shown a
+jittered cop position (simulating belief error in blind/hidden-move games).
+Experience replay + frozen target + best-eval checkpoint.
 Outputs: results/deep_rl_weights.json, results/experiments/deep_rl_training.json,
 assets/deep_rl_curve.png. Run: uv run python scripts/train_deep_rl.py [episodes]
 """
@@ -26,25 +26,44 @@ from p2p_thief.domain.engine import GameEngine
 from p2p_thief.domain.pathfind import bfs_distances
 from p2p_thief.domain.primitives import Move, Outcome, Role
 from p2p_thief.domain.rules import RuleSet
-from p2p_thief.strategy.arena_cop import DeepTrapCop
+from p2p_thief.strategy.arena_cop import DeepTrapCop, TrapCop
 from p2p_thief.strategy.rl_deep import WEIGHTS_PATH, DeepQBrain, Mlp, features
 from p2p_thief.strategy.thief_brain import ThiefBrain
 
 RULES = RuleSet(max_barriers=14, max_moves=35, survival_threshold=35)
 GAMMA, LR, BATCH, SYNC_EPISODES, BUFFER = 0.97, 0.01, 32, 10, 5000
+ENSEMBLE = (DeepTrapCop, TrapCop)
+NOISE_P, NOISE_R = 0.4, 2  # belief-noise: prob + Chebyshev jitter radius
 
 
-def run_episode(brain, seed: int, buffer=None, thief_cls=None):
+def _observed(engine, rng, noisy: bool):
+    true = engine.positions[Role.POLICE]
+    if not noisy or rng.random() >= NOISE_P:
+        return true
+    top = engine.board.grid_size - 1
+    return (min(top, max(0, true[0] + rng.randint(-NOISE_R, NOISE_R))),
+            min(top, max(0, true[1] + rng.randint(-NOISE_R, NOISE_R))))
+
+
+def run_episode(brain, seed: int, buffer=None, thief_cls=None,
+                cop_cls=DeepTrapCop, noisy=False):
     engine = GameEngine(7, (0, 0), (3, 3), RULES)
-    cop = DeepTrapCop(Role.POLICE, random.Random(seed + 9000))
+    cop = cop_cls(Role.POLICE, random.Random(seed + 9000))
     actor = thief_cls(Role.THIEF, random.Random(seed + 7000)) if thief_cls else brain
+    noise_rng = random.Random(seed + 5000)
     while engine.outcome is Outcome.ONGOING:
         protocol.apply_action(engine, Role.POLICE, cop.decide(engine))
         if engine.outcome is not Outcome.ONGOING:
             phi = None
         else:
-            action = actor.decide(engine)
-            phi = features(engine, Move[action["move"]]) if buffer is not None else None
+            target = _observed(engine, noise_rng, noisy)
+            if thief_cls:
+                action = actor.decide(engine)
+            else:  # belief shim: the brain sees the (possibly jittered) cell
+                shim = type("T", (), {"argmax_cell": lambda self, c=target: c})()
+                action = actor.decide(engine, belief=shim)
+            phi = (features(engine, Move[action["move"]], cop=target)
+                   if buffer is not None else None)
             protocol.apply_action(engine, Role.THIEF, action)
         if buffer is None:
             continue
@@ -58,10 +77,14 @@ def run_episode(brain, seed: int, buffer=None, thief_cls=None):
             d = bfs_distances(engine.board, engine.positions[Role.POLICE]).get(me, 0)
             room = len(bfs_distances(engine.board, me))
             reward = 0.02 * (d / grid) + 0.05 * (room / (grid * grid))
-            next_phis = [features(engine, m) for m in engine.board.legal_moves(me)]
+            nxt = _observed(engine, noise_rng, noisy)
+            next_phis = [features(engine, m, cop=nxt)
+                         for m in engine.board.legal_moves(me)]
         if phi is not None:
             buffer.append((phi, reward, next_phis))
     return engine.outcome
+
+
 
 
 def replay_step(net, target_net, buffer, rng) -> None:
@@ -81,28 +104,23 @@ def _clone(net: Mlp) -> Mlp:
     return frozen
 
 
-def evaluate(net, base_seed: int, games: int) -> float:
+def evaluate(net, base_seed: int, games: int, noisy=False) -> float:
     brain = DeepQBrain(Role.THIEF, random.Random(base_seed - 1), net=net)
-    wins = sum(run_episode(brain, base_seed + i) is Outcome.SURVIVAL
+    wins = sum(run_episode(brain, base_seed + i, noisy=noisy) is Outcome.SURVIVAL
                for i in range(games))
     return wins / games
 
 
-def benchmark(thief_cls, games: int = 100) -> float:
-    return sum(run_episode(None, 90_000 + i, thief_cls=thief_cls)
-               is Outcome.SURVIVAL for i in range(games)) / games
-
-
 def main(episodes: int = 4000) -> None:
-    rng = random.Random(7)
-    net = Mlp(rng)
+    net = Mlp(rng := random.Random(7))
     target_net = _clone(net)
     brain = DeepQBrain(Role.THIEF, rng, net=net)
     buffer: deque = deque(maxlen=BUFFER)
     curve, best_eval, best_state = [], -1.0, net.state()
     for episode in range(episodes):
         brain.epsilon = max(0.05, 1.0 * (1 - episode / (0.9 * episodes)))
-        run_episode(brain, 10_000 + episode, buffer=buffer)
+        run_episode(brain, 10_000 + episode, buffer=buffer,
+                    cop_cls=ENSEMBLE[episode % len(ENSEMBLE)], noisy=True)
         if len(buffer) >= BATCH:
             for _ in range(4):
                 replay_step(net, target_net, buffer, rng)
@@ -116,29 +134,35 @@ def main(episodes: int = 4000) -> None:
                           "epsilon": round(brain.epsilon, 3)})
             print(f"ep {episode:5d}  survival_vs_deep_cop={survival:.2f}")
     net.load_state(best_state)
-    final = evaluate(net, 90_000, 100)
-    hand = benchmark(ThiefBrain)
-    print(f"FINAL: deep thief {final:.2f} | hand-coded ThiefBrain {hand:.2f}")
+    finals = {
+        "vs_learned_trap_cop": evaluate(net, 90_000, 100),
+        "vs_learned_trap_cop_with_belief_noise": evaluate(net, 93_000, 100, noisy=True),
+        "hand_coded_thiefbrain_vs_learned_cop": sum(
+            run_episode(None, 90_000 + i, thief_cls=ThiefBrain) is Outcome.SURVIVAL
+            for i in range(100)) / 100,
+    }
+    print("FINAL:", {k: round(v, 2) for k, v in finals.items()})
     WEIGHTS_PATH.write_text(json.dumps(
         {"net": net.state(), "episodes": episodes, "gamma": GAMMA, "lr": LR,
-         "double_dqn": True, "checkpoint": "best-eval"}, indent=2), encoding="utf-8")
+         "double_dqn": True, "checkpoint": "best-eval", "version": "v2-ensemble",
+         "ensemble": [c.__name__ for c in ENSEMBLE],
+         "belief_noise": {"p": NOISE_P, "radius": NOISE_R}}, indent=2),
+        encoding="utf-8")
     Path("results/experiments/deep_rl_training.json").write_text(json.dumps({
         "curve": curve, "base_seed": 7, "eval_games_per_point": 25,
-        "adversary": "DeepTrapCop - the twin's trained Double-DQN barrier cop "
-                     "(0.74 capture vs a perfect movement evader), replayed "
-                     "from copied weight data",
-        "final_survival_vs_deep_cop": {"win_rate": final, "games": 100},
-        "hand_coded_thiefbrain_benchmark": {"win_rate": hand, "games": 100},
-        "note": "the linear evasion brain never trained against barriers",
+        "final_100_game_evals": finals,
+        "regime": "ensemble trap cops + belief-noise domain randomization "
+                  "(p=0.4, Chebyshev radius 2) - trains under partial "
+                  "observability so the policy survives blind games",
     }, indent=2), encoding="utf-8")
     figure, ax = plt.subplots(figsize=(7, 4))
     ax.plot([p["episode"] for p in curve], [p["survival_vs_deep_cop"] for p in curve],
             marker="o", color="#1f6feb", label="deep thief vs learned trap cop")
-    ax.axhline(hand, color="#2ea043", linestyle="--",
-               label=f"hand-coded ThiefBrain ({hand:.2f})")
+    ax.axhline(finals["hand_coded_thiefbrain_vs_learned_cop"], color="#2ea043",
+               linestyle="--", label="hand-coded ThiefBrain")
     ax.legend(fontsize=8)
     ax.set(xlabel="training episode", ylabel="greedy survival rate",
-           title="Double-DQN thief vs the twin's learned barrier cop")
+           title="Double-DQN thief v2: ensemble + belief-noise")
     figure.tight_layout()
     figure.savefig("assets/deep_rl_curve.png", dpi=120)
 

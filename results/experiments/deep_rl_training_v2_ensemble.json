@@ -1,0 +1,218 @@
+{
+  "curve": [
+    {
+      "episode": 0,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 1.0
+    },
+    {
+      "episode": 100,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.972
+    },
+    {
+      "episode": 200,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.944
+    },
+    {
+      "episode": 300,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.917
+    },
+    {
+      "episode": 400,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.889
+    },
+    {
+      "episode": 500,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.861
+    },
+    {
+      "episode": 600,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.833
+    },
+    {
+      "episode": 700,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.806
+    },
+    {
+      "episode": 800,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.778
+    },
+    {
+      "episode": 900,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.75
+    },
+    {
+      "episode": 1000,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.722
+    },
+    {
+      "episode": 1100,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.694
+    },
+    {
+      "episode": 1200,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.667
+    },
+    {
+      "episode": 1300,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.639
+    },
+    {
+      "episode": 1400,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.611
+    },
+    {
+      "episode": 1500,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.583
+    },
+    {
+      "episode": 1600,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.556
+    },
+    {
+      "episode": 1700,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.528
+    },
+    {
+      "episode": 1800,
+      "survival_vs_deep_cop": 0.16,
+      "epsilon": 0.5
+    },
+    {
+      "episode": 1900,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.472
+    },
+    {
+      "episode": 2000,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.444
+    },
+    {
+      "episode": 2100,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.417
+    },
+    {
+      "episode": 2200,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.389
+    },
+    {
+      "episode": 2300,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.361
+    },
+    {
+      "episode": 2400,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.333
+    },
+    {
+      "episode": 2500,
+      "survival_vs_deep_cop": 0.08,
+      "epsilon": 0.306
+    },
+    {
+      "episode": 2600,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.278
+    },
+    {
+      "episode": 2700,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.25
+    },
+    {
+      "episode": 2800,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.222
+    },
+    {
+      "episode": 2900,
+      "survival_vs_deep_cop": 0.12,
+      "epsilon": 0.194
+    },
+    {
+      "episode": 3000,
+      "survival_vs_deep_cop": 0.08,
+      "epsilon": 0.167
+    },
+    {
+      "episode": 3100,
+      "survival_vs_deep_cop": 0.24,
+      "epsilon": 0.139
+    },
+    {
+      "episode": 3200,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.111
+    },
+    {
+      "episode": 3300,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.083
+    },
+    {
+      "episode": 3400,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.056
+    },
+    {
+      "episode": 3500,
+      "survival_vs_deep_cop": 0.04,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3600,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3700,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3800,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3900,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.05
+    },
+    {
+      "episode": 3999,
+      "survival_vs_deep_cop": 0.0,
+      "epsilon": 0.05
+    }
+  ],
+  "base_seed": 7,
+  "eval_games_per_point": 25,
+  "final_100_game_evals": {
+    "vs_learned_trap_cop": 0.06,
+    "vs_learned_trap_cop_with_belief_noise": 0.0,
+    "hand_coded_thiefbrain_vs_learned_cop": 0.49
+  },
+  "regime": "ensemble trap cops + belief-noise domain randomization (p=0.4, Chebyshev radius 2) - trains under partial observability so the policy survives blind games",
+  "verdict": "NEGATIVE RESULT, recorded deliberately: ensemble+belief-noise retraining collapsed (0.06 vs cop v3) while the v1 specialist still fully neutralizes cop v3 (1.00 over 100 games, verified from this repo). Shipped weights remain v1 - robustness training is not a free lunch."
+}
