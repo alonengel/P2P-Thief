@@ -6,7 +6,8 @@ costs points or disqualifies (rule numbers from the rulebook's Appendix ה/ו).
 ## Before the series (per opponent)
 
 1. **Coordinate out-of-band** (WhatsApp): agree schedule, exchange public URLs
-   (ours: thief `https://mcp.alon.website/mcp`, cop `https://cop-mcp.alon.website/mcp`).
+   (ours: thief `https://thief-mcp.alon.website/mcp`, cop `https://cop-mcp.alon.website/mcp`;
+   `mcp.alon.website` still routes to the thief as a legacy alias).
 2. **Negotiate the shared game.json** — any change to negotiable values, and
    minimums may only go UP (rule 12). Both sides must load a byte-identical
    file (rule 11; the code verifies the sha and refuses otherwise).
@@ -39,7 +40,7 @@ costs points or disqualifies (rule numbers from the rulebook's Appendix ה/ו).
 2. Start `cloudflared tunnel run copthief`, then the peer
    (`uv run p2p-thief peer --gui`).
 2b. **Probe your OWN public URL before declaring the counted game** — one
-   tool call against `https://mcp.alon.website/mcp` (not localhost) and
+   tool call against `https://thief-mcp.alon.website/mcp` (not localhost) and
    confirm it answers. Catches tunnel breakage — especially FastMCP's
    version-dependent 421 Host-header rejection (see DEPLOYMENT.md) — in
    seconds instead of mid-game.
