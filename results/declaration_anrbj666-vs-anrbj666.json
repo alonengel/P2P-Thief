@@ -1,12 +1,12 @@
 {
   "_schema": "p2p-police-artifacts",
-  "declared_at": "2026-07-18T13:01:06+00:00",
+  "declared_at": "2026-07-18T13:21:22+00:00",
   "game_id": "anrbj666-vs-anrbj666",
   "game_uid": "23020791-2460-8b05-1491-75c4e2f2551b",
   "group": {
     "code_version": "1.00",
     "counted_games_played": 0,
-    "github_commit": "15a28e32597b03ec5ff485971260e65edb668014",
+    "github_commit": "f257dcb4ea1ea654a3cb9274a98fb22412d565b5",
     "group_id": "anrbj666",
     "hardware_spec": {
       "cpu_cores": 24,
