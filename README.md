@@ -42,6 +42,12 @@ uv run p2p-thief peer --gui --gui-screenshot assets/live.png
 uv run p2p-thief verify-log --log results/log_<game>.json   # Verified OK / TAMPERED
 uv run p2p-thief replay --log results/log_<game>.json       # visual replay witness
 uv run p2p-thief --version
+
+# Research reproduction (RL campaign - see Part II section 3 + PRD_08):
+uv run python scripts/train_rl.py          # linear Q-learning, both curves
+uv run python scripts/train_deep_rl.py     # Double-DQN evader vs learned trap cop
+uv run python scripts/finetune_deep_rl.py  # gated warm-start fine-tune (knife-edge)
+uv run python scripts/run_sensitivity.py   # OAT sensitivity experiments
 ```
 
 Cross-repo match on one machine: `powershell -File ../run_cross_match.ps1`.
