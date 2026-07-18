@@ -37,7 +37,12 @@ costs points or disqualifies (rule numbers from the rulebook's Appendix ה/ו).
    §2.5) — to rmisegal@gmail.com, manually. The declaration artifact records
    the hash; the email is OUR duty, not the code's.
 2. Start `cloudflared tunnel run copthief`, then the peer
-   (`uv run p2p-police peer --gui`).
+   (`uv run p2p-thief peer --gui`).
+2b. **Probe your OWN public URL before declaring the counted game** — one
+   tool call against `https://mcp.alon.website/mcp` (not localhost) and
+   confirm it answers. Catches tunnel breakage — especially FastMCP's
+   version-dependent 421 Host-header rejection (see DEPLOYMENT.md) — in
+   seconds instead of mid-game.
 3. After the game: confirm the audit verdict is "Verified OK" on BOTH sides
    and the digests match (mutual audit, rules 35-36) BEFORE agreeing on the
    result.
