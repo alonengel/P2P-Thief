@@ -1,0 +1,22 @@
+{
+  "v1_baseline": {
+    "vs_learned_trap_cop": 1.0,
+    "vs_learned_trap_cop_noisy": 0.0,
+    "vs_heuristic_trapcop": 1.0
+  },
+  "fine_tuned_best": {
+    "vs_learned_trap_cop": 1.0,
+    "vs_learned_trap_cop_noisy": 0.0,
+    "vs_heuristic_trapcop": 1.0
+  },
+  "episodes": 2000,
+  "lr": 0.003,
+  "epsilon": [
+    0.2,
+    0.02
+  ],
+  "games_per_eval": 100,
+  "shipped": "v1 unchanged (best checkpoint was episode 0 - the untouched v1)",
+  "gate": ">=0.95 specialist AND no robustness regression",
+  "finding": "Decisive negative result: even gentle fine-tuning (lr 0.003, eps<=0.2) collapses the specialist within ~100 episodes, and noise-robust evasion never rose above 0.00 in 2000 episodes. Evasion vs a near-optimal trap cop is knife-edge: it requires exact opponent information; belief error is fatal. This is the evidence-backed reason the robust hand-coded ThiefBrain stays league default and the deep evader is reserved for reliable-information play."
+}
