@@ -1,0 +1,19 @@
+{
+  "side": "thief (this repo); cop side in the twin repo",
+  "games_per_cell": 32,
+  "base_seed": 70000,
+  "arms": {
+    "exact": "rival cell as revealed (bookletter lock)",
+    "lag1": "rival cell one move stale - best-case hidden-play scent reading; adversary always fully informed"
+  },
+  "table": {
+    "TrapCop vs ThiefBrain [exact]": 1.0,
+    "TrapCop vs ThiefBrain [lag1]": 1.0,
+    "TrapCop vs DeepQBrain [exact]": 1.0,
+    "TrapCop vs DeepQBrain [lag1]": 1.0,
+    "DeepTrapCop vs ThiefBrain [exact]": 1.0,
+    "DeepTrapCop vs ThiefBrain [lag1]": 0.15625,
+    "DeepTrapCop vs DeepQBrain [exact]": 1.0,
+    "DeepTrapCop vs DeepQBrain [lag1]": 0.15625
+  }
+}
