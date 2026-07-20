@@ -1,0 +1,176 @@
+{
+  "curve": [
+    {
+      "episode": 0,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 100,
+      "survival_lag1_vs_deep_cop": 0.04
+    },
+    {
+      "episode": 200,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 300,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 400,
+      "survival_lag1_vs_deep_cop": 0.04
+    },
+    {
+      "episode": 500,
+      "survival_lag1_vs_deep_cop": 0.04
+    },
+    {
+      "episode": 600,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 700,
+      "survival_lag1_vs_deep_cop": 0.04
+    },
+    {
+      "episode": 800,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 900,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 1000,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 1100,
+      "survival_lag1_vs_deep_cop": 0.2
+    },
+    {
+      "episode": 1200,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 1300,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 1400,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 1500,
+      "survival_lag1_vs_deep_cop": 0.2
+    },
+    {
+      "episode": 1600,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 1700,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 1800,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 1900,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 2000,
+      "survival_lag1_vs_deep_cop": 0.12
+    },
+    {
+      "episode": 2100,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 2200,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 2300,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 2400,
+      "survival_lag1_vs_deep_cop": 0.32
+    },
+    {
+      "episode": 2500,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 2600,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 2700,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 2800,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 2900,
+      "survival_lag1_vs_deep_cop": 0.2
+    },
+    {
+      "episode": 3000,
+      "survival_lag1_vs_deep_cop": 0.16
+    },
+    {
+      "episode": 3100,
+      "survival_lag1_vs_deep_cop": 0.12
+    },
+    {
+      "episode": 3200,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 3300,
+      "survival_lag1_vs_deep_cop": 0.24
+    },
+    {
+      "episode": 3400,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 3500,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 3600,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 3700,
+      "survival_lag1_vs_deep_cop": 0.0
+    },
+    {
+      "episode": 3800,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 3900,
+      "survival_lag1_vs_deep_cop": 0.08
+    },
+    {
+      "episode": 3999,
+      "survival_lag1_vs_deep_cop": 0.0
+    }
+  ],
+  "final_100_game_evals": {
+    "lag1_vs_deep_cop": 0.21,
+    "lag1_vs_trapcop": 0.1
+  },
+  "base_seed": 13,
+  "gate": "lag1 vs DeepTrapCop >= 0.30 AND vs TrapCop >= 0.90 (hand brain baselines: 0.12 / 1.00)",
+  "shipped": false,
+  "note": "lag-1-NATIVE training (structured stale info, not jitter); exact-mode v1 weights untouched either way"
+}

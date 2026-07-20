@@ -228,7 +228,10 @@ follow-up warm-start fine-tune (from v1, lr 0.003, hard promotion gate —
 `results/experiments/deep_rl_finetune.json`) sharpened the finding into a
 knife-edge theorem-in-practice: v1 survives **1.00 with exact opponent
 information and 0.00 under radius-2 belief noise**, and even the gentlest
-retraining collapses the specialist within ~100 episodes. Evasion at this
+retraining collapses the specialist within ~100 episodes. A third gated
+attempt — lag-1-NATIVE training on the actual hidden-play signal
+(`deep_rl_hidden_training.json`) — peaked at 0.21 and failed its gate too:
+three independent regimes now agree the gap is structural. Evasion at this
 level *requires* exact information — which is the evidence-backed reason
 the robust hand-coded ThiefBrain stays league default. Net outcome of the
 two-round arms race: the evader holds the structural advantage at this
