@@ -1,0 +1,16 @@
+{
+  "method": "old vs new ThiefBrain, 100 games/cell, seeds 60000+, vs the two arena trap cops; exact = full information, lag1 = cop cell one move stale (best-case scent proxy)",
+  "old": {
+    "DeepTrapCop_exact": 0.5,
+    "DeepTrapCop_lag1": 0.12,
+    "TrapCop_exact": 1.0,
+    "TrapCop_lag1": 1.0
+  },
+  "new": {
+    "DeepTrapCop_exact": 1.0,
+    "DeepTrapCop_lag1": 0.12,
+    "TrapCop_exact": 1.0,
+    "TrapCop_lag1": 1.0
+  },
+  "design": "one-ply adversarial wall forecast (placements limited to the cop reach, book p.37) + wall-distance aversion, ACTIVE ONLY on exact information - fed a stale cop cell the forecast dodges phantom walls (measured intermediate: TrapCop lag1 1.00->0.00), so belief play stays conservative distance+openness"
+}

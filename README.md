@@ -149,6 +149,17 @@ evasion brain, `strategy/thief_brain.py`:
 4. **Corner aversion**: ties break toward open ground (more passable
    neighbors), because a cornered thief is a captured thief (rule 47) and
    every barrier shrinks the safe area.
+5. **One-ply adversarial wall forecast** (exact-information play only): the
+   book limits barrier placement to one step from the cop's own cell (p. 37),
+   so every candidate landing is scored by the escapes/region surviving the
+   cop's BEST legal wall next turn, plus wall-distance aversion (trap cops
+   harvest wall-huggers). Measured effect: survival vs the learned trap cop
+   0.50 → **1.00** over 100 games with zero regressions
+   (`results/experiments/thief_forecast_benchmark.json`). The forecast is
+   deliberately GATED to exact information — fed a stale believed cell it
+   dodges phantom walls and dies (measured 1.00 → 0.00 vs the heuristic trap
+   cop) — so belief-mode play stays conservative: an information-aware
+   strategy, not a blanket one.
 
 Measured: evasion survives a random cop ≥20/25 (blind: ≥15/25) and, in the
 blind cross-repo match, ran the full 35-turn clock against the pursuit twin
