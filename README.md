@@ -141,8 +141,9 @@ Each peer is simultaneously an MCP **server** (four dumb-door tools: `negotiate`
 
 ### 3. The chosen strategy
 
-Moves are **always pure Python** (the LLM only writes banter). The shipped
-evasion brain, `strategy/thief_brain.py`:
+Moves are **always pure Python** (the LLM only writes banter). The evasion
+core, `strategy/thief_brain.py` — the base of the shipped brain stack (see
+the inventory at the end of this section):
 
 1. **Bayesian belief map** over the cop (parity-locked `domain/belief.py`):
    per turn — movement diffusion × scent likelihood × hint likelihood.
@@ -188,7 +189,8 @@ learn, escaping must be taught:
 
 Loadable via `[strategy] thief_class = "p2p_thief.strategy.rl_brain:LinearQBrain"`
 (exercised end-to-end by `tests/unit/test_strategy/test_rl_brain.py`);
-the hand-tuned ThiefBrain remains the league default.
+the league default is the stealth-scored heuristic stack, not the RL path
+(see the inventory below).
 
 **Deep RL closes the arms race (`strategy/rl_deep.py`).** The twin repo's
 Double-DQN cop *learns barrier trapping* — 0.74 capture vs a perfect
@@ -217,7 +219,7 @@ hand-coded brain's survival — with the honest caveats recorded in
 deterministic adversary (counter-policy exploitation, not a universal
 guarantee), and the training curve collapses late (1.00 → 0.20, catastrophic
 forgetting) which is why the shipped weights are the best-eval checkpoint.
-ThiefBrain stays the league default; the deep brain loads via
+The heuristic stack stays the league default; the deep brain loads via
 `[strategy] thief_class = "p2p_thief.strategy.rl_deep:DeepQBrain"`.
 
 **Round 2 — the specialist beats the generalist.** The twin retrained its
@@ -238,9 +240,31 @@ attempt — lag-1-NATIVE training on the actual hidden-play signal
 (`deep_rl_hidden_training.json`) — peaked at 0.21 and failed its gate too:
 three independent regimes now agree the gap is structural. Evasion at this
 level *requires* exact information — which is the evidence-backed reason
-the robust hand-coded ThiefBrain stays league default. Net outcome of the
-two-round arms race: the evader holds the structural advantage at this
+the robust hand-coded heuristic stack stays league default. Net outcome of
+the two-round arms race: the evader holds the structural advantage at this
 barrier budget, exactly as pursuit-evasion theory predicts.
+
+**What actually ships (the committed `config/game.toml`).** The `[strategy]`
+seam points at `p2p_thief.strategy.endgame:CertifiedThiefBrain` — a
+survival-certificate pre-check wrapped around `StealthThiefBrain`
+(`strategy/movement_deception.py`), which extends the hand-tuned ThiefBrain
+with leakage-aware move scoring (`[deception.movement] enabled = true`). So
+the league default is the **stealth-scored brain**: it previews what each
+candidate landing would teach the rival's belief filter and walks where it
+leaks least. The certificate pre-check itself ships **gated OFF**
+(`[strategy.endgame] enabled = false`): its keep-gate failed honestly —
+0 certificates fired across 180 measured games, because the scent-floor
+cop-belief never sharpens inside the final-turns window
+(`docs/evidence/thief-certificate.md`) — and with the gate off the wrapper
+plays move-for-move the stealth brain. The loadable-brain inventory:
+
+| Module (`[strategy] thief_class = ...`) | Brain | What it does · measured | Status |
+|---|---|---|---|
+| `strategy/thief_brain.py` | `ThiefBrain` | hand-tuned evasion core: belief map + BFS flee + wall forecast | base of the default stack |
+| `strategy/movement_deception.py` | `StealthThiefBrain` | deception by movement — the trail as a decoy; survival vs the strongest in-repo cop 0.00 → **1.00** (`docs/evidence/movement-deception.md`) | **ON** (inside the default stack) |
+| `strategy/endgame.py` | `CertifiedThiefBrain` | exact worst-case survival certificate over the cop-belief support, run as a pre-check | default entry point; certificate **OFF** (keep-gate failed 0/180) |
+| `strategy/rl_brain.py` | `LinearQBrain` | linear-FA Q-learning evasion (informed prior) | opt-in |
+| `strategy/rl_deep.py` | `DeepQBrain` | Double-DQN evader trained vs the learned trap cop | opt-in |
 
 ### 4. Screenshots (mandatory evidence, from real cross-repo games)
 
@@ -254,7 +278,7 @@ barrier budget, exactly as pursuit-evasion theory predicts.
 
 ### 5. Quality mapping (ISO/IEC 25010)
 
-Functional suitability — milestone-gated PRDs 01-07, 150+ tests. Reliability —
+Functional suitability — milestone-gated PRDs 01-08, 291 tests. Reliability —
 deadlines, watchdog-style FSM exits, session rebuilds, 20-seed self-play.
 Performance — template provider plays whole series at 0 LLM tokens. Security —
 send-only OAuth scope, secrets outside the repo, gitleaks CI, commit-reveal
