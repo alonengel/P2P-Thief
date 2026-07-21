@@ -40,7 +40,7 @@ def certificate_settings(private: dict | None = None) -> dict:
     """[strategy.endgame] merged over DEFAULTS (type-coerced). private=None
     reads config/game.toml, so the seam-built wrapper stays config-driven."""
     if private is None:
-        path = Path("config") / "game.toml"
+        path = Path(__file__).resolve().parents[3] / "config" / "game.toml"
         private = tomllib.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
     block = private.get("strategy", {}).get("endgame", {})
     merged = dict(DEFAULTS)
