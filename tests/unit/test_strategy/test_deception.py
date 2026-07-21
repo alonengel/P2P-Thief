@@ -160,11 +160,14 @@ def test_deception_config_defaults_and_overrides(config_dir: Path) -> None:
         "max_lies": 3, "cooldown_turns": 4, "exposure_threshold": 0.35,
         "opponent_distance_threshold": 3, "exposure_radius": 1,
         "baseline_truth_probability": 0.5,
+        "movement": {"enabled": True, "blend_weight": 8.0, "safe_distance": 3, "exposure_radius": 1},
     }
-    config.private["deception"] = {"max_lies": 7, "exposure_threshold": 0.6}
+    config.private["deception"] = {"max_lies": 7, "exposure_threshold": 0.6, "movement": {"blend_weight": 5.5}}
     tuned = config.deception()
     assert tuned["max_lies"] == 7 and tuned["exposure_threshold"] == 0.6
     assert tuned["cooldown_turns"] == 4     # untouched keys keep their defaults
+    # nested override applied, untouched nested keys keep their defaults
+    assert tuned["movement"] == {"enabled": True, "blend_weight": 5.5, "safe_distance": 3, "exposure_radius": 1}
 
 
 def observed_after_hint(opponent: str, profiler: OpponentProfiler) -> float:

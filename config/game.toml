@@ -29,6 +29,12 @@ opponent_distance_threshold = 3   # believed rival Manhattan distance that arms 
 exposure_radius = 1               # Manhattan radius of the exposure mass
 baseline_truth_probability = 0.5  # control arm (plain coin) for the policy-vs-coin experiment
 
+[deception.movement]             # deception by movement: leakage-aware move scoring
+enabled = true                   # default follows results/experiments/movement_deception.json
+blend_weight = 8.0               # weight of the stealth term inside the openness tie-break
+safe_distance = 3                # flee-term cap: stealth governs once the believed hunter is this far
+exposure_radius = 1              # Manhattan radius of the previewed-mirror mass near our landing
+
 [trash_talk]
 provider = "template"           # template (0 tokens) | ollama | claude_api | claude_cli | openrouter
 every_n_steps = 1

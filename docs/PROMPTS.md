@@ -256,3 +256,38 @@ policy, this log's depth). (2) Insist on the honesty clause in audit prompts
 — "if you can't confirm, say so" is what kept shallow-clone history limits
 from becoming false assurances. (3) Severity-tagged, evidence-cited findings
 are immediately actionable; untagged prose audits are not.
+
+## 2026-07-21 — Session 11: deception by movement (leakage-aware evasion)
+
+Prompt (paraphrased): *"Build deception by movement for the thief: a
+leakage-aware term in move scoring — for each candidate legal move, preview
+the SelfMirror update it would cause (own next emission + diffusion on a
+COPY of the mirror's BeliefMap, never mutating live state) and prefer
+landings that keep the mirror flat (high entropy, low exposure at our true
+next cell). Blend weight + on/off flag under a private [deception.movement]
+table; compose with the lie policy (fewer lies when the trail is already
+ambiguous); measure ≥60 seeded games/arm vs the strongest in-repo blind cop;
+default ON only if it pays, otherwise record the negative result. Own-side
+information only — guard-test both that fact and move legality."*
+
+Process: probed the physics BEFORE pinning tests, and the probe killed the
+briefed intuition — walking where our old scent is strong does NOT leak
+least: staying/backtracking onto the own-scent hotspot is the MOST exposing
+(the mirror's mass already sits there), while stepping off a still-hot
+trail leaves it behind as a decoy. First implementation (stealth as a
+subordinate tie-break under an uncapped flee term) measured as a flat
+null: BFS distance is almost always distinct, so stealth never voted —
+survival, tracking error, and lie spend all unmoved at any blend weight.
+The design that worked caps the flee term at a config `safe_distance`:
+knife-range distance still rules absolutely; among safe landings stealth
+chooses. Sweep (safe_distance × blend_weight) picked 3/8.0.
+
+Lessons: (1) measured 60/arm vs the belief-driven TrapCop (captures the
+base brain 60/60): survival 0.00 → 1.00, exposure 0.41 → 0.34 — and the
+honesty check vs the pursuit-only cop shows the cost, 1.00 → 0.95, with
+the composition payoff of 3.0 → 1.72 lies/game; default ON, trade-off
+recorded in docs/evidence/movement-deception.md. (2) A term that never
+changes a decision is a silent null — sweep the weight and confirm the
+metric MOVES before believing any verdict. (3) A "no signal at any weight"
+result is an architecture smell, not a tuning problem: authority (what may
+outrank what), not magnitude, was the lever.

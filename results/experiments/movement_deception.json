@@ -1,0 +1,57 @@
+{
+  "description": "thief survival vs a blind belief-hunting cop, movement deception on vs off (same seeds, lie policy on in both)",
+  "opposition": "trap",
+  "movement_config": {
+    "enabled": true,
+    "blend_weight": 8.0,
+    "safe_distance": 3,
+    "exposure_radius": 1
+  },
+  "off": {
+    "games": 60,
+    "survival": 0,
+    "capture": 60,
+    "survival_rate": 0.0,
+    "mean_turns_survived": 16.4,
+    "mean_lies_per_game": 0.0,
+    "mean_cop_tracking_error": 1.472,
+    "mean_mirror_exposure": 0.41
+  },
+  "on": {
+    "games": 60,
+    "survival": 60,
+    "capture": 0,
+    "survival_rate": 1.0,
+    "mean_turns_survived": 35.0,
+    "mean_lies_per_game": 2.58,
+    "mean_cop_tracking_error": 1.582,
+    "mean_mirror_exposure": 0.34
+  },
+  "survival_delta": 1.0,
+  "tracking_error_delta": 0.11,
+  "lies_saved_per_game": -2.58,
+  "exposure_delta": -0.07,
+  "secondary_opposition": {
+    "opposition": "arena",
+    "off": {
+      "games": 60,
+      "survival": 60,
+      "capture": 0,
+      "survival_rate": 1.0,
+      "mean_turns_survived": 35.0,
+      "mean_lies_per_game": 3.0,
+      "mean_cop_tracking_error": 1.854,
+      "mean_mirror_exposure": 0.427
+    },
+    "on": {
+      "games": 60,
+      "survival": 57,
+      "capture": 3,
+      "survival_rate": 0.95,
+      "mean_turns_survived": 34.17,
+      "mean_lies_per_game": 1.72,
+      "mean_cop_tracking_error": 1.726,
+      "mean_mirror_exposure": 0.344
+    }
+  }
+}

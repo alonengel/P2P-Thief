@@ -110,6 +110,7 @@ class Config:
         never part of the signed game.json; missing keys keep the shipped
         thief posture: a small budget spent only when exposed and hunted)."""
         block = self.private.get("deception", {})
+        movement = block.get("movement", {})  # [deception.movement] sub-table
         return {
             "max_lies": int(block.get("max_lies", 3)),
             "cooldown_turns": int(block.get("cooldown_turns", 4)),
@@ -117,6 +118,14 @@ class Config:
             "opponent_distance_threshold": int(block.get("opponent_distance_threshold", 3)),
             "exposure_radius": int(block.get("exposure_radius", 1)),
             "baseline_truth_probability": float(block.get("baseline_truth_probability", 0.5)),
+            # Deception-by-movement (leakage-aware move scoring). The shipped
+            # default follows results/experiments/movement_deception.json.
+            "movement": {
+                "enabled": bool(movement.get("enabled", True)),
+                "blend_weight": float(movement.get("blend_weight", 8.0)),
+                "safe_distance": int(movement.get("safe_distance", 3)),
+                "exposure_radius": int(movement.get("exposure_radius", 1)),
+            },
         }
 
     def identity_block(self) -> dict:
