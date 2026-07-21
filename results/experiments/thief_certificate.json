@@ -1,0 +1,53 @@
+{
+  "description": "blind thief survival with/without the certificate, same seeds, 2-cop full-information pool",
+  "games_per_cop_per_arm": 30,
+  "arms": {
+    "shipped": {
+      "games": 90,
+      "survival_rate": 0.333,
+      "mean_turns_survived": 20.84,
+      "certified_turns": 0,
+      "per_cop": {
+        "blind_pursuit": {
+          "games": 30,
+          "survival_rate": 1.0,
+          "mean_turns_survived": 35.0
+        },
+        "trap": {
+          "games": 30,
+          "survival_rate": 0.0,
+          "mean_turns_survived": 14.0
+        },
+        "deep_trap": {
+          "games": 30,
+          "survival_rate": 0.0,
+          "mean_turns_survived": 13.53
+        }
+      }
+    },
+    "certificate": {
+      "games": 90,
+      "survival_rate": 0.333,
+      "mean_turns_survived": 20.84,
+      "certified_turns": 0,
+      "per_cop": {
+        "blind_pursuit": {
+          "games": 30,
+          "survival_rate": 1.0,
+          "mean_turns_survived": 35.0
+        },
+        "trap": {
+          "games": 30,
+          "survival_rate": 0.0,
+          "mean_turns_survived": 14.0
+        },
+        "deep_trap": {
+          "games": 30,
+          "survival_rate": 0.0,
+          "mean_turns_survived": 13.53
+        }
+      }
+    }
+  },
+  "survival_delta": 0.0
+}
