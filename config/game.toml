@@ -21,6 +21,14 @@ turn_timeout_seconds = 180
 # [strategy]  -- optional: point at your brain subclass (else the shipped heuristic runs)
 # thief_class = "p2p_thief.strategy.thief_brain:ThiefBrain"
 
+[deception]                       # self-mirror lie policy (intent flags stay sealed until audit)
+max_lies = 3                      # lie budget per sub-game -- scarcity keeps our credibility priced high
+cooldown_turns = 4                # minimum full turns between lies
+exposure_threshold = 0.35         # mirror mass at/near our true cell that arms a lie
+opponent_distance_threshold = 3   # believed rival Manhattan distance that arms a lie
+exposure_radius = 1               # Manhattan radius of the exposure mass
+baseline_truth_probability = 0.5  # control arm (plain coin) for the policy-vs-coin experiment
+
 [trash_talk]
 provider = "template"           # template (0 tokens) | ollama | claude_api | claude_cli | openrouter
 every_n_steps = 1

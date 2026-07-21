@@ -1,0 +1,29 @@
+{
+  "description": "thief survival vs belief-driven arena cop, per hint policy",
+  "deception_config": {
+    "max_lies": 3,
+    "cooldown_turns": 4,
+    "exposure_threshold": 0.35,
+    "opponent_distance_threshold": 3,
+    "exposure_radius": 1,
+    "baseline_truth_probability": 0.5
+  },
+  "coin": {
+    "games": 60,
+    "survival": 60,
+    "capture": 0,
+    "survival_rate": 1.0,
+    "mean_lies_per_game": 17.82,
+    "mean_cop_tracking_error": 2.194
+  },
+  "policy": {
+    "games": 60,
+    "survival": 60,
+    "capture": 0,
+    "survival_rate": 1.0,
+    "mean_lies_per_game": 3.0,
+    "mean_cop_tracking_error": 1.854
+  },
+  "survival_delta": 0.0,
+  "lies_saved_per_game": 14.82
+}
