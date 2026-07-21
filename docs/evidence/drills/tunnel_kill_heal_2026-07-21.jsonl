@@ -1,0 +1,6 @@
+{"ts": "2026-07-21T17:03:45.035+00:00", "drill": "tunnel_kill_heal", "stage": "start", "tunnel_type": "named", "tunnel": "copthief", "my_public": "https://thief-mcp.alon.website/mcp", "stub_public": "https://cop-mcp.alon.website/mcp", "turn_timeout_sec": 90, "kill_after_full_turns": 2, "downtime_sec": 6.0}
+{"ts": "2026-07-21T17:03:47.855+00:00", "drill": "tunnel_kill_heal", "stage": "observe", "tunnel_ready_sec": {"mine": 1.554, "stub": 1.266}}
+{"ts": "2026-07-21T17:03:49.573+00:00", "drill": "tunnel_kill_heal", "stage": "inject", "fault": "tunnel_killed", "pid": 34216, "at_full_turn": 2}
+{"ts": "2026-07-21T17:03:55.648+00:00", "drill": "tunnel_kill_heal", "stage": "observe", "healed": "cloudflared restarted", "downtime_sec": 6.0, "new_pid": 34880}
+{"ts": "2026-07-21T17:04:07.901+00:00", "drill": "tunnel_kill_heal", "stage": "classify", "classification": "survival", "phase": "WAITING_FOR_OPPONENT", "error": null, "seconds_since_kill": 18.328}
+{"ts": "2026-07-21T17:04:07.902+00:00", "drill": "tunnel_kill_heal", "stage": "outcome", "outcome": "survival", "tunnel_type": "named", "phase": "WAITING_FOR_OPPONENT", "turns_completed": 35, "digest_match": true, "audit": "Verified OK", "elapsed_sec": 20.044, "retries": 0, "stub_retries": 2, "stub_outcome": "survival", "killed_at_full_turn": 2}
