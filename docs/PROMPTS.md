@@ -291,3 +291,71 @@ changes a decision is a silent null — sweep the weight and confirm the
 metric MOVES before believing any verdict. (3) A "no signal at any weight"
 result is an architecture smell, not a tuning problem: authority (what may
 outrank what), not magnitude, was the lever.
+
+## 2026-07-21 — Session 12: config-range fuzzer + crash-resume (E5/E6)
+
+Prompt (paraphrased): *"Two infrastructure features, mirrored in both repos.
+(E5) A legal-config-range fuzzer: sample the space a counterparty may LEGALLY
+propose — Appendix-VI minimums raised (board 7-11, barriers 14-24,
+max_moves=survival 35-60, valid distinct starts), FIXED values never fuzzed
+(assert it) — and run a full in-process self-play game per sample over the
+roundtrip HTTP-MCP machinery, checking invariants (legal shared outcome,
+matching digests, clean audits, turn/barrier bounds). 40+ samples committed
+to results/experiments/ + docs/evidence/. (E6) Crash-resume: per-half-turn
+atomic snapshots (records incl. nonces, action log, agreement) under
+results/local/, ON by default; a resume path that replays through
+protocol.apply_action and re-arms the SealedExchange; a resume_offer control
+handshake answered by re-sending the last sealed pair (dedup absorbs
+duplicates); a kill-and-resume drill with real JSONL evidence."*
+
+Process: TDD against the loopback-pair pattern from the runtime tests; the
+runtime sat at 149/150 code lines, so ALL resume logic went to a new
+peer/resume.py and the runtime gained only four hook lines (docstrings paid
+the rent). The drill's first run failed honestly: the reused chaos helper
+always calls play() fresh, so the resumed peer re-negotiated into a void and
+ate a deadline — the drill needed its own classified runner that continues
+from the re-armed turn. Deliberate scope line: snapshots are half-turn
+atomic; a crash between commit-send and reveal-send loses that half-turn's
+nonce and MUST NOT be re-committed differently, so recovery is defined from
+the last completed half-turn (documented in docs/evidence/crash-resume.md).
+
+Lessons: (1) a resume feature is really a replay feature — reusing the one
+true apply_action path made engine fidelity a one-line digest assert;
+(2) the at-least-once dedup we built for lost HTTP acks is EXACTLY the
+mechanism that makes resume handshakes safe — new capability, zero new wire
+rules; (3) fuzzing the negotiable ranges (40/40 green) is the cheap proof
+that "nothing hardcoded" is true in the physics, not just in the config
+loader. Fuzzer found no real bug; nothing in domain/ needed touching.
+
+## 2026-07-21 — Session 13: survival certificate (endgame escape proof, keep-gated)
+
+Prompt (paraphrased): *"Thief half of the endgame module: a survival
+CERTIFICATE — if a strategy exists that survives all remaining turns against
+worst-case cop play (moves AND barriers) over the cop-belief support, lock
+onto it. Belief-correct: worst case over EVERY cop cell carrying
+non-negligible mass; never read the rival's true position (guard test).
+Wire WITHOUT editing thief_brain.py (owned by a concurrent task). Compute
+hard-capped. Measure survival with the certificate on/off vs the arena cops;
+keep ONLY if stronger, else default OFF and record the negative result."*
+
+Process: `strategy/endgame.py` holds the memoized worst-case search plus
+`CertifiedThiefBrain`, a wrapper the `[strategy] thief_class` seam points at
+— it composes the shipped ThiefBrain by inheritance, so the owned file was
+never touched; tunables are read from the private TOML inside the module
+for the same reason. Key semantic guard: a certificate covering fewer than
+the remaining turns proves NOTHING, so the horizon gate requires
+`turns_left <= max_horizon_turns` (unlike the cop solver, where a shallow
+forced win is valid any time). Soundness is engine-adjudicated: from a
+certified state every legal cop reply line must stay certified and end in
+SURVIVAL — the physics referees, not the search.
+
+Lessons: (1) honest negative result — 0 certificates in 180 measured games
+(90/arm, identical survival 0.333): the full-information hunters end games
+by turn ~14 while the certificate window is the last 5 turns, and the
+scent-floor cop-belief support never sharpens to ≤3 cells; default shipped
+OFF (docs/evidence/thief-certificate.md), seam left wired since the
+disabled wrapper is move-for-move the shipped brain. (2) The composition
+seam beat the temptation to edit the owned brain: subclass + config pointer
+delivered the integration with zero contention. (3) Symmetric features need
+asymmetric gates — copying the cop solver's "min(horizon, remaining)" here
+would have certified unsound survival claims.

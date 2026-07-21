@@ -47,6 +47,23 @@ step_deadline_seconds = 30      # hard cap on LLM thinking per step
 recipient = "rmisegal+uoh26finalgame@gmail.com"
 mode = "disabled"               # dev default; league games switch to "send" (rule 32: automatic reporting)
 
+[resume]                        # crash-resume snapshots (peer/resume.py) - pure LOCAL persistence
+enabled = true                  # ON by default: per-half-turn snapshot -> results/local/resume_*.json
+drill_turn_timeout_seconds = 15.0   # resume drill turn budget (a resume must fit the rival's window)
+drill_retry_backoff_sec = 0.2       # drill-scale transport backoff
+drill_crash_after_half_turns = 6    # kill-and-resume drill: crash after this many half-turns
+drill_my_seed = 99                  # deterministic brain pair for the drill
+drill_stub_seed = 7
+
+[fuzz]                          # legal-config-range fuzzer knobs (scripts/config_fuzz.py) - dev tooling
+samples = 40                    # committed-artifact sample count
+seed = 20260721                 # reproducible sampling of the LEGAL config space
+turn_timeout_seconds = 30.0     # per-wait budget for the in-process fuzz games
+retry_backoff_sec = 0.2
+grid_size_max = 11              # upper fuzz bounds; lower bounds are the book's minimums
+max_barriers_max = 24
+max_moves_max = 60
+
 [chaos]                         # chaos-drill knobs (scripts/chaos_drills.py) - dev tooling, never game terms
 turn_timeout_seconds = 4.0      # shrunk turn budget so drills classify in seconds, not minutes
 retry_backoff_sec = 0.2         # drill-scale transport backoff (league value stays in game.json)
@@ -64,3 +81,16 @@ tunnel_kill_after_full_turns = 2    # kill cloudflared after this many full turn
 tunnel_downtime_seconds = 6.0       # how long the tunnel stays dead before restart
 tunnel_name = "copthief"            # named tunnel (docs/DEPLOYMENT.md); hostnames from [game].mcp_servers
 cloudflared_exe = 'C:\Program Files (x86)\cloudflared\cloudflared.exe'
+
+[strategy]                      # brain seam (Table 22): certificate wrapper composing the shipped ThiefBrain
+thief_class = "p2p_thief.strategy.endgame:CertifiedThiefBrain"
+
+[strategy.endgame]              # survival certificate (worst-case escape proof; keep-gate: docs/evidence/thief-certificate.md)
+enabled = false                 # keep-gate FAILED: 0 certificates fired in 180 games -- the scent-floor
+                                # cop-belief never sharpens inside the final-turns window (honest negative
+                                # result; the wrapper with enabled=false plays EXACTLY the shipped brain)
+max_support_cells = 3           # run only when the cop-belief support is this sharp
+support_mass_threshold = 0.05   # cells at/above this belief mass form the support
+max_horizon_turns = 5           # certify only when it covers ALL remaining turns
+node_cap = 20000                # search states before deferring to the shipped brain
+time_cap_ms = 150.0             # wall-clock cap -- never risk the turn deadline

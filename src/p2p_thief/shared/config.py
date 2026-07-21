@@ -128,6 +128,12 @@ class Config:
             },
         }
 
+    def resume_enabled(self) -> bool:
+        """[resume] enabled (default ON): per-half-turn crash-resume snapshots
+        are pure local persistence (results/local/, no wire change) — there is
+        no reason to play without them (E6)."""
+        return bool(self.private.get("resume", {}).get("enabled", True))
+
     def identity_block(self) -> dict:
         """Rival-facing identity declaration (rules 37-38/49, ADR-0005/6)."""
         game = self.private.get("game", {})
