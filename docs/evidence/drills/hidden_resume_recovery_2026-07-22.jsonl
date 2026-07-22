@@ -1,0 +1,5 @@
+{"ts": "2026-07-22T16:19:28.761+00:00", "drill": "hidden_resume_recovery", "stage": "start", "crash_after_half_turns": 6, "turn_timeout_sec": 15.0, "snapshot": "C:\\Users\\Alon\\Desktop\\projectGmar\\P2P-Thief\\results\\local\\hidden_resume_drill_thief.json"}
+{"ts": "2026-07-22T16:19:29.039+00:00", "drill": "hidden_resume_recovery", "stage": "crash", "killed_after_half_turns": 6, "undelivered_messages_lost": 0}
+{"ts": "2026-07-22T16:19:29.105+00:00", "drill": "hidden_resume_recovery", "stage": "resume", "seconds_to_resume": 0.066, "half_turns_recovered": 6, "own_digest": "dcf2d7887b5997252164ce869619a01cedc5b26ee2d434a7db0d55d90d488448"}
+{"ts": "2026-07-22T16:19:30.005+00:00", "drill": "hidden_resume_recovery", "stage": "classify", "classification": "survival", "phase": "WAITING_FOR_OPPONENT", "error": null}
+{"ts": "2026-07-22T16:19:30.005+00:00", "drill": "hidden_resume_recovery", "stage": "outcome", "outcome": "survival", "phase": "WAITING_FOR_OPPONENT", "turns_completed": 35, "digest_match": true, "audit": "Verified OK", "steps_sealed": 35, "elapsed_sec": 0.9, "stub_outcome": "survival", "seconds_to_resume": 0.066, "turns_recovered": 6}
