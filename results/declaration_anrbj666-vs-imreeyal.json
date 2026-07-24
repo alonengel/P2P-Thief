@@ -1,13 +1,13 @@
 {
   "_schema": "p2p-police-artifacts",
-  "consensus_signature": "74ee46cae9112b36adb796e50121406244266347bd4968fa40926d5f519c9c72",
-  "declared_at": "2026-07-24T12:00:36+00:00",
+  "consensus_signature": "e5a87923a5e8c62475a7f374d170526e8b96912c722ae3cada62042c2c97fa23",
+  "declared_at": "2026-07-24T14:04:33+00:00",
   "game_id": "anrbj666-vs-imreeyal",
   "game_uid": "2f0c25a9-5008-03c7-2d60-645dd51be11a",
   "group": {
     "code_version": "1.00",
     "counted_games_played": 0,
-    "github_commit": "f3d12e999bd9dfe591732dd5f0e0078ce1bd09ca",
+    "github_commit": "4dcc59ada31f3a673762510830b9e3c69b36ec9a",
     "group_id": "anrbj666",
     "hardware_spec": {
       "cpu_cores": 24,
@@ -35,7 +35,7 @@
     "thief": "https://github.com/alonengel/P2P-Thief"
   },
   "opponent": {
-    "group_id": "unknown",
+    "group_id": "imreeyal",
     "hardware_spec_sha256": "",
     "identity": {
       "group_id": "imreeyal",
