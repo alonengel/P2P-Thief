@@ -4,13 +4,13 @@
     "config_sha256": "528e4a0068cd41495164cf4e884961f1f0d2f91b1897ef89913ec1d1613825e7",
     "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9"
   },
-  "audit": "unavailable (technical loss)",
-  "consensus_signature": "78a5bdf2e8c64ab691c38a19c9f71a366e3af3c7e3febe4237f6c7d897296058",
-  "digest_match": false,
-  "end_state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
-  "game_id": "anrbj666-vs-unknown",
-  "game_uid": "1b532b0a-16cc-fec8-de55-2c4bc263c79d",
-  "github_commit": "90e8d961020c3ed7b8e0dfd5342797069db1fcc8",
+  "audit": "Verified OK",
+  "consensus_signature": "2a98a157d78924ca8e6dd6660fecb9f2a31021a0fb5bd853e5fb05135e96793e",
+  "digest_match": null,
+  "end_state_digest": "6ee9e7d51092459682a27cea0c93a1d28ef4b40145a9012ebb1974600fc9c7a0",
+  "game_id": "anrbj666-vs-imreeyal",
+  "game_uid": "2f0c25a9-5008-03c7-2d60-645dd51be11a",
+  "github_commit": "f3d12e999bd9dfe591732dd5f0e0078ce1bd09ca",
   "group_id": "anrbj666",
   "links": {
     "cop": "https://github.com/alonengel/P2P-Police",
@@ -20,16 +20,16 @@
     "cop": "https://cop-mcp.alon.website/mcp",
     "thief": "https://thief-mcp.alon.website/mcp"
   },
-  "opponent_group_id": "unknown",
-  "outcome": "technical_loss",
+  "opponent_group_id": "imreeyal",
+  "outcome": "survival",
   "report_type": "result",
-  "reported_at": "2026-07-24T11:10:50+00:00",
+  "reported_at": "2026-07-24T12:00:36+00:00",
   "schema_version": "1.00",
   "score": {
-    "cop": 0,
-    "thief": 0
+    "cop": 5,
+    "thief": 10
   },
   "tokens_total": 0,
-  "turns_completed": 0,
-  "winner_group": "unknown"
+  "turns_completed": 35,
+  "winner_group": "anrbj666"
 }

@@ -1,7 +1,7 @@
 {
-  "_schema": "p2p-thief-artifacts",
+  "_schema": "p2p-police-artifacts",
   "game_id": "anrbj666-vs-unknown",
-  "game_uid": "8c3b02384ae647e0869f0a60a6a31758",
+  "game_uid": "1b532b0a-16cc-fec8-de55-2c4bc263c79d",
   "links": {
     "cop": "https://github.com/alonengel/P2P-Police",
     "thief": "https://github.com/alonengel/P2P-Thief"
@@ -14,14 +14,32 @@
   "summary": {
     "audit": "unavailable (technical loss)",
     "digest_match": false,
-    "end_state_digest": "cf10bd9476faee345e36347146e745355aabe345326927b5d0f9bbaf8f07a5fc",
-    "ended_at": "2026-07-13T18:15:41+00:00",
-    "failure": "HTTPStatusError: Server error '502 Bad Gateway' for url 'https://cop-mcp.alon.website/mcp'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502",
+    "end_state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
+    "ended_at": "2026-07-24T11:10:50+00:00",
+    "failure": "DeadlineExpiredError: opponent at https://cop.imreeyal.com/mcp unreachable until deadline: Server error '502 Bad Gateway' for url 'https://cop.imreeyal.com/mcp'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502",
+    "gatekeeper": {
+      "calls_logged": 0,
+      "dos_locked": {
+        "claude": false,
+        "default": false,
+        "email": false,
+        "ollama": false,
+        "openrouter": false
+      },
+      "services": [
+        "claude",
+        "default",
+        "email",
+        "ollama",
+        "openrouter"
+      ]
+    },
     "group_id": "anrbj666",
     "opponent_group_id": "unknown",
     "outcome": "technical_loss",
     "role": "thief",
     "steps_sealed": 0,
     "turns_completed": 0
-  }
+  },
+  "wire_shape": "reference"
 }
