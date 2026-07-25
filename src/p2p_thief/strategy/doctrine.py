@@ -31,7 +31,10 @@ DEFAULTS: dict = {
     "max_consecutive_stays": 2,
     "stay_exposure_threshold": 0.35,  # mirror mass near us that arms the cap
     "stay_exposure_radius": 1,
-    "pocket_escape": True,     # cross-quadrant flight on a nearby new wall
+    "pocket_escape": False,    # keep-gate: survival-neutral on both measured
+    #                            hunters (only mean turns moved, which the
+    #                            scoring does not pay) - capability stays
+    #                            tested, default follows the measurement
     "barrier_alert_radius": 2,
     "escape_turns": 3,
     "forecast": True,          # one-ply worst-wall probe over the support

@@ -35,7 +35,9 @@ COPS = {"aged_trap": AgedBeliefTrapCop, "blind_pursuit": CopForArena,
         "trap": TrapCop, "deep_trap": DeepTrapCop}
 BLIND_COPS = {"aged_trap", "blind_pursuit"}
 KNOBS = ("fresh_flee", "stay_cap", "pocket_escape", "forecast")
-ABLATION_COP = "aged_trap"  # leave-one-out arms face the target hunter only
+# Leave-one-out arms face the belief-led hunter AND the wall-building
+# full-information hunter: the second breaks 100%-survival ceilings.
+ABLATION_COPS = ("aged_trap", "trap")
 
 
 def build_thief(arm: str, seed: int):
@@ -90,15 +92,18 @@ def main() -> None:
     arms = {"old": run_arm(config, "old", games, COPS),
             "new": run_arm(config, "new", games, COPS)}
     for knob in KNOBS:
-        arms[f"no_{knob}"] = run_arm(config, f"no_{knob}", games, [ABLATION_COP])
-    new_vs_target = arms["new"][ABLATION_COP]["survival_rate"]
+        arms[f"no_{knob}"] = run_arm(config, f"no_{knob}", games, ABLATION_COPS)
     keep_gates = {}
     for knob in KNOBS:
-        without = arms[f"no_{knob}"][ABLATION_COP]["survival_rate"]
-        keep_gates[knob] = {
-            "with": new_vs_target, "without": without,
-            "delta": round(new_vs_target - without, 3),
-            "keep_on": new_vs_target >= without,
+        deltas = {
+            cop: round(arms["new"][cop]["survival_rate"]
+                       - arms[f"no_{knob}"][cop]["survival_rate"], 3)
+            for cop in ABLATION_COPS
+        }
+        keep_gates[knob] = {  # pays somewhere, hurts nowhere -> stays ON
+            "delta_by_cop": deltas,
+            "keep_on": all(d >= 0 for d in deltas.values())
+            and any(d > 0 for d in deltas.values()),
         }
     regressions = {
         cop: round(arms["new"][cop]["survival_rate"]

@@ -1,0 +1,134 @@
+{
+  "description": "blind thief survival, old (stealth) vs new (doctrine) arms on shared seeds; leave-one-out knob ablations vs the aged-belief hunter; keep rule: ON only if removing the knob does not help",
+  "games_per_cop_per_arm": 60,
+  "arms": {
+    "old": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 0.8,
+        "mean_turns_survived": 28.6
+      },
+      "blind_pursuit": {
+        "games": 60,
+        "survival_rate": 0.883,
+        "mean_turns_survived": 31.27
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.0,
+        "mean_turns_survived": 15.0
+      },
+      "deep_trap": {
+        "games": 60,
+        "survival_rate": 0.0,
+        "mean_turns_survived": 8.65
+      }
+    },
+    "new": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 1.0,
+        "mean_turns_survived": 35.0
+      },
+      "blind_pursuit": {
+        "games": 60,
+        "survival_rate": 1.0,
+        "mean_turns_survived": 35.0
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.45,
+        "mean_turns_survived": 28.05
+      },
+      "deep_trap": {
+        "games": 60,
+        "survival_rate": 0.05,
+        "mean_turns_survived": 13.42
+      }
+    },
+    "no_fresh_flee": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 0.5,
+        "mean_turns_survived": 32.72
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.283,
+        "mean_turns_survived": 21.28
+      }
+    },
+    "no_stay_cap": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 1.0,
+        "mean_turns_survived": 35.0
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.1,
+        "mean_turns_survived": 23.5
+      }
+    },
+    "no_pocket_escape": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 1.0,
+        "mean_turns_survived": 35.0
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.45,
+        "mean_turns_survived": 23.8
+      }
+    },
+    "no_forecast": {
+      "aged_trap": {
+        "games": 60,
+        "survival_rate": 1.0,
+        "mean_turns_survived": 35.0
+      },
+      "trap": {
+        "games": 60,
+        "survival_rate": 0.35,
+        "mean_turns_survived": 22.12
+      }
+    }
+  },
+  "keep_gates": {
+    "fresh_flee": {
+      "delta_by_cop": {
+        "aged_trap": 0.5,
+        "trap": 0.167
+      },
+      "keep_on": true
+    },
+    "stay_cap": {
+      "delta_by_cop": {
+        "aged_trap": 0.0,
+        "trap": 0.35
+      },
+      "keep_on": true
+    },
+    "pocket_escape": {
+      "delta_by_cop": {
+        "aged_trap": 0.0,
+        "trap": 0.0
+      },
+      "keep_on": false
+    },
+    "forecast": {
+      "delta_by_cop": {
+        "aged_trap": 0.0,
+        "trap": 0.1
+      },
+      "keep_on": true
+    }
+  },
+  "survival_delta_new_minus_old": {
+    "aged_trap": 0.2,
+    "blind_pursuit": 0.117,
+    "trap": 0.45,
+    "deep_trap": 0.05
+  }
+}
