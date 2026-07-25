@@ -20,7 +20,8 @@ from p2p_thief.strategy.hints import build_hint
 
 STRATEGY = Path("src/p2p_thief/strategy")
 DECISION_MODULES = ["brain_base.py", "thief_brain.py", "rl_brain.py", "rl_deep.py",
-                    "arena_cop.py", "movement_deception.py", "endgame.py", "doctrine.py"]
+                    "arena_cop.py", "movement_deception.py", "endgame.py", "doctrine.py",
+                    "arena_aged_cop.py"]
 LLM_PATHS = {"p2p_thief.infra.llm_provider", "p2p_thief.strategy.talk_providers"}
 
 
