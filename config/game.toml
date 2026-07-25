@@ -110,6 +110,8 @@ stay_exposure_radius = 1
 pocket_escape = true            # a NEW wall within the radius arms cross-quadrant flight
 barrier_alert_radius = 2
 escape_turns = 3
+forecast = true                 # one-ply worst-wall probe as a MIN over the belief support
+forecast_top_k = 3
 
 [strategy.endgame]              # survival certificate (worst-case escape proof; keep-gate: docs/evidence/thief-certificate.md)
 enabled = false                 # keep-gate FAILED: 0 certificates fired in 180 games -- the scent-floor

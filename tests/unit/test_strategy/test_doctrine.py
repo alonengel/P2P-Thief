@@ -23,7 +23,8 @@ from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 RULES = RuleSet(max_barriers=14, max_moves=35, survival_threshold=35)
 STEALTH = {"enabled": True, "blend_weight": 8.0, "safe_distance": 3, "exposure_radius": 1}
-OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False}
+OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False,
+       "forecast": False}
 
 
 def observe(belief: BeliefMap, engine: GameEngine, barrier=None) -> None:
@@ -73,8 +74,7 @@ def test_stay_cap_bans_camping_once_exposed() -> None:
     # struck from the candidate set — the brain must move, and a move
     # resets the consecutive-stay run.
     engine = GameEngine(7, (0, 0), (3, 3), RULES)
-    brain = DoctrineThiefBrain(Role.THIEF, random.Random(2), tuning=STEALTH,
-                               doctrine={**OFF, "stay_cap": True})
+    brain = DoctrineThiefBrain(Role.THIEF, random.Random(2), tuning=STEALTH, doctrine={**OFF, "stay_cap": True})
     belief = BeliefMap(7)  # uniform: the flee term ties everywhere
     for _ in range(4):
         engine.police_move(Move.STAY)

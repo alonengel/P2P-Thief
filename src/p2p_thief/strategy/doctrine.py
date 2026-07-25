@@ -12,6 +12,9 @@ patient hunter walls the pocket shut. Three config-gated counter-measures
    we glow: camping re-pins our own beacon, so exposure + stillness = move.
 3. pocket_escape — a NEW rival wall landing near us arms cross-quadrant
    flight for the next turns: seals take several placements; movement wins.
+4. forecast — the parent's one-ply worst-wall probe, previously exact-info
+   only, runs in belief play as a MIN over the TOP-K belief support cells
+   (never the lone argmax, which a split posterior can aim wrong).
 """
 
 import random
@@ -25,6 +28,7 @@ from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 WORST = -(10 ** 9)
 FAR = 10 ** 6
+KNIFE_RANGE = 2  # inside this believed distance, distance rules absolutely
 DEFAULTS: dict = {
     "fresh_flee": True,        # lift the flee cap on live evidence
     "fresh_reach_max": 1,      # 'live' = a reading decoding to reach <= 1
@@ -35,6 +39,8 @@ DEFAULTS: dict = {
     "pocket_escape": True,     # cross-quadrant flight on a nearby new wall
     "barrier_alert_radius": 2,
     "escape_turns": 3,
+    "forecast": True,          # one-ply worst-wall probe over the support
+    "forecast_top_k": 3,       # belief support size the MIN runs over
 }
 
 
@@ -61,6 +67,19 @@ def fresh_evidence(scent, fresh_reach_max: int) -> bool:
     )
 
 
+def top_support(belief, k: int) -> list:
+    """The k highest-mass belief cells, mass-then-cell ordered (mass only
+    RANKS the support; the forecast MIN below is deliberately unweighted —
+    a kill line through any plausible cell disqualifies the landing)."""
+    values = belief.values()  # snapshot read: works for any belief-shaped view
+    cells = sorted(
+        (((row, col), mass) for row, masses in enumerate(values)
+         for col, mass in enumerate(masses)),
+        key=lambda item: (-item[1], item[0]),
+    )
+    return [cell for cell, mass in cells[:k] if mass > 0.0]
+
+
 class DoctrineThiefBrain(StealthThiefBrain):
     """StealthThiefBrain + the three counter-camping terms.
 
@@ -76,6 +95,7 @@ class DoctrineThiefBrain(StealthThiefBrain):
         self._known_barriers: frozenset | None = None
         self._escape_until, self._escape_dist = -1, {}
         self._fresh = self._ban_stay = False
+        self._support: list = []
 
     def _observe_threats(self, engine) -> None:
         """Pocket alert: a NEW rival wall within the alert radius of us arms
@@ -111,22 +131,39 @@ class DoctrineThiefBrain(StealthThiefBrain):
             self._fresh = self.doctrine["fresh_flee"] and fresh_evidence(
                 engine.scent[self.role.rival], self.doctrine["fresh_reach_max"])
             self._ban_stay = self._stay_banned(engine)
+            self._support = (top_support(belief, self.doctrine["forecast_top_k"])
+                             if self.doctrine["forecast"] else [])
         action = super().decide(engine, belief)
         if belief is not None:
             self._stays = self._stays + 1 if action.get("move") == "STAY" else 0
         return action
+
+    def _forecast(self, engine, cell) -> tuple:
+        """Worst wall reply over the believed support cells (elementwise MIN
+        of the parent's exact one-ply probe): room, not distance, is life."""
+        worst = None
+        for rival in self._support:
+            escapes, region = self._after_best_wall(engine, cell, rival)
+            worst = (escapes, region) if worst is None else (
+                min(worst[0], escapes), min(worst[1], region))
+        return worst if worst is not None else (0, 0)
 
     def _score(self, engine, cell, distances, cop, exact) -> tuple:
         base = super()._score(engine, cell, distances, cop, exact)
         if exact:
             return base  # full-information arena play: parent forecast rules
         flee, tie = base
+        escaping = engine.turns_completed < self._escape_until
+        if not (self._fresh or self._ban_stay or escaping or self._support):
+            return base  # doctrine inert this turn: exactly the parent brain
         if self._ban_stay and cell == engine.positions[self.role]:
-            return (WORST, WORST, WORST)
+            return (WORST,) * 6
         if self._fresh:
             distance = distances.get(cell, UNREACHABLE)
             flee = FAR if distance == UNREACHABLE else distance
-        escape = 0
-        if engine.turns_completed < self._escape_until:
-            escape = -self._escape_dist.get(cell, FAR)
-        return (flee, escape, tie)
+        escape = -self._escape_dist.get(cell, FAR) if escaping else 0
+        escapes, region = self._forecast(engine, cell)
+        # Knife range first (distance is absolute there), then the wall
+        # forecast (a doomed landing loses regardless of distance), then the
+        # armed escape steer, then the (possibly uncapped) flee, then ties.
+        return (min(flee, KNIFE_RANGE), escapes, region, escape, flee, tie)
