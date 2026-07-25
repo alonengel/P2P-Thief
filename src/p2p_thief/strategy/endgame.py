@@ -5,8 +5,8 @@ only when ONE move now survives every remaining turn against WORST-CASE cop
 play - moves AND barriers - from EVERY cop cell carrying non-negligible
 belief mass. The rival's true position is never read (guard-tested); domain
 state stays read-only. Wired WITHOUT touching thief_brain.py: the [strategy]
-seam points at CertifiedThiefBrain below, which composes the stealth
-brain for every turn the certificate cannot cover. Tunables come from
+seam points at CertifiedThiefBrain below, which composes the doctrine+
+stealth brain for every turn the certificate cannot cover. Tunables come from
 [strategy.endgame] (read directly here so no concurrently-owned module needs
 editing); compute is hard-capped - a cap hit defers to the brain.
 """
@@ -19,7 +19,7 @@ from pathlib import Path
 from p2p_thief.domain import protocol
 from p2p_thief.domain.board import Board
 from p2p_thief.domain.primitives import Cell, Move, Role
-from p2p_thief.strategy.movement_deception import StealthThiefBrain
+from p2p_thief.strategy.doctrine import DoctrineThiefBrain
 
 ORTHOGONAL = (Move.N, Move.S, Move.E, Move.W)
 _MOVE_RANK = {move.name: rank for rank, move in enumerate((*ORTHOGONAL, Move.STAY))}
@@ -163,8 +163,8 @@ class SurvivalCertificate:
         return cached
 
 
-class CertifiedThiefBrain(StealthThiefBrain):
-    """Seam wrapper: certificate pre-check, else the stealth brain."""
+class CertifiedThiefBrain(DoctrineThiefBrain):
+    """Seam wrapper: certificate pre-check, else the doctrine+stealth brain."""
 
     def __init__(self, role: Role, rng: random.Random, private: dict | None = None) -> None:
         super().__init__(role, rng)

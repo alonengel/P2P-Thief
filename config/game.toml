@@ -100,6 +100,17 @@ cloudflared_exe = 'C:\Program Files (x86)\cloudflared\cloudflared.exe'
 [strategy]                      # brain seam (Table 22): certificate wrapper composing the shipped ThiefBrain
 thief_class = "p2p_thief.strategy.endgame:CertifiedThiefBrain"
 
+[strategy.doctrine]             # anti-freeze doctrine (keep-gates: results/experiments/thief_counter.json)
+fresh_flee = true               # live rival trail (reach<=1) lifts the flee cap
+fresh_reach_max = 1
+stay_cap = true                 # hard-cap consecutive STAYs while the mirror says we glow
+max_consecutive_stays = 2
+stay_exposure_threshold = 0.35
+stay_exposure_radius = 1
+pocket_escape = true            # a NEW wall within the radius arms cross-quadrant flight
+barrier_alert_radius = 2
+escape_turns = 3
+
 [strategy.endgame]              # survival certificate (worst-case escape proof; keep-gate: docs/evidence/thief-certificate.md)
 enabled = false                 # keep-gate FAILED: 0 certificates fired in 180 games -- the scent-floor
                                 # cop-belief never sharpens inside the final-turns window (honest negative
