@@ -1063,3 +1063,58 @@ than code: the only README statements that survived this pass unedited
 were the ones a committed command can regenerate. Write the command next
 to the claim, and stale docs become a failing check instead of a
 discovered embarrassment.
+
+## 2026-07-26 — Session: evasion counter-build — the trail is a clock, and camping is how we died
+
+**Context.** A replayed-loss review of our own game logs produced a
+four-mode failure inventory, and every mode fed the same death spiral:
+(A) `observe_scent` multiplied by RAW intensity, so a camp's saturated 5×5
+plateau kept out-shouting a live trail — the posterior locked onto a
+memory; (B) barrier declarations were consumed only as blocked cells,
+discarding the law-of-barriers fact that a placement pins its placer to
+≤5 cells; (C) place-name hints parsed to None (direction words only);
+(D) with the flee term capped and the belief wrong, stealth settled ties
+on STAY turn after turn — we camped, our own beacon saturated, and the
+pocket was walled shut around us.
+
+**Prompt pattern — correctness fixes always-on, strategy knobs behind
+measured keep-gates.** A-C are perception truths and shipped
+unconditionally (TDD, paired domain commits with the twin): the reach
+decode (value → tightest kernel-rung d+age hypothesis, ring rungs
+fresh-only) turns the transmitted trail into a live tracker — peak 3
+cells behind an 8-step escapee and clear of the camp, vs 6 behind and
+camp-anchored before. D and the belief-native top-k wall forecast are
+POLICY, so each knob got a leave-one-out arm in a seeded A/B
+(60 games/cop/arm) against a purpose-built instrument — AgedBeliefTrapCop,
+the belief-led early-pounce, surgical-wall hunter our thief must outlive —
+plus the whole existing arena pool for regressions. The smoke A/B earned
+its keep twice before the full run: it caught fresh-flee firing every turn
+(SOME reading is always fresh — the rival's own vicinity burns; freshness
+must sit NEAR US to mean danger) and a score ordering that demoted plain
+distance below the forecast, which loses to bare pursuit.
+
+**Build.** Domain (paired): `evidence.py` decode + `belief.py`
+observe_scent/observe_barrier/observe_region. Peer: both wires hand fresh
+wall declarations to Perception. Strategy: gazetteer tier
+(config/gazetteer.json); `doctrine.py` (fresh-flee, stay-cap,
+pocket-escape, top-k forecast) wired into the shipped CertifiedThiefBrain
+chain; two reconstructed kill junctures pinned as regression tests.
+Measurement: `arena_aged_cop.py` + `measure_thief_counter.py` →
+`results/experiments/thief_counter.json` + `docs/evidence/thief-counter.md`.
+
+**Gates.** Arms on shared seeds: new 1.00 vs the aged hunter (old 0.80),
+1.00 vs blind pursuit (0.883), 0.45 vs the full-info wall cop (0.00), 0.05
+vs the full-info Double-DQN ceiling (0.00) — no regressions. Keep-gates
+applied to defaults: fresh_flee ON (+0.50/+0.167), stay_cap ON (+0.35 vs
+trap), forecast ON (+0.10 vs trap), pocket_escape OFF — survival-neutral
+on both wall-capable hunters; it only raised mean turns, which the agreed
+scoring does not pay (honest negative, capability stays config-gated and
+juncture-tested). 657 tests green, coverage 93.26% branch, ruff 0, caps
+OK, physics parity green both directions.
+
+**Lesson.** The measurement instrument is not bureaucracy — it vetoed two
+of our own designs before they could ship as regressions, then flipped one
+"obviously good" doctrine OFF because the game's scoring currency
+(survive-or-not) disagreed with our intuition's (survive longer). Strategy
+belongs behind gates that speak the scoreboard's language, and correctness
+fixes belong outside them.
