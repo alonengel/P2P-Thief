@@ -23,8 +23,8 @@ from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 RULES = RuleSet(max_barriers=14, max_moves=35, survival_threshold=35)
 STEALTH = {"enabled": True, "blend_weight": 8.0, "safe_distance": 3, "exposure_radius": 1}
-OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False,
-       "forecast": False}
+OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False, "forecast": False}
+ON = {**DEFAULTS, "fresh_flee": True, "stay_cap": True, "pocket_escape": True, "forecast": True}
 
 
 def observe(belief: BeliefMap, engine: GameEngine, barrier=None) -> None:
@@ -43,14 +43,16 @@ def test_doctrine_settings_defaults_and_overrides() -> None:
     assert tuned["barrier_alert_radius"] == DEFAULTS["barrier_alert_radius"]
 
 
-def test_fresh_evidence_detects_live_trails_only() -> None:
-    assert not fresh_evidence(ScentField(7), 1)  # silence is not evidence
+def test_fresh_evidence_detects_live_trails_near_us_only() -> None:
+    assert not fresh_evidence(ScentField(7), 1, (3, 3), 4)  # silence
     live = ScentField(7)
     live.update((3, 3))
-    assert fresh_evidence(live, 1)  # a fresh center reads reach 0
-    aged = SimpleNamespace(values=lambda: [[0.0] * 7, [0.53, 0.4] + [0.0] * 5]
-                           + [[0.0] * 7 for _ in range(5)])
-    assert not fresh_evidence(aged, 1)  # stale plateau: reach >= 2 everywhere
+    # A fresh center right next to us arms flight; the SAME field read from
+    # far away does not — the rival's own vicinity always burns fresh.
+    assert fresh_evidence(live, 1, (3, 4), 4) and not fresh_evidence(live, 1, (0, 6), 1)
+    aged = SimpleNamespace(values=lambda: [[0.53 if (r, c) == (1, 0) else 0.0
+                                            for c in range(7)] for r in range(7)])
+    assert not fresh_evidence(aged, 1, (1, 1), 4)  # stale reading: reach >= 2
 
 
 def test_disabled_doctrine_decides_exactly_like_the_stealth_brain() -> None:
@@ -146,7 +148,7 @@ def test_juncture_camped_thief_moves_out_when_the_hunter_closes() -> None:
         observe(belief, engine)
     assert engine.positions[Role.POLICE] == (5, 2)  # knife range, live trail
     brain = DoctrineThiefBrain(Role.THIEF, random.Random(11), tuning=STEALTH,
-                               doctrine=dict(DEFAULTS))
+                               doctrine=dict(ON))
     action = brain.decide(engine, belief)
     assert action["move"] != "STAY"
     landing = Move[action["move"]].applied_to((5, 1))
@@ -162,7 +164,7 @@ def test_juncture_pocket_walls_trigger_flight_not_a_deeper_camp() -> None:
     engine = GameEngine(7, (2, 3), (1, 5), RULES)
     belief = BeliefMap(7)
     brain = DoctrineThiefBrain(Role.THIEF, random.Random(13), tuning=STEALTH,
-                               doctrine=dict(DEFAULTS))
+                               doctrine=dict(ON))
     observe(belief, engine)
     brain.decide(engine, belief)  # baseline before any wall exists
     engine.police_place_barrier((2, 4))

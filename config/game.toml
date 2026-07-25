@@ -101,8 +101,9 @@ cloudflared_exe = 'C:\Program Files (x86)\cloudflared\cloudflared.exe'
 thief_class = "p2p_thief.strategy.endgame:CertifiedThiefBrain"
 
 [strategy.doctrine]             # anti-freeze doctrine (keep-gates: results/experiments/thief_counter.json)
-fresh_flee = true               # live rival trail (reach<=1) lifts the flee cap
+fresh_flee = true               # live rival trail (reach<=1) NEAR US widens the flee cap
 fresh_reach_max = 1
+fresh_alert_radius = 4          # live readings farther than this from us do not arm flight
 stay_cap = true                 # hard-cap consecutive STAYs while the mirror says we glow
 max_consecutive_stays = 2
 stay_exposure_threshold = 0.35

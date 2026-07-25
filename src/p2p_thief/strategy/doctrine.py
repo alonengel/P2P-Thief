@@ -1,20 +1,15 @@
 """Anti-freeze doctrine over the stealth brain (config: [strategy.doctrine]).
 
-Our own replayed losses exposed a belief-play death mode: with the flee term
-capped at safe_distance every distant landing ties, stealth settles the tie
-on STAY, the camp saturates our own trail into a max-intensity beacon, and a
-patient hunter walls the pocket shut. Three config-gated counter-measures
-(keep-gates measured in results/experiments/thief_counter.json):
+Our own replayed losses exposed a belief-play death mode: the capped flee
+term ties, stealth settles ties on STAY, the camp saturates our own trail
+into a beacon, and a patient hunter walls the pocket shut. Config-gated
+counter-measures (keep-gates: results/experiments/thief_counter.json):
 
-1. fresh_flee — a LIVE rival trail (reach-decoded age 0/1) lifts the flee
-   cap: when the hunter is provably close, real distance outranks stealth.
-2. stay_cap — consecutive STAYs are hard-capped while the self-mirror says
-   we glow: camping re-pins our own beacon, so exposure + stillness = move.
-3. pocket_escape — a NEW rival wall landing near us arms cross-quadrant
-   flight for the next turns: seals take several placements; movement wins.
-4. forecast — the parent's one-ply worst-wall probe, previously exact-info
-   only, runs in belief play as a MIN over the TOP-K belief support cells
-   (never the lone argmax, which a split posterior can aim wrong).
+1. fresh_flee — a live rival trail (reach 0/1) NEAR US widens the flee cap.
+2. stay_cap — consecutive STAYs capped while the self-mirror says we glow.
+3. pocket_escape — a new wall near us arms dominant cross-quadrant flight.
+4. forecast — the one-ply worst-wall probe as a MIN over the top-k belief
+   support cells (never the lone argmax a split posterior can aim wrong).
 """
 
 import random
@@ -28,10 +23,10 @@ from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 WORST = -(10 ** 9)
 FAR = 10 ** 6
-KNIFE_RANGE = 2  # inside this believed distance, distance rules absolutely
 DEFAULTS: dict = {
-    "fresh_flee": True,        # lift the flee cap on live evidence
+    "fresh_flee": True,        # lift the flee cap on live evidence NEAR US
     "fresh_reach_max": 1,      # 'live' = a reading decoding to reach <= 1
+    "fresh_alert_radius": 4,   # ...and the reading lies this close to us
     "stay_cap": True,          # hard-cap consecutive STAYs when exposed
     "max_consecutive_stays": 2,
     "stay_exposure_threshold": 0.35,  # mirror mass near us that arms the cap
@@ -58,12 +53,16 @@ def doctrine_settings(private: dict | None = None) -> dict:
     return merged
 
 
-def fresh_evidence(scent, fresh_reach_max: int) -> bool:
-    """Does the rival's transmitted trail carry a live (reach<=max) reading?"""
+def fresh_evidence(scent, fresh_reach_max: int, near, radius: int) -> bool:
+    """Does the rival's trail carry a live (reach<=max) reading close to
+    `near`? The rival's OWN vicinity always reads fresh — only freshness
+    NEAR US proves the hunter is provably close and arms real flight."""
+    values = scent.values()
     return any(
-        (reach := decoded_reach(value)) is not None and reach <= fresh_reach_max
-        for row in scent.values()
-        for value in row
+        (reach := decoded_reach(values[row][col])) is not None and reach <= fresh_reach_max
+        for row in range(len(values))
+        for col in range(len(values[row]))
+        if abs(row - near[0]) + abs(col - near[1]) <= radius
     )
 
 
@@ -129,7 +128,8 @@ class DoctrineThiefBrain(StealthThiefBrain):
                 self._sync_mirror(engine)  # exposure needed even if stealth off
             self._observe_threats(engine)
             self._fresh = self.doctrine["fresh_flee"] and fresh_evidence(
-                engine.scent[self.role.rival], self.doctrine["fresh_reach_max"])
+                engine.scent[self.role.rival], self.doctrine["fresh_reach_max"],
+                engine.positions[self.role], self.doctrine["fresh_alert_radius"])
             self._ban_stay = self._stay_banned(engine)
             self._support = (top_support(belief, self.doctrine["forecast_top_k"])
                              if self.doctrine["forecast"] else [])
@@ -157,13 +157,16 @@ class DoctrineThiefBrain(StealthThiefBrain):
         if not (self._fresh or self._ban_stay or escaping or self._support):
             return base  # doctrine inert this turn: exactly the parent brain
         if self._ban_stay and cell == engine.positions[self.role]:
-            return (WORST,) * 6
+            return (WORST,) * 5
         if self._fresh:
             distance = distances.get(cell, UNREACHABLE)
-            flee = FAR if distance == UNREACHABLE else distance
+            distance = FAR if distance == UNREACHABLE else distance
+            flee = min(distance, 2 * self.safe_distance)  # real flight range
         escape = -self._escape_dist.get(cell, FAR) if escaping else 0
         escapes, region = self._forecast(engine, cell)
-        # Knife range first (distance is absolute there), then the wall
-        # forecast (a doomed landing loses regardless of distance), then the
-        # armed escape steer, then the (possibly uncapped) flee, then ties.
-        return (min(flee, KNIFE_RANGE), escapes, region, escape, flee, tie)
+        # Armed escape DOMINATES (a forming seal makes distance-to-the-
+        # believed-hunter the wrong metric — the far corner is the trap);
+        # then the flee term (widened, still bounded, when the hunter is
+        # provably near), then the wall forecast as the safety tie-break
+        # among equally-safe landings, then the stealth ties.
+        return (escape, flee, escapes, region, tie)
