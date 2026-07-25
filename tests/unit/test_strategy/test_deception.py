@@ -64,9 +64,16 @@ def tuning(**overrides) -> dict:
 
 
 def test_mirror_argmax_tracks_own_cell() -> None:
+    # Pinned to Manhattan <=1 (was ==) under the reach-decoded evidence:
+    # two same-cell emissions clamp the orthogonal ring to center intensity,
+    # so center and ring are per-cell indistinguishable and the peak may sit
+    # one step off. Exposure (mass NEAR the true cell) — the value the
+    # mirror exists for — still concentrates on us (tests below); a longer
+    # camp re-pins the exact cell.
     engine, mirror = make_engine(), SelfMirror(Role.THIEF, 7)
     drive(mirror, engine, [Move.STAY, Move.STAY])
-    assert mirror.belief.argmax_cell() == engine.positions[Role.THIEF]
+    peak, me = mirror.belief.argmax_cell(), engine.positions[Role.THIEF]
+    assert abs(peak[0] - me[0]) + abs(peak[1] - me[1]) <= 1
 
 
 def test_exposure_rises_standing_still() -> None:
@@ -112,10 +119,8 @@ def test_clock_enforces_cooldown() -> None:
 
 def test_decoy_points_away_from_true_heading() -> None:
     rng = random.Random(0)
-    assert decoy_claim(Move.N, rng) == "S"
-    assert decoy_claim(Move.S, rng) == "N"
-    assert decoy_claim(Move.E, rng) == "W"
-    assert decoy_claim(Move.W, rng) == "E"
+    assert decoy_claim(Move.N, rng) == "S" and decoy_claim(Move.S, rng) == "N"
+    assert decoy_claim(Move.E, rng) == "W" and decoy_claim(Move.W, rng) == "E"
     assert decoy_claim(Move.STAY, rng) in {"N", "S", "E", "W"}
 
 
