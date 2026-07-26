@@ -119,8 +119,8 @@ def test_reordered_pair_is_buffered_not_fatal() -> None:
 def test_flooded_pending_buffer_is_the_true_desync() -> None:
     """Unbounded buffering would let a chatty rival stall us forever - the
     cap converts a flood into a clean protocol violation."""
-    junk = [{"kind": "commit", "turn": 90 + n, "actor": "police"} for n in range(9)]
-    bob = SealedExchange(Role.THIEF, 1, junk.append, lambda what: junk.pop(0))
+    junk = [{"kind": "commit", "turn": 90 + n, "actor": "thief"} for n in range(9)]
+    bob = SealedExchange(Role.POLICE, 1, junk.append, lambda what: junk.pop(0))
     with pytest.raises(GameRuleError, match="flooded"):
         bob.receive_sealed(1)
 
@@ -143,6 +143,8 @@ def test_junk_deliveries_do_not_reset_the_deadline() -> None:
     bob.receive_sealed(1)
     # the first copy serves as the commit; its twin is skipped inside the
     # REVEAL expectation - which must keep ONE clock across the skip
+    assert seen[1] is not None and seen[1] is seen[2]
+    assert seen[0] is not seen[1]  # each expectation gets a fresh deadline
     assert seen[1] is not None and seen[1] is seen[2]
     assert seen[0] is not seen[1]  # each expectation gets a fresh deadline
 
