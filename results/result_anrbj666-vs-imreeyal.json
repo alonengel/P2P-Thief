@@ -1,0 +1,35 @@
+{
+  "_schema": "p2p-police-artifacts",
+  "agreement": {
+    "config_sha256": "3d38cde31370cff4b18bb6384499454c4c43cdaae52bbef5acfc601bf2b73dce",
+    "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9"
+  },
+  "audit": "Verified OK",
+  "consensus_signature": "9e49e4483761dac295432f56fdc484a3f689f67832fd4cd0fc67fffe597a2f68",
+  "digest_match": null,
+  "end_state_digest": "25c28c98cd4f413e3d5a247f369b6a9ee9c4f9af451efa962ab6e0c157cdcc3a",
+  "game_id": "anrbj666-vs-imreeyal",
+  "game_uid": "2f0c25a9-5008-03c7-2d60-645dd51be11a",
+  "github_commit": "b1b666dd023374bf80e1019cef1e431a699dc845",
+  "group_id": "anrbj666",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "mcp_servers": {
+    "cop": "https://cop-mcp.alon.website/mcp",
+    "thief": "https://thief-mcp.alon.website/mcp"
+  },
+  "opponent_group_id": "imreeyal",
+  "outcome": "capture",
+  "report_type": "result",
+  "reported_at": "2026-07-25T20:32:59+00:00",
+  "schema_version": "1.00",
+  "score": {
+    "cop": 20,
+    "thief": 5
+  },
+  "tokens_total": 0,
+  "turns_completed": 11,
+  "winner_group": "imreeyal"
+}
