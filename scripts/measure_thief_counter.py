@@ -22,6 +22,7 @@ from p2p_thief.domain import protocol
 from p2p_thief.domain.belief import BeliefMap
 from p2p_thief.domain.engine import GameEngine
 from p2p_thief.domain.primitives import Outcome, Role
+from p2p_thief.peer.perception import Perception
 from p2p_thief.shared.config import Config
 from p2p_thief.strategy.arena_aged_cop import AgedBeliefTrapCop
 from p2p_thief.strategy.arena_cop import DeepTrapCop, TrapCop
@@ -55,19 +56,19 @@ def play(seed: int, config: Config, arm: str, cop_name: str) -> dict:
                         config.rule_set())
     cop = COPS[cop_name](Role.POLICE, random.Random(seed))
     thief = build_thief(arm, seed)
-    belief = BeliefMap(config.grid_size)      # the thief's picture of the cop
+    # The thief observes through the SHIPPED pipeline, so every keep-gate here
+    # is measured on the belief the live peer actually decides from.
+    perception = Perception(Role.THIEF, config.grid_size)
     cop_belief = BeliefMap(config.grid_size)  # a blind cop's picture of us
     while engine.outcome is Outcome.ONGOING:
         view = cop_belief if cop_name in BLIND_COPS else None
         action = cop.decide(engine, view)
+        wall = tuple(action["cell"]) if action["type"] == "barrier" else None
         protocol.apply_action(engine, Role.POLICE, action)
         if engine.outcome is not Outcome.ONGOING:
             break
-        belief.diffuse(engine.board)  # the thief's perception order
-        if action["type"] == "barrier":
-            belief.observe_barrier(tuple(action["cell"]), engine.board)
-        belief.observe_scent(engine.scent[Role.POLICE], engine.board)
-        protocol.apply_action(engine, Role.THIEF, thief.decide(engine, belief))
+        perception.observe(engine, Role.POLICE, None, barrier_cell=wall)
+        protocol.apply_action(engine, Role.THIEF, thief.decide(engine, perception.belief))
         cop_belief.diffuse(engine.board)
         cop_belief.observe_scent(engine.scent[Role.THIEF], engine.board)
     return {"survived": engine.outcome is Outcome.SURVIVAL,
