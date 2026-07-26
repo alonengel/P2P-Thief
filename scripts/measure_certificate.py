@@ -50,7 +50,7 @@ def play(seed: int, config: Config, arm: str, cop_name: str) -> dict:
                         config.rule_set())
     cop = COPS[cop_name](Role.POLICE, random.Random(seed))
     thief = build_thief(arm, seed)
-    perception = Perception(Role.THIEF, config.grid_size)  # shipped pipeline
+    perception = Perception.for_peer(Role.THIEF, config)  # shipped pipeline
     cop_belief = BeliefMap(config.grid_size)  # a blind cop's picture of us
     while engine.outcome is Outcome.ONGOING:
         view = cop_belief if cop_name in BLIND_COPS else None

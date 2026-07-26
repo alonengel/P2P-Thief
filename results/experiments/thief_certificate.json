@@ -29,7 +29,7 @@
       "games": 90,
       "survival_rate": 0.611,
       "mean_turns_survived": 26.48,
-      "certified_turns": 120,
+      "certified_turns": 102,
       "per_cop": {
         "blind_pursuit": {
           "games": 30,

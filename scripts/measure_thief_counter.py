@@ -58,7 +58,7 @@ def play(seed: int, config: Config, arm: str, cop_name: str) -> dict:
     thief = build_thief(arm, seed)
     # The thief observes through the SHIPPED pipeline, so every keep-gate here
     # is measured on the belief the live peer actually decides from.
-    perception = Perception(Role.THIEF, config.grid_size)
+    perception = Perception.for_peer(Role.THIEF, config)
     cop_belief = BeliefMap(config.grid_size)  # a blind cop's picture of us
     while engine.outcome is Outcome.ONGOING:
         view = cop_belief if cop_name in BLIND_COPS else None

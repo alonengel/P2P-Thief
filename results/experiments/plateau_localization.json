@@ -1,0 +1,40 @@
+{
+  "description": "dwell-plateau fit-gate sweep vs the posterior argmax, blind thief, shipped Perception pipeline",
+  "games_per_cop": 15,
+  "shipped_fit_threshold": 0.9,
+  "turns": 1167,
+  "argmax_exact_rate": 0.1508,
+  "argmax_mean_error": 2.132,
+  "by_fit_threshold": {
+    "0.5": {
+      "fire_rate": 0.5416,
+      "exact_when_fired": 0.3259,
+      "mean_error_when_fired": 1.369
+    },
+    "0.6": {
+      "fire_rate": 0.4456,
+      "exact_when_fired": 0.3712,
+      "mean_error_when_fired": 1.242
+    },
+    "0.7": {
+      "fire_rate": 0.3633,
+      "exact_when_fired": 0.4104,
+      "mean_error_when_fired": 1.153
+    },
+    "0.8": {
+      "fire_rate": 0.2888,
+      "exact_when_fired": 0.4392,
+      "mean_error_when_fired": 1.045
+    },
+    "0.9": {
+      "fire_rate": 0.1919,
+      "exact_when_fired": 0.6205,
+      "mean_error_when_fired": 0.545
+    },
+    "0.95": {
+      "fire_rate": 0.084,
+      "exact_when_fired": 0.5816,
+      "mean_error_when_fired": 0.439
+    }
+  }
+}
