@@ -75,3 +75,38 @@ Both pin the CAPABILITY (all knobs explicitly ON), so they stay valid
 whatever the config defaults say.
 
 **Regenerate.** `uv run python scripts/measure_thief_counter.py 60`
+
+## Third juncture: the herded-corner walk-in (2026-07-26)
+
+Replaying our shipped thief against a wall-capable hunter over 150 closed-loop
+games left survival at 0.900 — with **zero active captures**. All 15 losses
+were the same line, at the same turn:
+
+1. the hunter herds us into a corner and walls the exits behind us
+   (placements at t6, t9, t12, t15 — a disciplined move-move-wall cadence);
+2. our posterior is misled *away* from the hunter (its own freshest emission
+   is one cell from us, but the argmax sits 3+ cells off);
+3. `fresh_flee` correctly widens the flee cap, and the widened flee term then
+   ranks the hunter's OWN cell as the farthest landing inside the sealed
+   pocket — because inside a seal, distance-from-the-believed-hunter is
+   measured the long way round;
+4. we walk into it. Turn 16, every time.
+
+The forecast term already knew: `_after_best_wall` returns `(0, 0)` for that
+landing (the hunter occupies or walls it). It was simply outranked — the
+forecast sat *below* flee in the score tuple, as a tie-break among
+equally-safe landings.
+
+**`lethal_gate`** promotes it to a gate: a landing that ANY support cell can
+end next turn ranks below every landing none of them can, however much
+farther the doomed one looks. It is an ordering term, not a ban — when every
+candidate is covered it ties out and the doctrine below decides exactly as
+before (pinned by `test_lethal_gate_is_inert_when_every_landing_is_covered`).
+
+| arm | survival | captures |
+|---|---|---|
+| before | 0.900 | 15 walk-ins, all at t16 |
+| `lethal_gate` on | **1.000** | none |
+
+150 games, zero losses of any kind. The kill line is pinned as a permanent
+regression (`test_doctrine_junctures.py::test_lethal_gate_refuses_the_herded_corner_walk_in`).
