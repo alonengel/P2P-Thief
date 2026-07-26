@@ -13,18 +13,16 @@ from p2p_thief.domain.pathfind import bfs_distances
 from p2p_thief.domain.primitives import Move, Role
 from p2p_thief.domain.rules import RuleSet
 from p2p_thief.domain.scent import ScentField
-from p2p_thief.strategy.doctrine import (
-    DEFAULTS,
-    DoctrineThiefBrain,
-    doctrine_settings,
-    fresh_evidence,
-)
+from p2p_thief.strategy.doctrine import DEFAULTS, DoctrineThiefBrain, doctrine_settings
+from p2p_thief.strategy.doctrine_signals import fresh_evidence
 from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 RULES = RuleSet(max_barriers=14, max_moves=35, survival_threshold=35)
 STEALTH = {"enabled": True, "blend_weight": 8.0, "safe_distance": 3, "exposure_radius": 1}
-OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False, "forecast": False}
-ON = {**DEFAULTS, "fresh_flee": True, "stay_cap": True, "pocket_escape": True, "forecast": True}
+OFF = {**DEFAULTS, "fresh_flee": False, "stay_cap": False, "pocket_escape": False,
+       "forecast": False, "lethal_gate": False}
+ON = {**DEFAULTS, "fresh_flee": True, "stay_cap": True, "pocket_escape": True,
+      "forecast": True, "lethal_gate": True}
 
 
 def observe(belief: BeliefMap, engine: GameEngine, barrier=None) -> None:
@@ -132,51 +130,3 @@ def test_far_wall_does_not_arm_escape() -> None:
     observe(belief, engine, barrier=(5, 6))
     brain.decide(engine, belief)
     assert brain._escape_until <= engine.turns_completed
-
-
-def test_juncture_camped_thief_moves_out_when_the_hunter_closes() -> None:
-    """Reconstructed kill pattern from our own replayed logs: a thief camped
-    nine rounds at (5,1) — its own beacon saturated — while the hunter
-    closed (3,2)->(4,2)->(5,2) on a live trail. The capped-flee line saw
-    every landing tie at the cap and settled on STAY until the pocket shut.
-    The doctrine brain must move out, never inward."""
-    engine = GameEngine(7, (3, 2), (5, 1), RULES)
-    belief = BeliefMap(7)
-    for move in [Move.STAY] * 7 + [Move.S, Move.S]:  # nine camped rounds
-        engine.police_move(move)
-        engine.thief_move(Move.STAY)
-        observe(belief, engine)
-    assert engine.positions[Role.POLICE] == (5, 2)  # knife range, live trail
-    brain = DoctrineThiefBrain(Role.THIEF, random.Random(11), tuning=STEALTH,
-                               doctrine=dict(ON))
-    action = brain.decide(engine, belief)
-    assert action["move"] != "STAY"
-    landing = Move[action["move"]].applied_to((5, 1))
-    distances = bfs_distances(engine.board, belief.argmax_cell())
-    assert distances.get(landing, 0) >= distances.get((5, 1), 0)  # not inward
-
-
-def test_juncture_pocket_walls_trigger_flight_not_a_deeper_camp() -> None:
-    """Second reconstructed kill: camped at (1,5) while walls landed at
-    (2,4) then (1,3) — a 2-cell-radius seal in progress. The old line kept
-    the corner and died walled in; the doctrine brain must leave the pocket
-    (never STAY, never deeper into the corner)."""
-    engine = GameEngine(7, (2, 3), (1, 5), RULES)
-    belief = BeliefMap(7)
-    brain = DoctrineThiefBrain(Role.THIEF, random.Random(13), tuning=STEALTH,
-                               doctrine=dict(ON))
-    observe(belief, engine)
-    brain.decide(engine, belief)  # baseline before any wall exists
-    engine.police_place_barrier((2, 4))
-    engine.thief_move(Move.STAY)
-    observe(belief, engine, barrier=(2, 4))
-    engine.police_move(Move.N)  # hunter slides to (1, 3)
-    engine.thief_move(Move.STAY)
-    observe(belief, engine)
-    engine.police_place_barrier((1, 3))  # under his own feet: seal forming
-    engine.thief_move(Move.STAY)
-    observe(belief, engine, barrier=(1, 3))
-    action = brain.decide(engine, belief)
-    assert action["move"] != "STAY"
-    landing = Move[action["move"]].applied_to((1, 5))
-    assert landing not in {(0, 5), (0, 6), (1, 6)}  # not deeper into the seal

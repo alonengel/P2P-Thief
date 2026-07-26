@@ -10,15 +10,19 @@ counter-measures (keep-gates: results/experiments/thief_counter.json):
 3. pocket_escape — a new wall near us arms dominant cross-quadrant flight.
 4. forecast — the one-ply worst-wall probe as a MIN over the top-k belief
    support cells (never the lone argmax a split posterior can aim wrong).
+5. lethal_gate — a landing ANY support cell can end next turn (occupy it or
+   wall it) ranks below every landing none of them can. A widened flee term
+   otherwise reads the hunter's own cell as the farthest point of a sealed
+   pocket and walks into it; distance must never outrank staying alive.
 """
 
 import random
 import tomllib
 from pathlib import Path
 
-from p2p_thief.domain.evidence import decoded_reach
 from p2p_thief.domain.pathfind import UNREACHABLE, bfs_distances
 from p2p_thief.domain.primitives import Move, Role
+from p2p_thief.strategy.doctrine_signals import fresh_evidence, top_support
 from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
 WORST = -(10 ** 9)
@@ -39,6 +43,7 @@ DEFAULTS: dict = {
     "escape_turns": 3,
     "forecast": True,          # one-ply worst-wall probe over the support
     "forecast_top_k": 3,       # belief support size the MIN runs over
+    "lethal_gate": True,       # an end-able landing loses to any safe landing
 }
 
 
@@ -54,32 +59,6 @@ def doctrine_settings(private: dict | None = None) -> dict:
         if key in block:
             merged[key] = type(default)(block[key])
     return merged
-
-
-def fresh_evidence(scent, fresh_reach_max: int, near, radius: int) -> bool:
-    """Does the rival's trail carry a live (reach<=max) reading close to
-    `near`? The rival's OWN vicinity always reads fresh — only freshness
-    NEAR US proves the hunter is provably close and arms real flight."""
-    values = scent.values()
-    return any(
-        (reach := decoded_reach(values[row][col])) is not None and reach <= fresh_reach_max
-        for row in range(len(values))
-        for col in range(len(values[row]))
-        if abs(row - near[0]) + abs(col - near[1]) <= radius
-    )
-
-
-def top_support(belief, k: int) -> list:
-    """The k highest-mass belief cells, mass-then-cell ordered (mass only
-    RANKS the support; the forecast MIN below is deliberately unweighted —
-    a kill line through any plausible cell disqualifies the landing)."""
-    values = belief.values()  # snapshot read: works for any belief-shaped view
-    cells = sorted(
-        (((row, col), mass) for row, masses in enumerate(values)
-         for col, mass in enumerate(masses)),
-        key=lambda item: (-item[1], item[0]),
-    )
-    return [cell for cell, mass in cells[:k] if mass > 0.0]
 
 
 class DoctrineThiefBrain(StealthThiefBrain):
@@ -160,16 +139,21 @@ class DoctrineThiefBrain(StealthThiefBrain):
         if not (self._fresh or self._ban_stay or escaping or self._support):
             return base  # doctrine inert this turn: exactly the parent brain
         if self._ban_stay and cell == engine.positions[self.role]:
-            return (WORST,) * 5
+            return (WORST,) * 6
         if self._fresh:
             distance = distances.get(cell, UNREACHABLE)
             distance = FAR if distance == UNREACHABLE else distance
             flee = min(distance, 2 * self.safe_distance)  # real flight range
         escape = -self._escape_dist.get(cell, FAR) if escaping else 0
         escapes, region = self._forecast(engine, cell)
+        # A (0, 0) forecast means some believed hunter ENDS us on this landing
+        # next turn — it occupies the cell or walls it (rules 46/47). That is
+        # not a tie-break, it is disqualifying: rank it under every landing no
+        # support cell can reach, however much closer that landing looks.
+        gated = self.doctrine["lethal_gate"] and (escapes, region) == (0, 0)
         # Armed escape DOMINATES (a forming seal makes distance-to-the-
         # believed-hunter the wrong metric — the far corner is the trap);
-        # then the flee term (widened, still bounded, when the hunter is
-        # provably near), then the wall forecast as the safety tie-break
-        # among equally-safe landings, then the stealth ties.
-        return (escape, flee, escapes, region, tie)
+        # then survivability; then the flee term (widened, still bounded,
+        # when the hunter is provably near), then the wall forecast as the
+        # tie-break among equally-safe landings, then the stealth ties.
+        return (escape, 0 if gated else 1, flee, escapes, region, tie)
