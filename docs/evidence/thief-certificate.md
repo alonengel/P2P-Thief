@@ -61,3 +61,37 @@ structural under the current belief pipeline, not a bug.
   pipeline ever sharpens.
 
 Re-run: `uv run python scripts/measure_certificate.py 30`
+
+## The gate re-opened (2026-07-26)
+
+Two corrections, in order.
+
+**The harness was measuring the wrong belief.** `measure_certificate.py` built
+its own `BeliefMap` and called `diffuse` + `observe_scent` directly, bypassing
+`Perception` - so the belief being scored was not the belief the live peer
+decides on. It now observes through `Perception`. The arms were also unequal:
+`shipped` ran a bare `ThiefBrain` while `certificate` ran the wrapper over the
+doctrine brain, so the old delta conflated two changes. Both arms now use the
+shipped class and differ only in the gate.
+
+**The original verdict was about the belief, not the certificate.** It failed
+because the cop-belief never sharpened to a provable support inside the
+final-turns window (0 certificates / 180 games). With the dwell-plateau pin
+(PRD 10) the support sharpens and the proof fires **120 times / 90 games**.
+
+| arm | pool survival | blind pursuit | trap | deep trap | certificates |
+|---|---|---|---|---|---|
+| certificate OFF | 0.611 | 1.00 | 0.83 | 0.00 | 0 |
+| certificate ON | 0.611 | 1.00 | 0.83 | 0.00 | 120 |
+
+**Survival is unchanged, and that is stated rather than dressed up.** The
+doctrine brain was already choosing survivable lines on those turns. The gate
+is nonetheless flipped ON (`[strategy.endgame] enabled = true`) for what the
+measurement cannot show: on the turns it fires, survival is *proven* against
+worst-case play - every cop move AND every legal barrier, from every cell
+carrying belief mass - instead of merely coinciding with a heuristic. Our arena
+pool is three cops we wrote ourselves; the hunter that decides the league is
+not in it, and a proof is the only part of the stack that does not care.
+
+Cost is bounded by construction: `node_cap` 20000 and `time_cap_ms` 150.0, and
+a cap hit defers to the brain rather than risking the turn deadline.

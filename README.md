@@ -258,6 +258,30 @@ the inventory at the end of this section):
    cop) — so belief-mode play stays conservative: an information-aware
    strategy, not a blanket one.
 
+6. **Dwell-plateau localization** (`domain/evidence.py`, PRD 10): the book's
+   own update rule drives a re-emitted cell to `delta / rho`, so 21 of the 25
+   kernel offsets saturate at the clamp and 4 never do — an agent that stands
+   still stamps its own kernel window on the board. Per-cell reach-decoding
+   cannot read it (every saturated cell decodes reach 0, so the likelihood ties
+   flat and the peak drifts); fitting the *shape* back inverts it to the
+   emitter's own cell, taking localization from **7% exact / 2.42 cells** to
+   **89% exact / 0.11 cells**. It abstains unless the shape is unambiguous.
+7. **`lethal_gate`** (`strategy/doctrine.py`): a landing that *any* believed
+   hunter can end next turn — occupy it, or wall it under the law of barriers
+   — ranks below every landing none of them can, however much farther the
+   doomed one looks. This closed the one line that was still killing us: herded
+   into a corner with the exits walled, the widened flee term ranked the
+   hunter's *own cell* as the farthest landing, because inside a seal distance
+   is measured the long way round. Survival **0.900 → 1.000** over 150 games.
+
+**The mirror obligation.** PRD 10 cuts both ways: the decode we run on a rival
+runs on us, and our own trail saturates identically. That is why
+`[strategy.doctrine] stay_cap` stays enabled although its keep-gate measures
+*neutral* — we hold a proof that camping is readable, so a neutral knob today
+is cheap insurance against an opponent who implements the same decode
+tomorrow. Symmetric analysis of one's own observability is the most
+transferable idea in this project: **camping is self-reporting.**
+
 Measured: evasion survives a random cop ≥20/25 (blind: ≥15/25) and, in the
 blind cross-repo match, ran the full 35-turn clock against the pursuit twin
 that had captured it in 13 turns under full information — **uncertainty is the
