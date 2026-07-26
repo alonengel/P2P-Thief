@@ -24,10 +24,18 @@ from p2p_thief.strategy.doctrine import DoctrineThiefBrain
 ORTHOGONAL = (Move.N, Move.S, Move.E, Move.W)
 _MOVE_RANK = {move.name: rank for rank, move in enumerate((*ORTHOGONAL, Move.STAY))}
 DEFAULTS: dict = {
-    "enabled": False,              # keep-gate FAILED: 0 certificates in 180 games -
-    #                                the scent-floor cop-belief never sharpens inside
-    #                                the last-5-turns window (honest negative result,
-    #                                docs/evidence/thief-certificate.md)
+    "enabled": True,               # keep-gate RE-OPENED 2026-07-26. It failed while
+    #                                the scent-floor cop-belief never sharpened inside
+    #                                the last-turns window (0 certificates / 180 games);
+    #                                the dwell-plateau pin sharpened it and the proof
+    #                                now fires 120 times / 90 games. Survival is
+    #                                UNCHANGED (0.611 both arms) - the doctrine was
+    #                                already choosing survivable lines - so this is
+    #                                enabled for what it adds beyond the measurement:
+    #                                on the turns it fires, survival is PROVEN against
+    #                                worst-case play rather than coincidental, which
+    #                                is the margin that matters against a hunter no
+    #                                arena in this repo has ever modelled.
     "max_support_cells": 3,        # run only when the cop-belief support is sharp
     "support_mass_threshold": 0.05,  # cells at/above this mass form the support
     "max_horizon_turns": 5,        # certify only when it covers ALL turns left

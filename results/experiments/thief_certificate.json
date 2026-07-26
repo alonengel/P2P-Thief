@@ -1,11 +1,11 @@
 {
-  "description": "blind thief survival with/without the certificate, same seeds, 2-cop full-information pool",
+  "description": "blind thief survival with/without the certificate, same seeds, 3-cop pool, shipped Perception pipeline",
   "games_per_cop_per_arm": 30,
   "arms": {
     "shipped": {
       "games": 90,
-      "survival_rate": 0.333,
-      "mean_turns_survived": 20.84,
+      "survival_rate": 0.611,
+      "mean_turns_survived": 26.48,
       "certified_turns": 0,
       "per_cop": {
         "blind_pursuit": {
@@ -15,21 +15,21 @@
         },
         "trap": {
           "games": 30,
-          "survival_rate": 0.0,
-          "mean_turns_survived": 14.0
+          "survival_rate": 0.833,
+          "mean_turns_survived": 32.17
         },
         "deep_trap": {
           "games": 30,
           "survival_rate": 0.0,
-          "mean_turns_survived": 13.53
+          "mean_turns_survived": 12.27
         }
       }
     },
     "certificate": {
       "games": 90,
-      "survival_rate": 0.333,
-      "mean_turns_survived": 20.84,
-      "certified_turns": 0,
+      "survival_rate": 0.611,
+      "mean_turns_survived": 26.48,
+      "certified_turns": 120,
       "per_cop": {
         "blind_pursuit": {
           "games": 30,
@@ -38,13 +38,13 @@
         },
         "trap": {
           "games": 30,
-          "survival_rate": 0.0,
-          "mean_turns_survived": 14.0
+          "survival_rate": 0.833,
+          "mean_turns_survived": 32.17
         },
         "deep_trap": {
           "games": 30,
           "survival_rate": 0.0,
-          "mean_turns_survived": 13.53
+          "mean_turns_survived": 12.27
         }
       }
     }

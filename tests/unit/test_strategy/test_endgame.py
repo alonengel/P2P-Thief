@@ -53,7 +53,7 @@ def coffin_engine() -> GameEngine:
 
 
 def test_settings_defaults_and_merge() -> None:
-    assert DEFAULTS["enabled"] is False  # measured keep-gate verdict
+    assert DEFAULTS["enabled"] is True  # measured keep-gate verdict (re-opened)
     assert certificate_settings({}) == DEFAULTS
     table = certificate_settings({"strategy": {"endgame": {"node_cap": 9.0, "junk": 1}}})
     assert table["node_cap"] == 9 and isinstance(table["node_cap"], int)

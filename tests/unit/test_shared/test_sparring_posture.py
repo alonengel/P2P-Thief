@@ -11,7 +11,6 @@ from p2p_thief.domain.primitives import Role
 from p2p_thief.shared.config import Config, ConfigError
 from p2p_thief.shared.interlock import assert_sparring_posture
 from p2p_thief.strategy.brain_base import resolve_brain
-from p2p_thief.strategy.endgame import certificate_settings
 from p2p_thief.strategy.thief_brain import ThiefBrain
 from p2p_thief.wire import lock
 
@@ -26,7 +25,7 @@ def test_sparring_runs_the_shipped_baseline_brain_only() -> None:
     config = load_sparring()
     assert "strategy" not in config.private  # no class override, no tuned weights
     brain = resolve_brain(config, Role.THIEF, random.Random(0))
-    # exactly the shipped baseline: no certificate wrapper, no stealth subclass
+    # the plain baseline brain: sparring layers on no wrapper of any kind
     assert type(brain) is ThiefBrain
 
 
@@ -35,7 +34,10 @@ def test_sparring_disarms_deception_and_tuned_terms() -> None:
     tuning = config.deception()
     assert tuning["max_lies"] == 0  # zero lie budget: every hint truthful
     assert tuning["movement"]["enabled"] is False  # stealth movement term off
-    assert certificate_settings(config.private)["enabled"] is False
+    # The invariant is that sparring carries no OVERRIDES: no [strategy] table,
+    # so no wrapper is ever built and the certificate cannot run whatever the
+    # shipped default says (pinned by the brain-type assertion above).
+    assert "endgame" not in config.private.get("strategy", {})
 
 
 def test_sparring_emails_nothing() -> None:

@@ -120,9 +120,11 @@ lethal_gate = true              # a landing ANY support cell can END next turn (
                                 # doomed one looks -- the herded-corner walk-in gate
 
 [strategy.endgame]              # survival certificate (worst-case escape proof; keep-gate: docs/evidence/thief-certificate.md)
-enabled = false                 # keep-gate FAILED: 0 certificates fired in 180 games -- the scent-floor
-                                # cop-belief never sharpens inside the final-turns window (honest negative
-                                # result; the wrapper with enabled=false plays EXACTLY the shipped brain)
+enabled = true                  # keep-gate RE-OPENED: it failed only because the cop-belief never
+                                # sharpened inside the final-turns window (0 certificates / 180 games).
+                                # The dwell-plateau pin sharpened it: 120 certificates / 90 games.
+                                # Survival is UNCHANGED (0.611 both arms) -- kept ON because a proven
+                                # escape beats a heuristic that merely agrees, against unknown hunters.
 max_support_cells = 3           # run only when the cop-belief support is this sharp
 support_mass_threshold = 0.05   # cells at/above this belief mass form the support
 max_horizon_turns = 5           # certify only when it covers ALL remaining turns
