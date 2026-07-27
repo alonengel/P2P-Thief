@@ -5,12 +5,12 @@
     "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9"
   },
   "audit": "Verified OK",
-  "consensus_signature": "7ff4306d378b79d99596722b71c9d0fc71ed513f4f5d4b27acd0f6bf27530de8",
+  "consensus_signature": "b8e7e9318ef7e6aeff8248db4e6804d934533258fde03669a3c04d6baf508635",
   "digest_match": true,
   "end_state_digest": "bd3e972a68c9b97e325e663bd868bb8eb5ee40da73431f7816006ba151370619",
   "game_id": "anrbj666-vs-anrbj666",
   "game_uid": "23020791-2460-8b05-1491-75c4e2f2551b",
-  "github_commit": "250a04ef659c0ecc9cce160d34e857deb006783c",
+  "github_commit": "6a695e2c0a02a1e2be15912bf606800569c79195",
   "group_id": "anrbj666",
   "links": {
     "cop": "https://github.com/alonengel/P2P-Police",
@@ -23,7 +23,7 @@
   "opponent_group_id": "anrbj666",
   "outcome": "capture",
   "report_type": "result",
-  "reported_at": "2026-07-27T07:46:02+00:00",
+  "reported_at": "2026-07-27T08:47:41+00:00",
   "schema_version": "1.00",
   "score": {
     "cop": 20,
