@@ -116,6 +116,13 @@ class Config:
         except InfoModeError as error:
             raise ConfigError(str(error)) from error
 
+    def opponent_group_id(self) -> str | None:
+        """[game] opponent_group_id: the peer EXPECTED this session, or None."""
+        # Set, it lets us derive the shared game_uid before the handshake and
+        # DECLARE it, so a peer deriving it from a different input is refused
+        # at negotiate instead of diverging silently for a whole series.
+        return str(self.private.get("game", {}).get("opponent_group_id") or "") or None
+
     def deception(self) -> dict:
         """[deception] self-mirror lie policy (defaults: shared/tuning.py)."""
         return tuning.deception_table(self.private)
