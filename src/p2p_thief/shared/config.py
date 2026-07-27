@@ -15,6 +15,8 @@ from pathlib import Path
 from p2p_thief.domain.negotiation import validate_shared_terms
 from p2p_thief.domain.rules import RuleSet
 from p2p_thief.domain.scoring import ScoreTable
+from p2p_thief.shared import tuning
+from p2p_thief.shared.info_modes import InfoModeError, resolve
 from p2p_thief.shared.version import is_supported_config
 
 REQUIRED_SHARED_SECTIONS = (
@@ -103,32 +105,20 @@ class Config:
             raise ConfigError(f"group_id must be exactly 8 chars, no spaces: {gid!r}")
         return gid
 
-    def info_mode(self) -> str:
-        """[strategy] info_mode: 'belief' (default) | 'exact' (ADR-0006)."""
-        return self.private.get("strategy", {}).get("info_mode", "belief")
+    def info_mode(self, wire_shape: str | None = None) -> str:
+        """[strategy] info_mode, validated against the registry (ADR-0006).
+
+        Pass the wire shape to have legality checked too: a regime the wire
+        cannot serve is a startup error, never a silent downgrade."""
+        name = self.private.get("strategy", {}).get("info_mode", "belief")
+        try:
+            return resolve(name, wire_shape).name
+        except InfoModeError as error:
+            raise ConfigError(str(error)) from error
 
     def deception(self) -> dict:
-        """[deception] self-mirror lie-policy tunables (private, per-peer —
-        never part of the signed game.json; missing keys keep the shipped
-        thief posture: a small budget spent only when exposed and hunted)."""
-        block = self.private.get("deception", {})
-        movement = block.get("movement", {})  # [deception.movement] sub-table
-        return {
-            "max_lies": int(block.get("max_lies", 3)),
-            "cooldown_turns": int(block.get("cooldown_turns", 4)),
-            "exposure_threshold": float(block.get("exposure_threshold", 0.35)),
-            "opponent_distance_threshold": int(block.get("opponent_distance_threshold", 3)),
-            "exposure_radius": int(block.get("exposure_radius", 1)),
-            "baseline_truth_probability": float(block.get("baseline_truth_probability", 0.5)),
-            # Deception-by-movement (leakage-aware move scoring). The shipped
-            # default follows results/experiments/movement_deception.json.
-            "movement": {
-                "enabled": bool(movement.get("enabled", True)),
-                "blend_weight": float(movement.get("blend_weight", 8.0)),
-                "safe_distance": int(movement.get("safe_distance", 3)),
-                "exposure_radius": int(movement.get("exposure_radius", 1)),
-            },
-        }
+        """[deception] self-mirror lie policy (defaults: shared/tuning.py)."""
+        return tuning.deception_table(self.private)
 
     def resume_enabled(self) -> bool:
         """[resume] enabled (default ON): per-half-turn crash-resume snapshots
