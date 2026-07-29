@@ -139,7 +139,8 @@ def finish(rt) -> dict:
         if verdict == "Verified OK":
             if audit_foreign.parses_as_ours(rt.exchange.their_records):
                 reconstruction = audit.reconstruct(
-                    rt.exchange.own_records, rt.exchange.their_records, rt.config.shared)
+                    rt.exchange.own_records, rt.exchange.their_records,
+                    rt.config.shared, expected_sub_game=rt.exchange.sub_game)
                 end_digest = reconstruction["digest"]
                 digest_match = audit.consistent(
                     reconstruction, rt.own.outcome, rt.own.turns_completed)
@@ -162,8 +163,9 @@ def finish(rt) -> dict:
         "digest_match": digest_match,
         "audit": verdict,
         "steps_sealed": len(rt.exchange.own_records),
-        # Mutual-audit evidence (rule 36): trail readings refused as
-        # physically impossible. Zero on every honest game measured.
+        # Evidence for the mutual audit (rule 36): how many transmitted trail
+        # readings we refused as physically impossible. Zero on every honest
+        # game ever measured; non-zero is a claim a third party can check.
         "scent_readings_refused": getattr(
             getattr(rt, "perception", None), "refused_readings", 0),
         "opponent_group_id": getattr(rt, "opponent_group_id", "unknown"),
