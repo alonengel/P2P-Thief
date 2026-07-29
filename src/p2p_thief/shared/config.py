@@ -53,12 +53,12 @@ class Config:
         directory = Path(config_dir)
         shared = _read_json(directory / "game.json")
         private = _read_toml(directory / private_file)
+        from p2p_thief.shared.local_overlay import apply_local_overlay
+
+        private = apply_local_overlay(directory, private_file, private)
         limits_path = directory / "rate_limits.json"
-        rate_limits = (
-            _read_json(limits_path)
-            if limits_path.is_file()
-            else {"services": {"default": dict(shared["rate_limiter_gatekeeper"])}}
-        )
+        rate_limits = (_read_json(limits_path) if limits_path.is_file() else
+                       {"services": {"default": dict(shared["rate_limiter_gatekeeper"])}})
 
         schema = shared.get("schema_version", "")
         if not is_supported_config(schema):
@@ -73,11 +73,8 @@ class Config:
 
     def rule_set(self) -> RuleSet:
         block = self.shared["movement_and_barriers"]
-        return RuleSet(
-            max_barriers=block["max_barriers"],
-            max_moves=block["max_moves"],
-            survival_threshold=block["survival_threshold"],
-        )
+        return RuleSet(max_barriers=block["max_barriers"], max_moves=block["max_moves"],
+                       survival_threshold=block["survival_threshold"])
 
     def score_table(self) -> ScoreTable:
         return ScoreTable(**self.shared["scoring"])
@@ -105,6 +102,18 @@ class Config:
             raise ConfigError(f"group_id must be exactly 8 chars, no spaces: {gid!r}")
         return gid
 
+    def endgame(self) -> dict:
+        """[strategy.endgame] exact-solver gates/caps (defaults: shared/tuning.py)."""
+        return tuning.endgame_table(self.private)
+
+    def info_gain(self) -> dict:
+        """[strategy.info_gain] entropy-reduction blend (defaults: shared/tuning.py)."""
+        return tuning.info_gain_table(self.private)
+
+    def trap(self) -> dict:
+        """[strategy.trap] barrier-gate thresholds (defaults: shared/tuning.py)."""
+        return tuning.trap_table(self.private)
+
     def info_mode(self, wire_shape: str | None = None) -> str:
         """[strategy] info_mode, validated against the registry (ADR-0006).
 
@@ -118,13 +127,14 @@ class Config:
 
     def opponent_group_id(self) -> str | None:
         """[game] opponent_group_id: the peer EXPECTED this session, or None."""
-        # Set, it lets us derive the shared game_uid before the handshake and
-        # DECLARE it, so a peer deriving it from a different input is refused
-        # at negotiate instead of diverging silently for a whole series.
+        # Optional. Set, it lets us derive the shared game_uid before the
+        # handshake and DECLARE it, so a peer deriving it from a different
+        # input is refused at negotiate instead of diverging silently for a
+        # whole series. Unset (unknown opponent) declares nothing.
         return str(self.private.get("game", {}).get("opponent_group_id") or "") or None
 
     def deception(self) -> dict:
-        """[deception] self-mirror lie policy (defaults: shared/tuning.py)."""
+        """[deception] self-mirror lie-policy tunables (defaults: shared/tuning.py)."""
         return tuning.deception_table(self.private)
 
     def resume_enabled(self) -> bool:
