@@ -6,6 +6,19 @@ loader stays a loader; the twin repo carries the same module with the cop's
 own tables and defaults (the values legitimately differ by role).
 """
 
+CLAIM_DEFAULTS: dict = {
+    "threshold": 0.10,             # minimum belief mass on our landing cell
+    #                                before we DECLARE a capture claim. An
+    #                                unconditional claim broadcasts our true
+    #                                cell every turn, and a claim-reading
+    #                                thief collapses its estimate onto it -
+    #                                measured by the rival's own published
+    #                                sweep as worth ~24% of cop points. 0.10
+    #                                is their measured-best; swept on ours
+    #                                once an arena evader reads claims.
+}
+
+
 DECEPTION_DEFAULTS: dict = {
     "max_lies": 3,                 # a small budget, spent only when hunted
     "cooldown_turns": 4,           # minimum full turns between lies
@@ -32,6 +45,11 @@ def _merge(defaults: dict, block: dict) -> dict:
         if key in block:
             merged[key] = type(default)(block[key])
     return merged
+
+
+def claim_table(private: dict) -> dict:
+    """[strategy.claim] capture-claim gate (private, never a signed term)."""
+    return _merge(CLAIM_DEFAULTS, private.get("strategy", {}).get("claim", {}))
 
 
 def deception_table(private: dict) -> dict:
