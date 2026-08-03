@@ -222,6 +222,23 @@ Each peer is simultaneously an MCP **server** (four dumb-door tools: `negotiate`
   plus the derivable-rule tiers instead — never called tampered for its
   schema.)
 
+- **Convergence day against the rival team (2026-08-03).** Four full
+  six-window friendly series over the public tunnels in a single day,
+  every audit **Verified OK on both sides**, the two teams' report mails
+  cross-diffed after each window until the final diff returned **zero
+  findings**. What converged, per the book's attached example set and the
+  grader's Moodle instructions (ADR-0012 + its three addenda): a sealed
+  `step_zero` record opens every log (the commit id declared through TWO
+  channels — negotiate identity and sealed record — with any mismatch a
+  recorded finding); commit columns are role-aware per window; the
+  `final_result` carries the book-attached league fields keyed on the
+  counted arming (a friendly fabricates no counted record); the ONE
+  series email attaches the result file per the course chatbot's ruling;
+  and `mutual_agreement.sha256` uses the reference's symmetric-outcome
+  scope — **byte-identical across the two teams' independently emitted
+  files, verified live**. The full negotiation record: `docs/PROMPTS.md`
+  rounds 1-6.
+
 - **The settlement guard (rule 35).** `series-result` folds sub-game logs
   (pooling BOTH role repos' results dirs) into the reference-conformant
   series result and **refuses** to emit unless every sub-game
@@ -366,18 +383,21 @@ survival-certificate pre-check wrapped around `StealthThiefBrain`
 with leakage-aware move scoring (`[deception.movement] enabled = true`). So
 the league default is the **stealth-scored brain**: it previews what each
 candidate landing would teach the rival's belief filter and walks where it
-leaks least. The certificate pre-check itself ships **gated OFF**
-(`[strategy.endgame] enabled = false`): its keep-gate failed honestly —
-0 certificates fired across 180 measured games, because the scent-floor
-cop-belief never sharpens inside the final-turns window
-(`docs/evidence/thief-certificate.md`) — and with the gate off the wrapper
-plays move-for-move the stealth brain. The loadable-brain inventory:
+leaks least. The certificate pre-check was first keep-gated **OFF**
+(0 certificates fired across 180 measured games — the scent-floor
+cop-belief never sharpened inside the final-turns window); after the
+dwell-plateau pin sharpened the cop-belief it was **re-measured and
+re-opened: ships ON** (`[strategy.endgame] enabled = true`) — 120
+certificates across 90 games, survival unchanged (0.611 both arms), kept
+because a *proven* escape beats a heuristic that merely agrees, against
+unknown hunters (both readings preserved in
+`docs/evidence/thief-certificate.md`). The loadable-brain inventory:
 
 | Module (`[strategy] thief_class = ...`) | Brain | What it does · measured | Status |
 |---|---|---|---|
 | `strategy/thief_brain.py` | `ThiefBrain` | hand-tuned evasion core: belief map + BFS flee + wall forecast | base of the default stack |
 | `strategy/movement_deception.py` | `StealthThiefBrain` | deception by movement — the trail as a decoy; survival vs the strongest in-repo cop 0.00 → **1.00** (`docs/evidence/movement-deception.md`) | **ON** (inside the default stack) |
-| `strategy/endgame.py` | `CertifiedThiefBrain` | exact worst-case survival certificate over the cop-belief support, run as a pre-check | default entry point; certificate **OFF** (keep-gate failed 0/180) |
+| `strategy/endgame.py` | `CertifiedThiefBrain` | exact worst-case survival certificate over the cop-belief support, run as a pre-check | default entry point; certificate **ON** (re-opened: 120 fires / 90 games post-plateau-pin) |
 | `strategy/rl_brain.py` | `LinearQBrain` | linear-FA Q-learning evasion (informed prior) | opt-in |
 | `strategy/rl_deep.py` | `DeepQBrain` | Double-DQN evader trained vs the learned trap cop | opt-in |
 
@@ -401,8 +421,8 @@ of this one game pair-verify `Verified OK` (§2, Cross-team verification):
 
 ### 5. Quality mapping (ISO/IEC 25010)
 
-Functional suitability — milestone-gated PRDs 01-09, 657 tests, branch
-coverage 93.26%. Reliability — deadlines, watchdog-style FSM exits, session
+Functional suitability — milestone-gated PRDs 01-09, 770 tests, branch
+coverage 94.1%. Reliability — deadlines, watchdog-style FSM exits, session
 rebuilds, chaos drills + crash-resume on both wire shapes,
 bystander-tolerant pairing, orphan-port guard, 20-seed self-play.
 Performance — template provider plays whole series at 0 LLM tokens. Security —
