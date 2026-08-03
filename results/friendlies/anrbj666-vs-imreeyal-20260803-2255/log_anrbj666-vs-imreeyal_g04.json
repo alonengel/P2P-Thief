@@ -1,0 +1,1530 @@
+{
+  "_schema": "p2p-police-artifacts",
+  "game_id": "anrbj666-vs-imreeyal",
+  "game_uid": "e351176a-8883-7ce6-aad8-8a50bff637d7",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "opponent_records": [
+    {
+      "commit": "ff1a41e28b6b396e8f074e450933a8f96d80eeeab616f6a7c5670d148301020d",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "They say the crowds near Central Park hide anyone."
+      },
+      "nonce": "c64471baac0e40292db3001838e777db",
+      "payload": {
+        "hint": "They say the crowds near Central Park hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "E",
+        "position": [
+          0,
+          1
+        ],
+        "response_seconds": 0.004,
+        "state": "grid=7x7;self=[0, 1];barriers=[]",
+        "step": 1,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "ba665438343157c94cd1631ed512f4fb6d547598b1ff83967a3d0904ef68d909",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Central Park."
+      },
+      "nonce": "aff4c27cf3e9d043ad8938f3a3be3659",
+      "payload": {
+        "hint": "I heard sirens somewhere around Central Park.",
+        "intent": "truth",
+        "model": "none",
+        "move": "E",
+        "position": [
+          0,
+          2
+        ],
+        "response_seconds": 0.008,
+        "state": "grid=7x7;self=[0, 2];barriers=[]",
+        "step": 2,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "3901ed811ca4b9150c303ee889c054b13fbb05c9d745ebf45a296084ddc23f2f",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "The shadows by Central Park feel busy tonight."
+      },
+      "nonce": "fb09681c361b033072815ec28c064871",
+      "payload": {
+        "hint": "The shadows by Central Park feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          1,
+          2
+        ],
+        "response_seconds": 0.008,
+        "state": "grid=7x7;self=[1, 2];barriers=[]",
+        "step": 3,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "658fafdf42f401b4113c05220363b920894f75202c8266b211a50a55dd53d48c",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Central Park."
+      },
+      "nonce": "645a3450342613e9ceac53d061fd96d8",
+      "payload": {
+        "hint": "Word is, keep an eye on Central Park.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          2,
+          2
+        ],
+        "response_seconds": 0.01,
+        "state": "grid=7x7;self=[2, 2];barriers=[]",
+        "step": 4,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "d7274fefc574969cff2944ece94337e2e05a5e805d21a416aa12f577d1e1626f",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Someone was asking about Central Park just now."
+      },
+      "nonce": "92e5a6e9cf6cd38c145adfc483fca4f4",
+      "payload": {
+        "hint": "Someone was asking about Central Park just now.",
+        "intent": "truth",
+        "model": "none",
+        "move": "E",
+        "position": [
+          2,
+          3
+        ],
+        "response_seconds": 0.009,
+        "state": "grid=7x7;self=[2, 3];barriers=[]",
+        "step": 5,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "5e11e365fad175cb1134f28dc686915c218e6c323b6e9266bde6a74cf8b9944c",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "All roads seem to lead to Grand Central."
+      },
+      "nonce": "6ada394826913e39b8d5ea1ec740725c",
+      "payload": {
+        "hint": "All roads seem to lead to Grand Central.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          3,
+          3
+        ],
+        "response_seconds": 0.012,
+        "state": "grid=7x7;self=[3, 3];barriers=[]",
+        "step": 6,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "323043c78b64a905c39f4b581c37632bc9052ddedb055aaa6e43455e31ca6dce",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "They say the crowds near Grand Central hide anyone."
+      },
+      "nonce": "21dc9737d16327e7883022813df869a6",
+      "payload": {
+        "hint": "They say the crowds near Grand Central hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          4,
+          3
+        ],
+        "response_seconds": 0.01,
+        "state": "grid=7x7;self=[4, 3];barriers=[]",
+        "step": 7,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "f1ebd7deeb7458e948502e4e303489eba94b873109d6433b6fb5ca0c79f0a7da",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Brooklyn Bridge."
+      },
+      "nonce": "ecf989d6877e1e113a9115873249c6dc",
+      "payload": {
+        "hint": "I heard sirens somewhere around Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "E",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.011,
+        "state": "grid=7x7;self=[4, 4];barriers=[]",
+        "step": 8,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "607cb4c15d7a1db4156898920e57acba127441aa6cc2575a6a07a6d0c11aca18",
+      "declared": {
+        "barrier_placed": [
+          4,
+          5
+        ],
+        "capture_claim": null,
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight."
+      },
+      "nonce": "fe55a8d88c44ec56d6ab4f13c6bb7679",
+      "payload": {
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "BARRIER",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.009,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5]]",
+        "step": 9,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "ff67e9de835e438d7af1a271ebe2293982742b2916bfd495f700a2a069af5155",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Brooklyn Bridge."
+      },
+      "nonce": "ff2bea0e93eb9a7b12f4b0a8a30b4e73",
+      "payload": {
+        "hint": "Word is, keep an eye on Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          5,
+          4
+        ],
+        "response_seconds": 0.007,
+        "state": "grid=7x7;self=[5, 4];barriers=[[4, 5]]",
+        "step": 10,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "72148751af8bebc9202337fb0c48f58dbd798001c1f83e55c871d903485215b1",
+      "declared": {
+        "barrier_placed": [
+          5,
+          5
+        ],
+        "capture_claim": null,
+        "hint": "Someone was asking about Brooklyn Bridge just now."
+      },
+      "nonce": "8424b6a9f3e08638477602b5ee4cf06d",
+      "payload": {
+        "hint": "Someone was asking about Brooklyn Bridge just now.",
+        "intent": "truth",
+        "model": "none",
+        "move": "BARRIER",
+        "position": [
+          5,
+          4
+        ],
+        "response_seconds": 0.007,
+        "state": "grid=7x7;self=[5, 4];barriers=[[4, 5], [5, 5]]",
+        "step": 11,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "3995dcf27fddf5359047133a2818f3ff65b45d11c307d25ebcaf764aaec14bd6",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "All roads seem to lead to Brooklyn Bridge."
+      },
+      "nonce": "8a8544783c2373f978a6c5a1b36f7a30",
+      "payload": {
+        "hint": "All roads seem to lead to Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "S",
+        "position": [
+          6,
+          4
+        ],
+        "response_seconds": 0.006,
+        "state": "grid=7x7;self=[6, 4];barriers=[[4, 5], [5, 5]]",
+        "step": 12,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "0f6a7ffb0e81f6cd0698e808252abf325c3431cebe355eba776883318865774b",
+      "declared": {
+        "barrier_placed": [
+          6,
+          5
+        ],
+        "capture_claim": null,
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone."
+      },
+      "nonce": "521132889928f7e7cec2e1c0af0acf39",
+      "payload": {
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "BARRIER",
+        "position": [
+          6,
+          4
+        ],
+        "response_seconds": 0.006,
+        "state": "grid=7x7;self=[6, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 13,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "2ddb1022af2906046b237f24d570d05e50eebdb2d64a508cfd84c0a019407a5e",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Brooklyn Bridge."
+      },
+      "nonce": "96e95a640f2aa4fe6125564576a5c089",
+      "payload": {
+        "hint": "I heard sirens somewhere around Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "N",
+        "position": [
+          5,
+          4
+        ],
+        "response_seconds": 0.003,
+        "state": "grid=7x7;self=[5, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 14,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "6e3258f3d5d2f4e2ecb5c8d60f7c41ad83fdc0bdcdc1d4f5e30771a255539ca4",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight."
+      },
+      "nonce": "c2f8e3e1bc7859ec374f07c2b3c05d27",
+      "payload": {
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "N",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 15,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "bad564ecdb00d2d0e6ff7628b5ff147a878fccd313a0eba4abc4eab90a496ad5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Brooklyn Bridge."
+      },
+      "nonce": "b19c0791cb1aa9a6b19cfff0a314dc57",
+      "payload": {
+        "hint": "Word is, keep an eye on Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 16,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "568ffe7fb5d8a395a2ea43facb2493b0f1c0d3439db7cbd8b687bebdd6ec59ea",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Someone was asking about Brooklyn Bridge just now."
+      },
+      "nonce": "d72b50c78eb3ca80a26776c5e6821e5f",
+      "payload": {
+        "hint": "Someone was asking about Brooklyn Bridge just now.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 17,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "3bb31656fe874803b224e02edc1881ab7fe2991898eaa9cf12ced002bfdec99a",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "All roads seem to lead to Brooklyn Bridge."
+      },
+      "nonce": "0b9362131a9271f6fe7d068a3c5464ec",
+      "payload": {
+        "hint": "All roads seem to lead to Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 18,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "2ecc302b5c159b29d05dda837098e362933c72998f47c1754bf32057dea3ca11",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone."
+      },
+      "nonce": "84dcbb494451f0ad164dc0b8a7b3a9cc",
+      "payload": {
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 19,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "e04491517dac2d33879d500a74dca6ceebfc81d5b714af275cb62014caf911e6",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Brooklyn Bridge."
+      },
+      "nonce": "03951bbc610502ae7fa4c2bb234fadd7",
+      "payload": {
+        "hint": "I heard sirens somewhere around Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 20,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "6ee258fb37696e2269239e5b0d1a9739aee8e59c22a5c0e3c11c95baec7702e5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight."
+      },
+      "nonce": "13eb79f8cd47366101d30ace6e340e63",
+      "payload": {
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 21,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "87be2b6d2a027475f9b4f0893a9f643703ee1bde30fb1443cd3b6957df140d9b",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Brooklyn Bridge."
+      },
+      "nonce": "3ccd5e6a111d02e1403a311010170172",
+      "payload": {
+        "hint": "Word is, keep an eye on Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 22,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "eb8be47fcf3d933d8051c89f43c09e0d332e7cadabb2b1fd098becef6f873e40",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Someone was asking about Brooklyn Bridge just now."
+      },
+      "nonce": "ee51ad0c85af1ece46df6faab7a8c973",
+      "payload": {
+        "hint": "Someone was asking about Brooklyn Bridge just now.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 23,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "e15745149f1bdbbaaad5db11195a2b7c3430ddecbd98d5cb31affef3e99c8798",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "All roads seem to lead to Brooklyn Bridge."
+      },
+      "nonce": "fda8fe1cece24de2238db6e8bf1052bc",
+      "payload": {
+        "hint": "All roads seem to lead to Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 24,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "5fa19cc493cb39ac6a2eeba5d58b84ad2c46a057736a11bf1735f461af5fbedf",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone."
+      },
+      "nonce": "4386625bc8e1475eaf5149f9a0cee62b",
+      "payload": {
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 25,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "e63db652f95c67bfc453c8c780366bd63c9f17f685c7d91fc9b552f607cace21",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Brooklyn Bridge."
+      },
+      "nonce": "5188df07f450ccbbae1711fa41c46258",
+      "payload": {
+        "hint": "I heard sirens somewhere around Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.006,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 26,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "38290412b5e44f8f3835ddbfd0ec2be97f9e47c79a552988a10d825bda933cd8",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight."
+      },
+      "nonce": "a335e942fbb341e367307f9723f6450e",
+      "payload": {
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 27,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "8a136e8c7a524335a4d401d50247f5b1714f79822a902e5f03378c62157148ad",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Brooklyn Bridge."
+      },
+      "nonce": "f55e6b494fe29c89ee223af46c4c798a",
+      "payload": {
+        "hint": "Word is, keep an eye on Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 28,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "32fbd064d4f1d3206dfe5f7eab0d07e7f0484218fbc14265672350d53041121d",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Someone was asking about Brooklyn Bridge just now."
+      },
+      "nonce": "ac81b5a57f14125e8bc99cb81a32ee88",
+      "payload": {
+        "hint": "Someone was asking about Brooklyn Bridge just now.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.006,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 29,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "245c6d809688bd6fd2f4ee89ade5a69679bb2b264ecbdcb173cb15bb63c8ae07",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "All roads seem to lead to Brooklyn Bridge."
+      },
+      "nonce": "36e1ad9968637753a4f4c9eba81ae7ec",
+      "payload": {
+        "hint": "All roads seem to lead to Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 30,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "c41e44e061a9491410ba58ffeb60b903b0ea0e0e38444acc948e49d8259bfca5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone."
+      },
+      "nonce": "8dd1b69a7f3b36dbe4f3b31e374a98cd",
+      "payload": {
+        "hint": "They say the crowds near Brooklyn Bridge hide anyone.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 31,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "40fc6d7eec365f20abcc51a8d35150b3940f7e611fe3339981eec2e585236ca7",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "I heard sirens somewhere around Brooklyn Bridge."
+      },
+      "nonce": "9d2f5d901eb56a2651b0b18db5039627",
+      "payload": {
+        "hint": "I heard sirens somewhere around Brooklyn Bridge.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 32,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "ccb87d280af7779580ab80b8e3adc038935388b41bbf22995b78cfdc8c988628",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight."
+      },
+      "nonce": "45611e1f58ab3a8e77782b5e82d97f66",
+      "payload": {
+        "hint": "The shadows by Brooklyn Bridge feel busy tonight.",
+        "intent": "truth",
+        "model": "none",
+        "move": "STAY",
+        "position": [
+          4,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[4, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 33,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    },
+    {
+      "commit": "32761b8cda33ee4c5de409c2f613513019046eda3b15364a73458f78b552cefd",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "Word is, keep an eye on Grand Central."
+      },
+      "nonce": "31cc84325f74539b99db5c39e61bdd44",
+      "payload": {
+        "hint": "Word is, keep an eye on Grand Central.",
+        "intent": "truth",
+        "model": "none",
+        "move": "N",
+        "position": [
+          3,
+          4
+        ],
+        "response_seconds": 0.005,
+        "state": "grid=7x7;self=[3, 4];barriers=[[4, 5], [5, 5], [6, 5]]",
+        "step": 34,
+        "tokens_step": 0,
+        "tokens_total": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "commit": "ee5640614e7f2731883cc5741868b31834cd2732995e3a62128e69139f0b438c",
+      "nonce": "47ac54cd287f150247f1649819fddc22",
+      "payload": {
+        "declaration_ref": "declaration_anrbj666-vs-imreeyal.json",
+        "github_commit": "6348023b8212404cbfce4b4750e3cc1bb973e7db-dirty",
+        "group_id": "anrbj666",
+        "role": "thief",
+        "step": 0,
+        "sub_game_number": 4,
+        "type": "step_zero"
+      }
+    },
+    {
+      "commit": "9c4e7830adc00c283cbc6aba8502205b5cc8699e3802b0cf1d37affd165f5a10",
+      "nonce": "7b843e28523ce8bf0457494b50f395b1",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
+        "step": 1,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "444737b456114d7ff3a1b29d2cee5f1856feb79a61b36c27a1bc1fccc2c4793d",
+      "nonce": "8773f48b14435c49f8400afbbdac085e",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Downtown crowds hide me well.",
+        "role": "thief",
+        "state_digest": "4b8aa95e480314a81eef86c36e0bbc38cd0d8cd04dbae7426c1feb19bcc6ac3d",
+        "step": 2,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "66467be9e77a9f52171b29249be9a28c26b2a54518933cc1419bc19a16128318",
+      "nonce": "0e54bc981eafbd714ede3718ba50a506",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "bbf04118cf9d49d9b4b512bfac197b06f240d39eb0de7de98bd98717b3be5dea",
+        "step": 3,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "75a9833c4002e8e1b4028dcf151894bc2938646260440523ab439d35d0fe1648",
+      "nonce": "0a8f7d263734ada737b9479482a42fc3",
+      "payload": {
+        "action": {
+          "move": "E",
+          "type": "move"
+        },
+        "hint": "East side alleys are friendly tonight.",
+        "role": "thief",
+        "state_digest": "7f3b4333cd662949fcd22bb4c5a90c1b571974f9764a36dd1256874bcf884ad8",
+        "step": 4,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "79099746fd8a75fd31a310c1815588ae6d0ce44a6ccdbdf949f123cc783ea33e",
+      "nonce": "87a56569a661ecc15bcf2f6aa54ad9de",
+      "payload": {
+        "action": {
+          "move": "E",
+          "type": "move"
+        },
+        "hint": "East side alleys are friendly tonight.",
+        "role": "thief",
+        "state_digest": "cefb82c87e3571154c80c803538645d99254a9b095affd3f781a9a6812eba4d3",
+        "step": 5,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "a7c2878e75e5ef1be7d44f935f59a019735535c002e9b595e6397e6dfcb6c771",
+      "nonce": "310d4c84a270bb8b982fae633fade8b2",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "cefb82c87e3571154c80c803538645d99254a9b095affd3f781a9a6812eba4d3",
+        "step": 6,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "fb94458d2ed3cbf800cd28024f78fd3452219b30041e9c8c920035ce7d60bbae",
+      "nonce": "7d063479e312e6876e6483152902b447",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "cefb82c87e3571154c80c803538645d99254a9b095affd3f781a9a6812eba4d3",
+        "step": 7,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "c83e992a5113ce5e1956fd7f709ed9d08d5736db6db60289ba2a42fa786c848a",
+      "nonce": "8a8f50792674c559ba86a8a2ca0069b0",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "cefb82c87e3571154c80c803538645d99254a9b095affd3f781a9a6812eba4d3",
+        "step": 8,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "551378ffb659cd31e6fd3bc0dd2b194fcbea6c3869c9dbdcfbdf6cd96072d92c",
+      "nonce": "ccb283cb9693a6552832bbd90140bb4b",
+      "payload": {
+        "action": {
+          "move": "E",
+          "type": "move"
+        },
+        "hint": "Chasing sunrise eastward.",
+        "role": "thief",
+        "state_digest": "b71af26ba94450c5396d13d41c1906604a1ff76e171afe24a9d73da47910bb17",
+        "step": 9,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0621f9007ef3f202dccd968aa064eeab730f6dfeb2136c0e97ffbced3c5ab334",
+      "nonce": "76037ff3cd158343e751bf208327a5c0",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "6bc25865ea2b193104e7591e2c8b316e6d51d82ffb6a162419cb1d355f47bab7",
+        "step": 10,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "b039718b3019e3f82877f32c24df15d7b0e5ada7538d9461aa1987fb39690e6c",
+      "nonce": "3420dfabc0838c787b34d5b91530ae89",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "6bc25865ea2b193104e7591e2c8b316e6d51d82ffb6a162419cb1d355f47bab7",
+        "step": 11,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "1639849b8da2bab69174641e1adb7404a37072a3a4b5b46dd7dcdc177dfc4fb9",
+      "nonce": "826f9ef46693637a6ffb148979027874",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "ede1e18e69efcea1c55d9af99347ce098de15db261282437f15d1709ca9b1c16",
+        "step": 12,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "d45c8c5839f24a55b0a184104f09a450e87d6286c381692d145d0297e7e60f3d",
+      "nonce": "97f900ffcd6cd91a336663b31bbfc084",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "ede1e18e69efcea1c55d9af99347ce098de15db261282437f15d1709ca9b1c16",
+        "step": 13,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "ef4426218052a670c3e990f7db441b1b1d01985ed84444b13553243fb9b4ed9d",
+      "nonce": "49cbc19468b0911d50a5448037f651b7",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "5ca6c1e0f1ab10c392c627dd3b58b69d40944205be6efa98d03386fca7250d21",
+        "step": 14,
+        "sub_game": 4,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "84f32a1fa046e36fffe58eb4864373464c1106081280312a41077a8691696d71",
+      "nonce": "7e7d40e765b2db8dcb4730a710956522",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "5ca6c1e0f1ab10c392c627dd3b58b69d40944205be6efa98d03386fca7250d21",
+        "step": 15,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "93e265865906ba43bf450f36af280485042c42058abfaf67973554b149a53ceb",
+      "nonce": "8fb998a57338da3e88553c0843ebe670",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "5ca6c1e0f1ab10c392c627dd3b58b69d40944205be6efa98d03386fca7250d21",
+        "step": 16,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "f357df2361c2da2cf17449b6ecfadf0966062581731425150ab89bfd2f75300d",
+      "nonce": "0b07e4690ef8ceb89fb0d4d9580dbe3f",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 17,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "d3525016adbb09618103aad61e35439a069b166325e7f1d55982452620e0aa99",
+      "nonce": "e46af6b00763d4087c96f49a49d95c97",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 18,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "7fc8002d520cd292afd9aa9ebcd8f20be0aa4417975ac0e5ba519ad500e131aa",
+      "nonce": "3a3fa67270babcec2e9a771d5634f60f",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Downtown crowds hide me well.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 19,
+        "sub_game": 4,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "11765a36339c77af87dca1a6dc798002b81c0714a8b6aad7907352165f2d4773",
+      "nonce": "7f8f30d451fbe9dad72770acec529964",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Downtown crowds hide me well.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 20,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "d01e6067a7bb45e73130f9563e8abf5446e894d1ffd57155cfc0684ef6d7e4e0",
+      "nonce": "90aeb07ad865d8a150a79fded3a9f32e",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 21,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "a9ffb226953fe89246f9474c7dcaec01c41aac5b4dc7abb0a37c7c8fc3a0dc54",
+      "nonce": "461618d007086dd17529a9c6dc8a13c3",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Downtown crowds hide me well.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 22,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "04e89854e0f2781739ecc9db5d8fb0f3db6e6ff0412391b2f267220d9e7a90c5",
+      "nonce": "79a367087932434a80066ca63fc73603",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 23,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "c53b224a4066b6212915dd39b0e4a76872a3db6a14ee89924e005c6f4b3a53bc",
+      "nonce": "b99472c93b65fc3e76e2c12d13e9738d",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 24,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "7efd7cd7a4fc6fab6897b74454b649b3c7e8c70497001efb90639964b79c1e95",
+      "nonce": "b5b061ec772a19f83749a513039bf27a",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 25,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "6d0e728b3978145bd5c4477c7f3ca0df4014ddbbe361f888dd3dac79bac578d1",
+      "nonce": "deba1c2e8c0f02a35cd93d58a0074d6d",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 26,
+        "sub_game": 4,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "32600a5992fa8c15d56695ee2ec05c88c734358627e788fb9dac8a69193229b6",
+      "nonce": "e734908bb94a6ea2363772d5e8d0918e",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 27,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "6c66037780c7c649d6c9db959b312e3ec68ff04a667ca17fff243d64380b0f2b",
+      "nonce": "85d57bf2a1c3b27bc833385575df26d4",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 28,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "93994d3c2095df155e986ab0c0c11f493025a2e0ccc98c69c9cb44619e7e0d61",
+      "nonce": "8dd717683065350be6180f07524ffb7a",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 29,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "987956aa7fb698ec9379c5e92b9a87b41a6884cde33e23de3fbe299403d5f873",
+      "nonce": "2a05f94a30ec537c4f2cf5eed912e112",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "c0be5d7ed47ab6cf810a5459eed19ac8244284231bcec6d06f1b11179bfb16dc",
+        "step": 30,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "99642b4a2d9adf103fcf5b726f4c37b5e7bd570d554660e3c4e71a6c6ec6f480",
+      "nonce": "7f1ec3c4a46f070ac767240998711494",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "861e0b60ffea4e08a7739bea589f034d882b495f3263fc756e008fe93f2142d8",
+        "step": 31,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "ae6b126baa1f6e3ded73355b061066a980901472d27a8c850359f910697919b2",
+      "nonce": "ad5beae7f56113d1ad09f5ce13f74fc3",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "5ca6c1e0f1ab10c392c627dd3b58b69d40944205be6efa98d03386fca7250d21",
+        "step": 32,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "3ca7af460c1dd7cd3880835b48014dc8934944b85e898f63e1edc5bf508f2648",
+      "nonce": "0238f56cfe2d2303c948eec707340341",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "f63c64207a7ad6a750bea3a2f301eaecc2aaff576c8eef813dddf5190a961dbd",
+        "step": 33,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "36b7ddd234eaa3e3a02d1abb16a0c9daf03b5ed2c0ad4d94788e8dbf8e64980f",
+      "nonce": "1f4b9729d6c818d263630102974e0159",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "0979004b679d51d5520398a15e57fab58fd48faa831f3369fe14120c4c9391e8",
+        "step": 34,
+        "sub_game": 4,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "3aad02b2b48604a820c98b2ed6c410ef82afe90849a259f9871ad8130e83cc13",
+      "nonce": "187215c57705b4525d194352d94af276",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "895954be2c3e12134b093aa25c7c9f33d480dbeb37a583ecdf82b28d64bb6ce5",
+        "step": 35,
+        "sub_game": 4,
+        "verdict": true
+      }
+    }
+  ],
+  "report_type": "log",
+  "schema_version": "1.00",
+  "sub_game_number": 4,
+  "summary": {
+    "audit": "Verified OK",
+    "digest_match": null,
+    "disputed_capture": null,
+    "end_state_digest": "895954be2c3e12134b093aa25c7c9f33d480dbeb37a583ecdf82b28d64bb6ce5",
+    "ended_at": "2026-08-03T19:55:56+00:00",
+    "gatekeeper": {
+      "calls_logged": 0,
+      "dos_locked": {
+        "claude": false,
+        "default": false,
+        "email": false,
+        "ollama": false,
+        "openrouter": false
+      },
+      "services": [
+        "claude",
+        "default",
+        "email",
+        "ollama",
+        "openrouter"
+      ]
+    },
+    "github_commit": "6348023b8212404cbfce4b4750e3cc1bb973e7db-dirty",
+    "group_id": "anrbj666",
+    "opponent_group_id": "imreeyal",
+    "opponent_info": {
+      "game_uid": "e351176a-8883-7ce6-aad8-8a50bff637d7",
+      "identity": {
+        "counted_games_played": 0,
+        "github_commit": "c6b8e5fc171ffcbe1f9ea01967e14a5330e6cbc9",
+        "group_id": "imreeyal",
+        "group_name": "ImreEyal-Police",
+        "llm_model": "none",
+        "mcp_servers": {
+          "cop": "https://cop.imreeyal.com/mcp",
+          "thief": "https://thief.imreeyal.com/mcp"
+        },
+        "members": [
+          "Imree Cohen",
+          "Eyal Shtinmetz"
+        ],
+        "repos": {
+          "cop": "https://github.com/Imreec/copthief-p2p-cop",
+          "thief": "https://github.com/Imreec/copthief-p2p-thief"
+        },
+        "spec": {
+          "cpu_cores": 24,
+          "cpu_freq_mhz": 3693,
+          "cpu_type": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD",
+          "gpu_cores_or_cuda": "cuda",
+          "gpu_type": "NVIDIA GeForce RTX 3080 Ti",
+          "os": "Windows (10.0.19045)",
+          "ram_gb": 31.9,
+          "vram_gb": 12.0
+        }
+      },
+      "info_mode_sha256": "020947daeeb3f73494af9b04201326791742c7184085456e3517d21981ee1202",
+      "nonce": "3606635b3f9dc8a9da139de5bea76c09",
+      "role": "police",
+      "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9",
+      "signature": "ecf2aa8e9c9440d11b1b4c251e27f0353bcc3b85ebe53cd392ebc12ba249865c",
+      "sub_game_number": 4,
+      "terms": {
+        "axis_origin_corner": "top-left",
+        "axis_start_index": 0,
+        "barriers_max": 14,
+        "board_size": 7,
+        "cop_start": [
+          0,
+          0
+        ],
+        "decay_per_step": 0.1,
+        "emit_intensity": 0.9,
+        "hint_max_words": 15,
+        "max_steps": 35,
+        "min_center_intensity": 0.5,
+        "num_games": 6,
+        "setting": "New York",
+        "smell_grid_size": 5,
+        "thief_start": [
+          3,
+          3
+        ]
+      }
+    },
+    "opponent_step_zero": {
+      "code_version": "1.00",
+      "github_commit": "c6b8e5fc171ffcbe1f9ea01967e14a5330e6cbc9",
+      "group_name": "ImreEyal-Police",
+      "model": "none",
+      "num_games_declared": 6,
+      "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9",
+      "spec": {
+        "cpu_cores": 24,
+        "cpu_freq_mhz": 3693,
+        "cpu_type": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD",
+        "gpu_cores_or_cuda": "cuda",
+        "gpu_type": "NVIDIA GeForce RTX 3080 Ti",
+        "os": "Windows (10.0.19045)",
+        "ram_gb": 31.9,
+        "vram_gb": 12.0
+      },
+      "step": 0,
+      "sub_game_number": 4,
+      "type": "system_spec"
+    },
+    "outcome": "survival",
+    "role": "thief",
+    "scent_readings_refused": 0,
+    "started_at": "2026-08-03T19:55:45+00:00",
+    "step_zero_mismatch": null,
+    "steps_sealed": 36,
+    "turns_completed": 35
+  },
+  "wire_shape": "reference"
+}
