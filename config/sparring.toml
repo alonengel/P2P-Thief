@@ -19,9 +19,9 @@ mcp_servers = { cop = "https://cop-mcp.alon.website/mcp", thief = "https://thief
 
 [network]
 my_port = 8801                                  # thief MCP server port
-opponent_url = "http://127.0.0.1:8802/mcp"      # point at the sparring partner's URL
+opponent_url = "https://identical-protocol-reviewer-recreational.trycloudflare.com/mcp"  # nis-yar1's COP (our thief's counterpart); CAUTION: trycloudflare quick tunnel — re-confirm before T
 turn_timeout_seconds = 180
-wire_shape = "bookletter"       # selectable per warm-up: "bookletter" | "reference"
+wire_shape = "reference"        # selectable per warm-up: "bookletter" | "reference"
                                 # (or override with `--wire-shape` on the CLI)
 
 # no [strategy] table: the shipped baseline ThiefBrain runs — no certificate
