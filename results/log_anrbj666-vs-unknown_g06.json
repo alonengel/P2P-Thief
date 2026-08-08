@@ -1,0 +1,48 @@
+{
+  "_schema": "p2p-police-artifacts",
+  "game_id": "anrbj666-vs-unknown",
+  "game_uid": "31449b96-ead2-fe7b-71c6-b7cf0ff64ebc",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "opponent_records": [],
+  "records": [],
+  "report_type": "log",
+  "schema_version": "1.00",
+  "sub_game_number": 6,
+  "summary": {
+    "audit": "unavailable (technical loss)",
+    "audit_disclosure": "sent",
+    "digest_match": false,
+    "end_state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
+    "ended_at": "2026-08-08T10:54:48+00:00",
+    "failure": "ToolError: Error calling tool 'negotiate': agreement inbox at capacity",
+    "gatekeeper": {
+      "calls_logged": 0,
+      "dos_locked": {
+        "claude": false,
+        "default": false,
+        "email": false,
+        "ollama": false,
+        "openrouter": false
+      },
+      "services": [
+        "claude",
+        "default",
+        "email",
+        "ollama",
+        "openrouter"
+      ]
+    },
+    "github_commit": "94ec6ca7c761766fc71e3040bab820de272c2372",
+    "group_id": "anrbj666",
+    "opponent_group_id": "unknown",
+    "outcome": "technical_loss",
+    "role": "thief",
+    "started_at": "2026-08-08T10:54:46+00:00",
+    "steps_sealed": 0,
+    "turns_completed": 0
+  },
+  "wire_shape": "reference"
+}

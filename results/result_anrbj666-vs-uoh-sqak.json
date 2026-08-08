@@ -1,0 +1,35 @@
+{
+  "_schema": "p2p-police-artifacts",
+  "agreement": {
+    "config_sha256": "c262da90d87477e7f00a2ab3cf9e59e06b5d640363f3fea14259d055169cd9ca",
+    "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9"
+  },
+  "audit": "Verified OK",
+  "consensus_signature": "af9f3f4d3b12f3abc1efd67e6b3782546edd9a2879c3586ec1ca7f3182e13b00",
+  "digest_match": null,
+  "end_state_digest": "dcf2d7887b5997252164ce869619a01cedc5b26ee2d434a7db0d55d90d488448",
+  "game_id": "anrbj666-vs-uoh-sqak",
+  "game_uid": "f2765c2f-604d-5a53-b42a-6e5e7245c222",
+  "github_commit": "94ec6ca7c761766fc71e3040bab820de272c2372",
+  "group_id": "anrbj666",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "mcp_servers": {
+    "cop": "https://cop-mcp.alon.website/mcp",
+    "thief": "https://thief-mcp.alon.website/mcp"
+  },
+  "opponent_group_id": "uoh-sqak",
+  "outcome": "survival",
+  "report_type": "result",
+  "reported_at": "2026-08-08T12:02:42+00:00",
+  "schema_version": "1.00",
+  "score": {
+    "cop": 5,
+    "thief": 10
+  },
+  "tokens_total": 0,
+  "turns_completed": 35,
+  "winner_group": "anrbj666"
+}
