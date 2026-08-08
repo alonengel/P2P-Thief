@@ -12,8 +12,8 @@
     },
     "series_tie": false,
     "sub_games_won": {
-      "anrbj666": 6,
-      "vibecode": 0
+      "anrbj666": 5,
+      "vibecode": 1
     },
     "ties": 0,
     "tokens_total_series": {
@@ -21,8 +21,8 @@
       "vibecode": 0
     },
     "total_score": {
-      "anrbj666": 90,
-      "vibecode": 30
+      "anrbj666": 85,
+      "vibecode": 45
     },
     "winner_group": "anrbj666"
   },
@@ -40,14 +40,17 @@
         "cop": "https://github.com/alonengel/P2P-Police",
         "thief": "https://github.com/alonengel/P2P-Thief"
       },
-      "vibecode": {}
+      "vibecode": {
+        "cop": "https://github.com/AmitKuper/vibecode-cop",
+        "thief": "https://github.com/AmitKuper/vibecode-thief"
+      }
     },
     "log": "log_anrbj666-vs-vibecode_g<NN>.json",
     "result": "result_anrbj666-vs-vibecode.json"
   },
   "mutual_agreement": {
     "confirmed": true,
-    "sha256": "45ddc80c761ba2817f8c5e6d9d1ebd4012b2c8ee06d244e01d73d889164aafa5"
+    "sha256": "3f24badd40e688d4232bb9d0612a8c9222d0c370f9210b118e034ed72a61ca89"
   },
   "num_sub_games": 6,
   "report_type": "final_game_result",
@@ -58,10 +61,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:11:37+00:00",
+      "ended_at": "2026-08-08T16:39:38+00:00",
       "github_commit": {
-        "anrbj666": "99a1da40de1691793affdec03ffd1ce5616d4bea",
-        "vibecode": "unknown"
+        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
+        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g01.json",
@@ -76,7 +79,7 @@
         "anrbj666": 20,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:11:25+00:00",
+      "started_at": "2026-08-08T16:39:24+00:00",
       "sub_game_number": 1,
       "tie": false,
       "tokens": {
@@ -90,10 +93,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:12:02+00:00",
+      "ended_at": "2026-08-08T16:40:05+00:00",
       "github_commit": {
-        "anrbj666": "7a8e844549261f8c98974efbfa41284e3af59fc7",
-        "vibecode": "unknown"
+        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
+        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g02.json",
@@ -108,7 +111,7 @@
         "anrbj666": 10,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:11:39+00:00",
+      "started_at": "2026-08-08T16:39:41+00:00",
       "sub_game_number": 2,
       "tie": false,
       "tokens": {
@@ -122,10 +125,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:12:21+00:00",
+      "ended_at": "2026-08-08T16:40:23+00:00",
       "github_commit": {
-        "anrbj666": "99a1da40de1691793affdec03ffd1ce5616d4bea",
-        "vibecode": "unknown"
+        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
+        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g03.json",
@@ -140,7 +143,7 @@
         "anrbj666": 20,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:12:05+00:00",
+      "started_at": "2026-08-08T16:40:09+00:00",
       "sub_game_number": 3,
       "tie": false,
       "tokens": {
@@ -154,10 +157,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:12:45+00:00",
+      "ended_at": "2026-08-08T16:40:49+00:00",
       "github_commit": {
-        "anrbj666": "7a8e844549261f8c98974efbfa41284e3af59fc7",
-        "vibecode": "unknown"
+        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
+        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g04.json",
@@ -172,7 +175,7 @@
         "anrbj666": 10,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:12:24+00:00",
+      "started_at": "2026-08-08T16:40:26+00:00",
       "sub_game_number": 4,
       "tie": false,
       "tokens": {
@@ -186,10 +189,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:13:03+00:00",
+      "ended_at": "2026-08-08T16:41:08+00:00",
       "github_commit": {
-        "anrbj666": "99a1da40de1691793affdec03ffd1ce5616d4bea",
-        "vibecode": "unknown"
+        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
+        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g05.json",
@@ -204,7 +207,7 @@
         "anrbj666": 20,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:12:48+00:00",
+      "started_at": "2026-08-08T16:40:54+00:00",
       "sub_game_number": 5,
       "tie": false,
       "tokens": {
@@ -218,32 +221,32 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:13:28+00:00",
+      "ended_at": "2026-08-08T16:41:32+00:00",
       "github_commit": {
-        "anrbj666": "7a8e844549261f8c98974efbfa41284e3af59fc7",
-        "vibecode": "unknown"
+        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
+        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g06.json",
         "vibecode": "log_anrbj666-vs-vibecode_g06.json"
       },
-      "result": "survival",
+      "result": "capture",
       "roles": {
         "anrbj666": "thief",
         "vibecode": "police"
       },
       "score": {
-        "anrbj666": 10,
-        "vibecode": 5
+        "anrbj666": 5,
+        "vibecode": 20
       },
-      "started_at": "2026-08-08T16:13:07+00:00",
+      "started_at": "2026-08-08T16:41:11+00:00",
       "sub_game_number": 6,
       "tie": false,
       "tokens": {
         "anrbj666": 0,
         "vibecode": 0
       },
-      "winner_group": "anrbj666"
+      "winner_group": "vibecode"
     }
   ],
   "timezone": "Asia/Jerusalem"

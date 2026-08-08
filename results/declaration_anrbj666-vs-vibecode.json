@@ -1,17 +1,17 @@
 {
   "_schema": "p2p-police-artifacts",
-  "consensus_signature": "daad1980c4d003ea318f57d03eaca00f80fc45f807ea4790e58ecf65a5a4741a",
+  "consensus_signature": "0f472f917aff1cff47481fa0426190a3fc2dfb05b68c500f5fb2807e92ffc4fb",
   "declaration_type": "pre_game_declaration",
-  "declared_at": "2026-08-08T16:13:28+00:00",
-  "game_ended_at": "2026-08-08T16:13:28+00:00",
+  "declared_at": "2026-08-08T16:41:32+00:00",
+  "game_ended_at": "2026-08-08T16:41:32+00:00",
   "game_id": "anrbj666-vs-vibecode",
-  "game_started_at": "2026-08-08T16:13:07+00:00",
+  "game_started_at": "2026-08-08T16:41:11+00:00",
   "game_uid": "b2a16946-2cad-909f-60aa-b0cc8a8b7c4f",
   "groups": {
     "group_1": {
       "code_version": "1.00",
       "counted_games_played": 1,
-      "github_commit": "7a8e844549261f8c98974efbfa41284e3af59fc7",
+      "github_commit": "463d707bd94e21947544c6312440c2d385951fe5",
       "group_id": "anrbj666",
       "group_name": "anrbj666",
       "hardware_spec": {
@@ -38,19 +38,25 @@
         "cop": "https://github.com/alonengel/P2P-Police",
         "thief": "https://github.com/alonengel/P2P-Thief"
       },
-      "signature": "sha256:ad00a910a886588e4d4f9204de77b265a3ab7244597d9e957cc6e82fb56a765d"
+      "signature": "sha256:245b7baa5dffb1d39949bbb06f353aac4d2469e65bab6abe8b5a1fa0905943e9"
     },
     "group_2": {
       "counted_games_played": 0,
-      "github_commit": "unknown",
+      "github_commit": "f2152984509985d8fe5c8db2624167286c65e3b5",
       "group_id": "vibecode",
       "group_name": "vibecode",
       "hardware_spec": {},
       "hardware_spec_sha256": "",
       "llm_model": "role-specific-recurrent-policy",
-      "mcp_servers": {},
+      "mcp_servers": {
+        "cop": "http://62.56.220.143:61224/mcp",
+        "thief": "http://62.56.220.143:61223/mcp"
+      },
       "members": [],
-      "repos": {},
+      "repos": {
+        "cop": "https://github.com/AmitKuper/vibecode-cop",
+        "thief": "https://github.com/AmitKuper/vibecode-thief"
+      },
       "signature": "undeclared"
     }
   },
