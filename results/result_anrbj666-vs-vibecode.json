@@ -21,8 +21,8 @@
       "vibecode": 0
     },
     "total_score": {
-      "anrbj666": 85,
-      "vibecode": 45
+      "anrbj666": 75,
+      "vibecode": 35
     },
     "winner_group": "anrbj666"
   },
@@ -50,7 +50,7 @@
   },
   "mutual_agreement": {
     "confirmed": true,
-    "sha256": "3f24badd40e688d4232bb9d0612a8c9222d0c370f9210b118e034ed72a61ca89"
+    "sha256": "b4db10c24e330682393c6d3dea432de040f93116710851bf8e41f6ac5c3ae67d"
   },
   "num_sub_games": 6,
   "report_type": "final_game_result",
@@ -61,10 +61,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:39:38+00:00",
+      "ended_at": "2026-08-08T17:46:51+00:00",
       "github_commit": {
-        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
-        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
+        "anrbj666": "1903133a3462ef9e638ddaea6a1e82360b02a93e",
+        "vibecode": "89a314a83c91f945dc3d8c0aed623dc8749b3e35"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g01.json",
@@ -79,7 +79,7 @@
         "anrbj666": 20,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:39:24+00:00",
+      "started_at": "2026-08-08T17:46:35+00:00",
       "sub_game_number": 1,
       "tie": false,
       "tokens": {
@@ -93,10 +93,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:40:05+00:00",
+      "ended_at": "2026-08-08T17:47:16+00:00",
       "github_commit": {
-        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
-        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
+        "anrbj666": "402b9dca1108df0d0d4e473d664e9ee0159c75de",
+        "vibecode": "77c0bc1fd93ac1e2bb8149622963dcc5a8591b76"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g02.json",
@@ -111,7 +111,7 @@
         "anrbj666": 10,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:39:41+00:00",
+      "started_at": "2026-08-08T17:46:55+00:00",
       "sub_game_number": 2,
       "tie": false,
       "tokens": {
@@ -125,10 +125,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:40:23+00:00",
+      "ended_at": "2026-08-08T17:47:34+00:00",
       "github_commit": {
-        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
-        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
+        "anrbj666": "1903133a3462ef9e638ddaea6a1e82360b02a93e",
+        "vibecode": "89a314a83c91f945dc3d8c0aed623dc8749b3e35"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g03.json",
@@ -143,7 +143,7 @@
         "anrbj666": 20,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:40:09+00:00",
+      "started_at": "2026-08-08T17:47:19+00:00",
       "sub_game_number": 3,
       "tie": false,
       "tokens": {
@@ -157,10 +157,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:40:49+00:00",
+      "ended_at": "2026-08-08T17:47:59+00:00",
       "github_commit": {
-        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
-        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
+        "anrbj666": "402b9dca1108df0d0d4e473d664e9ee0159c75de",
+        "vibecode": "77c0bc1fd93ac1e2bb8149622963dcc5a8591b76"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g04.json",
@@ -175,7 +175,7 @@
         "anrbj666": 10,
         "vibecode": 5
       },
-      "started_at": "2026-08-08T16:40:26+00:00",
+      "started_at": "2026-08-08T17:47:38+00:00",
       "sub_game_number": 4,
       "tie": false,
       "tokens": {
@@ -189,64 +189,64 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:41:08+00:00",
+      "ended_at": "2026-08-08T17:48:24+00:00",
       "github_commit": {
-        "anrbj666": "94bee8c26b62dd06b8b7b3286ffbe46d55c5728e",
-        "vibecode": "59332a5a17059720c4ac7b325afb0ad41d1e16ae"
+        "anrbj666": "1903133a3462ef9e638ddaea6a1e82360b02a93e",
+        "vibecode": "89a314a83c91f945dc3d8c0aed623dc8749b3e35"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g05.json",
         "vibecode": "log_anrbj666-vs-vibecode_g05.json"
       },
-      "result": "capture",
+      "result": "survival",
       "roles": {
         "anrbj666": "police",
         "vibecode": "thief"
       },
       "score": {
-        "anrbj666": 20,
-        "vibecode": 5
+        "anrbj666": 5,
+        "vibecode": 10
       },
-      "started_at": "2026-08-08T16:40:54+00:00",
+      "started_at": "2026-08-08T17:48:02+00:00",
       "sub_game_number": 5,
       "tie": false,
       "tokens": {
         "anrbj666": 0,
         "vibecode": 0
       },
-      "winner_group": "anrbj666"
+      "winner_group": "vibecode"
     },
     {
       "audit": {
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-08T16:41:32+00:00",
+      "ended_at": "2026-08-08T17:48:49+00:00",
       "github_commit": {
-        "anrbj666": "463d707bd94e21947544c6312440c2d385951fe5",
-        "vibecode": "f2152984509985d8fe5c8db2624167286c65e3b5"
+        "anrbj666": "402b9dca1108df0d0d4e473d664e9ee0159c75de",
+        "vibecode": "77c0bc1fd93ac1e2bb8149622963dcc5a8591b76"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-vibecode_g06.json",
         "vibecode": "log_anrbj666-vs-vibecode_g06.json"
       },
-      "result": "capture",
+      "result": "survival",
       "roles": {
         "anrbj666": "thief",
         "vibecode": "police"
       },
       "score": {
-        "anrbj666": 5,
-        "vibecode": 20
+        "anrbj666": 10,
+        "vibecode": 5
       },
-      "started_at": "2026-08-08T16:41:11+00:00",
+      "started_at": "2026-08-08T17:48:27+00:00",
       "sub_game_number": 6,
       "tie": false,
       "tokens": {
         "anrbj666": 0,
         "vibecode": 0
       },
-      "winner_group": "vibecode"
+      "winner_group": "anrbj666"
     }
   ],
   "timezone": "Asia/Jerusalem"

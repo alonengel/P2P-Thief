@@ -1,17 +1,17 @@
 {
   "_schema": "p2p-police-artifacts",
-  "consensus_signature": "0f472f917aff1cff47481fa0426190a3fc2dfb05b68c500f5fb2807e92ffc4fb",
+  "consensus_signature": "ba9fa4130c1240d2106f8658dd68ee4fdb32a6a16e339d1cd69a3d6e7eda294d",
   "declaration_type": "pre_game_declaration",
-  "declared_at": "2026-08-08T16:41:32+00:00",
-  "game_ended_at": "2026-08-08T16:41:32+00:00",
+  "declared_at": "2026-08-08T17:48:49+00:00",
+  "game_ended_at": "2026-08-08T17:48:49+00:00",
   "game_id": "anrbj666-vs-vibecode",
-  "game_started_at": "2026-08-08T16:41:11+00:00",
+  "game_started_at": "2026-08-08T17:48:27+00:00",
   "game_uid": "b2a16946-2cad-909f-60aa-b0cc8a8b7c4f",
   "groups": {
     "group_1": {
       "code_version": "1.00",
       "counted_games_played": 1,
-      "github_commit": "463d707bd94e21947544c6312440c2d385951fe5",
+      "github_commit": "402b9dca1108df0d0d4e473d664e9ee0159c75de",
       "group_id": "anrbj666",
       "group_name": "anrbj666",
       "hardware_spec": {
@@ -38,11 +38,11 @@
         "cop": "https://github.com/alonengel/P2P-Police",
         "thief": "https://github.com/alonengel/P2P-Thief"
       },
-      "signature": "sha256:245b7baa5dffb1d39949bbb06f353aac4d2469e65bab6abe8b5a1fa0905943e9"
+      "signature": "sha256:967affdb726f86b7fc39a906f637a19325d051a02acd99e648c791c588aeb2c0"
     },
     "group_2": {
       "counted_games_played": 0,
-      "github_commit": "f2152984509985d8fe5c8db2624167286c65e3b5",
+      "github_commit": "77c0bc1fd93ac1e2bb8149622963dcc5a8591b76",
       "group_id": "vibecode",
       "group_name": "vibecode",
       "hardware_spec": {},
@@ -52,7 +52,10 @@
         "cop": "http://62.56.220.143:61224/mcp",
         "thief": "http://62.56.220.143:61223/mcp"
       },
-      "members": [],
+      "members": [
+        "Ron Marom",
+        "Amit Kuperminz"
+      ],
       "repos": {
         "cop": "https://github.com/AmitKuper/vibecode-cop",
         "thief": "https://github.com/AmitKuper/vibecode-thief"
