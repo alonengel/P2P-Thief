@@ -16,7 +16,7 @@
     "audit_disclosure": "sent",
     "digest_match": false,
     "end_state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
-    "ended_at": "2026-08-09T17:41:54+00:00",
+    "ended_at": "2026-08-09T18:10:04+00:00",
     "failure": "DeadlineExpiredError: deadline expired while waiting for opponent agreement",
     "gatekeeper": {
       "calls_logged": 0,
@@ -35,12 +35,12 @@
         "openrouter"
       ]
     },
-    "github_commit": "225c0644320d2245f93005e5eec19cd83ca261d0",
+    "github_commit": "39111e84e175f2d128407019c072c10ab8c3b626",
     "group_id": "anrbj666",
     "opponent_group_id": "unknown",
     "outcome": "technical_loss",
     "role": "thief",
-    "started_at": "2026-08-09T17:38:53+00:00",
+    "started_at": "2026-08-09T18:07:03+00:00",
     "steps_sealed": 0,
     "turns_completed": 0
   },
