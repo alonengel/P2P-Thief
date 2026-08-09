@@ -15,6 +15,16 @@ from p2p_thief.domain.pathfind import UNREACHABLE, bfs_distances
 from p2p_thief.domain.primitives import Cell, Move, Role
 from p2p_thief.strategy.brain_base import BrainBase
 
+# Belief peak mass at which the estimate is trusted like exact information.
+# The wall FORECAST was measured catastrophic on STALE belief (lag-1 cop:
+# survival 100 -> 0), so it stayed exact-only — but a claim-per-move rival
+# pins our belief to its true cell every turn (league 2026-08-09), and a
+# pinned peak is not stale (live trace: 0.83-0.89 mass). A merely-moderate
+# peak (e.g. a misled 0.55) must NOT open the gate — that is the stale-info
+# hazard the doctrine tests pin. Below the gate the conservative scorer
+# stands.
+SHARP_BELIEF = 0.75
+
 
 class _Blocked:
     """Board view with one hypothetical barrier (trap-forecast probes)."""
@@ -37,16 +47,22 @@ class ThiefBrain(BrainBase):
         # conservative distance+openness, which stale info cannot poison.
         exact = belief is None
         cop = engine.positions[Role.POLICE] if exact else belief.argmax_cell()
+        # A claim-pinned peak is trusted like exact info: the forecast that
+        # dodges wall traps needs a true cop cell, and a claim provides one.
+        # Minimal belief fakes (endgame certificates) carry no value_at —
+        # they read as diffuse and keep the conservative scorer.
+        peak = getattr(belief, "value_at", lambda _cell: 0.0)
+        trust = exact or peak(cop) >= SHARP_BELIEF
         me = engine.positions[Role.THIEF]
         distances = bfs_distances(engine.board, cop)
 
         best_move = Move.STAY
-        best_score = self._score(engine, me, distances, cop, exact)
+        best_score = self._score(engine, me, distances, cop, trust)
         for move in self.rng.sample(list(Move), k=len(Move)):
             target = move.applied_to(me)
             if move is Move.STAY or not engine.board.is_passable(target):
                 continue
-            score = self._score(engine, target, distances, cop, exact)
+            score = self._score(engine, target, distances, cop, trust)
             if score > best_score:
                 best_move, best_score = move, score
         return protocol.move_action(best_move)
