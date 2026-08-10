@@ -13,11 +13,11 @@
   "sub_game_number": 2,
   "summary": {
     "audit": "unavailable (technical loss)",
-    "audit_disclosure": "failed: DeadlineExpiredError: opponent at http://62.56.220.143:61224/mcp unreachable until deadline: Client failed to connect: All connection attempts failed",
+    "audit_disclosure": "sent",
     "digest_match": false,
     "end_state_digest": "0c5ca9f08652e92f20c81ed58187e277be20384203a4be0748df24fc896aec52",
-    "ended_at": "2026-08-08T14:29:17+00:00",
-    "failure": "DeadlineExpiredError: opponent at http://62.56.220.143:61224/mcp unreachable until deadline: Client failed to connect: All connection attempts failed",
+    "ended_at": "2026-08-10T16:52:15+00:00",
+    "failure": "GameRuleError: negotiate declaration mismatch on 'scent_model_sha256': mine='934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9' theirs='81ebee59640e80eae8ca9ee5f86abd26e7edf5cdbb27d15925cb6ee45ca6ddf4'",
     "gatekeeper": {
       "calls_logged": 0,
       "dos_locked": {
@@ -35,12 +35,12 @@
         "openrouter"
       ]
     },
-    "github_commit": "dfe1ab88efc3eea9ed898b622ec5c346c3376263",
+    "github_commit": "56e88f581a9e410fc56f5c80f3adcd0aaa8c0a17",
     "group_id": "anrbj666",
     "opponent_group_id": "unknown",
     "outcome": "technical_loss",
     "role": "thief",
-    "started_at": "2026-08-08T14:23:07+00:00",
+    "started_at": "2026-08-10T16:52:13+00:00",
     "steps_sealed": 0,
     "turns_completed": 0
   },

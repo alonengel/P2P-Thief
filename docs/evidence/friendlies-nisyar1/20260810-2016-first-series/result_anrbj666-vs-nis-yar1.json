@@ -61,10 +61,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:18:20+00:00",
+      "ended_at": "2026-08-10T17:16:19+00:00",
       "github_commit": {
         "anrbj666": "acdd6c189773ed7511c9cc9e21cc6f55f727811f",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g01.json",
@@ -79,7 +79,7 @@
         "anrbj666": 20,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:18:04+00:00",
+      "started_at": "2026-08-10T17:16:07+00:00",
       "sub_game_number": 1,
       "tie": false,
       "tokens": {
@@ -93,10 +93,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:19:01+00:00",
+      "ended_at": "2026-08-10T17:17:02+00:00",
       "github_commit": {
         "anrbj666": "56e88f581a9e410fc56f5c80f3adcd0aaa8c0a17",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g02.json",
@@ -111,7 +111,7 @@
         "anrbj666": 10,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:18:22+00:00",
+      "started_at": "2026-08-10T17:16:22+00:00",
       "sub_game_number": 2,
       "tie": false,
       "tokens": {
@@ -125,10 +125,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:19:21+00:00",
+      "ended_at": "2026-08-10T17:17:17+00:00",
       "github_commit": {
         "anrbj666": "acdd6c189773ed7511c9cc9e21cc6f55f727811f",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g03.json",
@@ -143,7 +143,7 @@
         "anrbj666": 20,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:19:05+00:00",
+      "started_at": "2026-08-10T17:17:05+00:00",
       "sub_game_number": 3,
       "tie": false,
       "tokens": {
@@ -157,10 +157,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:20:03+00:00",
+      "ended_at": "2026-08-10T17:18:00+00:00",
       "github_commit": {
         "anrbj666": "56e88f581a9e410fc56f5c80f3adcd0aaa8c0a17",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g04.json",
@@ -175,7 +175,7 @@
         "anrbj666": 10,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:19:26+00:00",
+      "started_at": "2026-08-10T17:17:21+00:00",
       "sub_game_number": 4,
       "tie": false,
       "tokens": {
@@ -189,10 +189,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:20:22+00:00",
+      "ended_at": "2026-08-10T17:18:15+00:00",
       "github_commit": {
         "anrbj666": "acdd6c189773ed7511c9cc9e21cc6f55f727811f",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g05.json",
@@ -207,7 +207,7 @@
         "anrbj666": 20,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:20:07+00:00",
+      "started_at": "2026-08-10T17:18:03+00:00",
       "sub_game_number": 5,
       "tie": false,
       "tokens": {
@@ -221,10 +221,10 @@
         "log_verified": true,
         "tampered": false
       },
-      "ended_at": "2026-08-10T18:21:02+00:00",
+      "ended_at": "2026-08-10T17:18:59+00:00",
       "github_commit": {
         "anrbj666": "56e88f581a9e410fc56f5c80f3adcd0aaa8c0a17",
-        "nis-yar1": "e88b4ac"
+        "nis-yar1": "10a86db"
       },
       "log_files": {
         "anrbj666": "log_anrbj666-vs-nis-yar1_g06.json",
@@ -239,7 +239,7 @@
         "anrbj666": 10,
         "nis-yar1": 5
       },
-      "started_at": "2026-08-10T18:20:25+00:00",
+      "started_at": "2026-08-10T17:18:19+00:00",
       "sub_game_number": 6,
       "tie": false,
       "tokens": {
