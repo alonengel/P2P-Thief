@@ -1,0 +1,66 @@
+{
+ "g02": {
+  "moves": [
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:E",
+   "MOVE:S",
+   "BARRIER:E",
+   "MOVE:S",
+   "MOVE:E",
+   "BARRIER:E",
+   "BARRIER:S"
+  ],
+  "hints": [
+   "I am wasting my shift watching Grand Central.",
+   "I could swear you were hiding behind the Village.",
+   "The trail went cold by Times Square; enjoy it.",
+   "My patrol is stuck out by Central Park tonight.",
+   "The city closes like a hand, finger by finger.",
+   "Every step you take costs you a street.",
+   "The net is tightening and you already feel it.",
+   "Your options are thinner than yesterday's alibi.",
+   "The city closes like a hand, finger by finger.",
+   "Every step you take costs you a street.",
+   "The walls you fear are the ones I have not built yet.",
+   "I lost your scent somewhere around the Village.",
+   "The walls you fear are the ones I have not built yet."
+  ]
+ },
+ "g04": {
+  "moves": [
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:S",
+   "MOVE:E",
+   "MOVE:E",
+   "MOVE:S",
+   "BARRIER:E",
+   "MOVE:S",
+   "MOVE:E",
+   "BARRIER:E",
+   "BARRIER:S"
+  ],
+  "hints": [
+   "Your options are thinner than yesterday's alibi.",
+   "Each barrier is a promise I intend to keep.",
+   "Every step you take costs you a street.",
+   "The clock is my partner and it never takes bribes.",
+   "I do not chase; I herd.",
+   "Paperwork chains me to Times Square this evening.",
+   "Orders keep me anchored near Central Park for now.",
+   "The trail went cold by Central Park; enjoy it.",
+   "I do not chase; I herd.",
+   "The net is tightening and you already feel it.",
+   "The net is tightening and you already feel it.",
+   "The walls you fear are the ones I have not built yet.",
+   "The city closes like a hand, finger by finger."
+  ]
+ }
+}
