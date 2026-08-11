@@ -25,6 +25,25 @@ TEMPLATES: dict[str, list[str]] = {
     "STAY": ["Comfortable right where I am.", "Not moving an inch, promise."],
 }
 
+# Contentless talk: arena-flavoured taunts that assert NOTHING about where we
+# are or where we are going. The templates above narrate our heading, which is
+# a gift to a rival's belief — league 2026-08-11 g02: we announced "Slipping
+# south past the docks" while moving south, truthfully, turn after turn, to a
+# cop whose own hints leaked nothing. Free language is required (rule 27);
+# informative language is not. Selected per game by [trash_talk] hint_mode.
+TAUNTS: list[str] = [
+    "The city is bigger than your patience, officer.",
+    "Every siren sounds the same after midnight.",
+    "You will read about me in the morning edition.",
+    "This town keeps better secrets than you do.",
+    "Somewhere a kettle is boiling and you are here.",
+    "The pavement forgets footsteps; so should you.",
+    "I could do this all night, honestly.",
+    "Your radio is quieter than my conscience.",
+    "Nothing personal — the streets simply prefer me.",
+    "Ask the pigeons; they have opinions about you.",
+]
+
 
 def enforce_word_limit(text: str, hint_max_words: int) -> str:
     """Hard cap from the signed config — applies to every provider (rule)."""
