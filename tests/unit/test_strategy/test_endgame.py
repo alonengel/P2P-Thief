@@ -8,6 +8,7 @@ from pathlib import Path
 from p2p_thief.domain.engine import GameEngine
 from p2p_thief.domain.primitives import Move, Role
 from p2p_thief.domain.rules import RuleSet
+from p2p_thief.strategy.doctrine import DoctrineThiefBrain
 from p2p_thief.strategy.endgame import (
     DEFAULTS,
     CertifiedThiefBrain,
@@ -126,11 +127,18 @@ def test_blind_decide_path_never_reads_rival_truth() -> None:
 
 
 def test_wrapper_composes_the_stealth_brain_when_uncertified() -> None:
+    """A refused certificate must hand the turn to the brain BENEATH the
+    wrapper, untouched. Compared against DoctrineThiefBrain (its actual
+    super, which is itself a StealthThiefBrain — pinned by the seam test
+    below): pure-stealth equality was rng-order-luck, since inside a coffin
+    every cramped cell scores alike and the doctrine layer breaks the tie."""
     engine = with_turns_left(coffin_engine(), 2)
     belief = FakeBelief(7, [(0, 2)])  # refused above -> falls through
     wrapped = CertifiedThiefBrain(Role.THIEF, random.Random(7)).decide(engine, belief)
-    stealth = StealthThiefBrain(Role.THIEF, random.Random(7)).decide(engine, belief)
-    assert wrapped == stealth
+    beneath = DoctrineThiefBrain(Role.THIEF, random.Random(7)).decide(engine, belief)
+    assert wrapped == beneath
+    assert isinstance(DoctrineThiefBrain(Role.THIEF, random.Random(7)),
+                      StealthThiefBrain)
 
 
 def test_seam_wrapper_keeps_movement_deception_armed() -> None:

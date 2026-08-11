@@ -24,6 +24,11 @@ from p2p_thief.strategy.brain_base import BrainBase
 # hazard the doctrine tests pin. Below the gate the conservative scorer
 # stands.
 SHARP_BELIEF = 0.75
+# Exits at which a cell stops being a pocket. Two open sides is exactly what
+# a corner leaves, and two barriers close it — the seal that killed us three
+# times identically (league 2026-08-11). Above this, extra exits buy nothing
+# and distance decides again.
+SAFE_EXITS = 3
 
 
 class _Blocked:
@@ -107,7 +112,14 @@ class ThiefBrain(BrainBase):
             if engine.board.is_passable(m.applied_to(cell))
         )
         if not exact:
-            return (distance, openness)
+            # IMPRISONMENT IS CAPTURE (book 3.4, barrier law): a thief with no
+            # legal move is caught outright, and the board edge does half the
+            # cop's work. nis-yar1 killed us three times identically by walling
+            # the two open sides of a corner we were sitting in (league
+            # 2026-08-11: (6,6) sealed by (5,6)+(6,5), turn 13, every game).
+            # So room outranks range while blind: a cell the edge already
+            # cramps loses to any roomier cell, however much closer.
+            return (min(openness, SAFE_EXITS), distance, openness)
         escapes, region = self._after_best_wall(engine, cell, cop)
         grid = engine.board.grid_size
         wall_distance = min(cell[0], cell[1], grid - 1 - cell[0], grid - 1 - cell[1])
