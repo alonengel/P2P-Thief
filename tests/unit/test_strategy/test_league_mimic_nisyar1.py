@@ -83,3 +83,65 @@ def _play(seed: int) -> Outcome:
 def test_room_first_thief_survives_the_adaptive_herder() -> None:
     survivals = sum(_play(seed) is Outcome.SURVIVAL for seed in range(10))
     assert survivals >= 9, f"herder mimic: only {survivals}/10 survived"
+
+
+class MetronomeCop:
+    """Their live cadence, exactly as the moves reports measured it across
+    every kill: approach to gap 2, HOLD (never closes to 1), first wall at
+    turn 9, fewest-exit seals after. Its only conversion is a pocketed
+    thief — room-first starves it completely (15/15 at ship time)."""
+
+    def __init__(self) -> None:
+        self.left = RULES.max_barriers
+
+    def act(self, engine, turn: int) -> dict:
+        me = engine.positions[Role.POLICE]
+        thief = engine.positions[Role.THIEF]
+        dist = bfs_distances(engine.board, thief)
+        gap = dist.get(me, 99)
+        if turn >= 9 and self.left > 0 and gap <= 2:
+            exits = [m.applied_to(thief) for m in (Move.N, Move.S, Move.E, Move.W)
+                     if engine.board.is_passable(m.applied_to(thief))
+                     and m.applied_to(thief) != me]
+            legal = {me} | {m.applied_to(me) for m in (Move.N, Move.S, Move.E, Move.W)}
+            seal = [c for c in exits if c in legal]
+            if seal:
+                cell = min(seal, key=lambda c: sum(
+                    1 for m in (Move.N, Move.S, Move.E, Move.W)
+                    if engine.board.is_passable(m.applied_to(c))))
+                self.left -= 1
+                return {"type": "barrier", "cell": [cell[0], cell[1]]}
+        if gap <= 2:
+            return {"type": "move", "move": "STAY"}
+        chase = min(engine.board.legal_moves(me),
+                    key=lambda m: dist.get(m.applied_to(me), 99))
+        return {"type": "move", "move": chase.name}
+
+
+def _play_metronome(seed: int) -> Outcome:
+    engine = GameEngine(7, (0, 0), (3, 3), RULES)
+    thief = ThiefBrain(Role.THIEF, random.Random(seed))
+    percep = Perception.for_peer(Role.THIEF, Config.load("config"))
+    cop, turn = MetronomeCop(), 0
+    while engine.outcome is Outcome.ONGOING and turn < RULES.max_moves:
+        turn += 1
+        action = cop.act(engine, turn)
+        barrier = tuple(action["cell"]) if action["type"] == "barrier" else None
+        try:
+            protocol.apply_action(engine, Role.POLICE, action)
+        except Exception:
+            protocol.apply_action(engine, Role.POLICE, {"type": "move", "move": "STAY"})
+        if engine.outcome is not Outcome.ONGOING:
+            break
+        percep.observe(engine, Role.POLICE, LIES[turn % len(LIES)],
+                       barrier_cell=barrier, claim_cell=None)
+        protocol.apply_action(engine, Role.THIEF, thief.decide(engine, percep.belief))
+    return engine.outcome
+
+
+def test_the_metronome_cop_cannot_convert_us_at_all() -> None:
+    """The exploit, pinned as a guarantee: their observed kill cadence has
+    exactly one conversion path (herd -> pocket -> seal) and the room-first
+    thief refuses pockets. Zero deaths tolerated on the fixed seeds."""
+    survivals = sum(_play_metronome(seed) is Outcome.SURVIVAL for seed in range(15))
+    assert survivals == 15, f"metronome cop converted us: {survivals}/15"
