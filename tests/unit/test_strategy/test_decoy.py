@@ -41,3 +41,19 @@ def test_overlay_seam_selects_the_decoy_and_defaults_to_the_real_brain() -> None
     assert type(picked) is DecoyThiefBrain
     bare = resolve_brain(SimpleNamespace(private={}), Role.THIEF, random.Random(0))
     assert not isinstance(bare, DecoyThiefBrain)
+
+
+def test_bait_decoy_prefers_the_north_east() -> None:
+    """The planted invariant: at equal distance and openness the bait drifts
+    NE (low row, high column) — the habit rivals are meant to train on."""
+    from collections import Counter
+
+    from p2p_thief.strategy.decoy import BaitDecoyThiefBrain
+    landings = Counter()
+    for seed in range(12):
+        engine = GameEngine(7, (6, 0), (3, 3), RULES)   # cop far SW
+        brain = BaitDecoyThiefBrain(Role.THIEF, random.Random(seed))
+        action = brain.decide(engine, _belief_on((6, 0)))
+        landings[action["move"]] += 1
+    # N and E (the NE pull) must dominate the first step overwhelmingly
+    assert landings.get("N", 0) + landings.get("E", 0) >= 10, landings

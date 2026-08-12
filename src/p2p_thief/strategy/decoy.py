@@ -33,3 +33,24 @@ class DecoyThiefBrain(ThiefBrain):
         openness = sum(1 for m in (Move.N, Move.S, Move.E, Move.W)
                        if engine.board.is_passable(m.applied_to(cell)))
         return (distance, openness)  # the herdable shape, preserved on purpose
+
+
+class BaitDecoyThiefBrain(DecoyThiefBrain):
+    """The herdable decoy with a planted INVARIANT: a north-east habit.
+
+    The bait: rivals who tune on friendly tapes will pre-commit walls and
+    herding toward the NE quadrant. The counted-day room-first thief has no
+    such habit — every pre-positioned wall and approach step aimed NE is
+    quota and tempo spent on an empty corner. Selected only by the friendly
+    overlay:
+        [strategy]
+        thief_class = "p2p_thief.strategy.decoy:BaitDecoyThiefBrain"
+    """
+
+    def _score(self, engine, cell, distances, cop, exact):
+        base = super()._score(engine, cell, distances, cop, exact)
+        if exact:
+            return base
+        # NE pull: prefer low row / high column at equal distance+openness.
+        ne_pull = (engine.board.grid_size - 1 - cell[0]) + cell[1]
+        return (*base, ne_pull)
