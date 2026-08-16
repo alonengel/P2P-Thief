@@ -15,6 +15,7 @@ import time
 from collections.abc import Callable
 
 from fastmcp import Client
+from fastmcp.client.transports import StreamableHttpTransport
 
 from p2p_thief.peer.deadline import Deadline, DeadlineExpiredError
 
@@ -33,8 +34,10 @@ class McpTransport:
         response_timeout_sec: float = 30.0,
         sleep: Callable[[float], None] = time.sleep,
         beat_slice_sec: float = 2.0,
+        extra_headers: dict | None = None,
     ) -> None:
         self.opponent_url = opponent_url
+        self.extra_headers = dict(extra_headers or {})
         self.retry_backoff_sec = retry_backoff_sec
         self.response_timeout_sec = response_timeout_sec
         self.beat_slice_sec = beat_slice_sec  # max un-beaten single wait
@@ -82,9 +85,19 @@ class McpTransport:
             self._sleep(step)
             seconds -= step
 
+    def _build_client(self) -> Client:
+        """Config-declared extra headers ride an explicit HTTP transport
+        (ngrok's free tier answers header-less calls with an HTML
+        interstitial at HTTP 200 — league best2934 door, 2026-08-16);
+        with none declared the client is built exactly as before."""
+        if self.extra_headers:
+            return Client(StreamableHttpTransport(
+                self.opponent_url, headers=dict(self.extra_headers)))
+        return Client(self.opponent_url)
+
     async def _call_once(self, tool: str, payload: dict) -> dict:
         if self._client is None:
-            client = Client(self.opponent_url)
+            client = self._build_client()
             await client.__aenter__()  # persistent session (closed on reset)
             self._client = client
         # reference tool-arg contract (interop, verified against the demo):
