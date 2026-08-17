@@ -38,7 +38,7 @@ from p2p_thief.report.archive import archive_for_pairing  # noqa: E402
 from p2p_thief.shared.config import Config  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-ROLE, CLI, PARITY = "thief", "p2p-thief", 0  # the thief plays the EVEN windows
+ROLE, CLI, PARITY = "thief", "p2p-thief", 1 if os.environ.get("LEAGUE_PARITY_FLIP") else 0  # thief: EVEN windows (FLIP: this pairing opens with OUR thief on the odds)
 LOCK_PATH = ROOT / "results" / "local" / "league_series.lock"
 # The twin repo's results dir: read-only FILE access for the series close -
 # never an import (workspace iron rule); its runner owns the other windows.
