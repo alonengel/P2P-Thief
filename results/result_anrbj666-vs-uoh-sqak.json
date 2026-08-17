@@ -5,12 +5,12 @@
     "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9"
   },
   "audit": "Verified OK",
-  "consensus_signature": "af9f3f4d3b12f3abc1efd67e6b3782546edd9a2879c3586ec1ca7f3182e13b00",
+  "consensus_signature": "7a185796db54802f7fef45fb5ffb1e523c224fe906b4bb3ec1e6f847d6ae1d1e",
   "digest_match": null,
-  "end_state_digest": "dcf2d7887b5997252164ce869619a01cedc5b26ee2d434a7db0d55d90d488448",
+  "end_state_digest": "1d8e04f1e48f4158ce7bc7071771731272eb888dba67153fdb089dfa9061daab",
   "game_id": "anrbj666-vs-uoh-sqak",
   "game_uid": "f2765c2f-604d-5a53-b42a-6e5e7245c222",
-  "github_commit": "94ec6ca7c761766fc71e3040bab820de272c2372",
+  "github_commit": "9347868bc21e59532bea5f6806983459c1f35c75",
   "group_id": "anrbj666",
   "links": {
     "cop": "https://github.com/alonengel/P2P-Police",
@@ -23,7 +23,7 @@
   "opponent_group_id": "uoh-sqak",
   "outcome": "survival",
   "report_type": "result",
-  "reported_at": "2026-08-08T12:02:42+00:00",
+  "reported_at": "2026-08-17T20:17:43+00:00",
   "schema_version": "1.00",
   "score": {
     "cop": 5,

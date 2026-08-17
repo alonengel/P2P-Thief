@@ -1,17 +1,17 @@
 {
   "_schema": "p2p-police-artifacts",
-  "consensus_signature": "fd0019bc0a75e3e81246d161cec7bc45ec252332c3d03aed0157224227a4f722",
+  "consensus_signature": "8618e7273a59312e928a6e778ce4a700bf1285ac8c00436d27c4ecf24633aaef",
   "declaration_type": "pre_game_declaration",
-  "declared_at": "2026-08-08T12:02:42+00:00",
-  "game_ended_at": "2026-08-08T12:02:42+00:00",
+  "declared_at": "2026-08-17T20:17:43+00:00",
+  "game_ended_at": "2026-08-17T20:17:43+00:00",
   "game_id": "anrbj666-vs-uoh-sqak",
-  "game_started_at": "2026-08-08T12:01:56+00:00",
+  "game_started_at": "2026-08-17T20:14:08+00:00",
   "game_uid": "f2765c2f-604d-5a53-b42a-6e5e7245c222",
   "groups": {
     "group_1": {
       "code_version": "1.00",
-      "counted_games_played": 1,
-      "github_commit": "94ec6ca7c761766fc71e3040bab820de272c2372",
+      "counted_games_played": 2,
+      "github_commit": "9347868bc21e59532bea5f6806983459c1f35c75",
       "group_id": "anrbj666",
       "group_name": "anrbj666",
       "hardware_spec": {
@@ -38,10 +38,10 @@
         "cop": "https://github.com/alonengel/P2P-Police",
         "thief": "https://github.com/alonengel/P2P-Thief"
       },
-      "signature": "sha256:e333d42c8ead4615e2aedad325e5c4a72403225cf4e562840ed40c4bfedf1df8"
+      "signature": "sha256:9843714b15212887ed841f98cb8f422b4f258cce03c7b8d7b9799723c0c5876d"
     },
     "group_2": {
-      "counted_games_played": 0,
+      "counted_games_played": 2,
       "github_commit": "unknown",
       "group_id": "uoh-sqak",
       "group_name": "uoh-sqak",
@@ -56,7 +56,7 @@
       "hardware_spec_sha256": "",
       "llm_model": "template",
       "mcp_servers": {
-        "thief": "https://d87d-176-229-170-175.ngrok-free.app/mcp"
+        "police": "https://5794-176-229-164-109.ngrok-free.app/mcp"
       },
       "members": [
         "Salah Qadah:323039974",
