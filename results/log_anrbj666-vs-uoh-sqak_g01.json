@@ -1,0 +1,1632 @@
+{
+  "_schema": "p2p-police-artifacts",
+  "game_id": "anrbj666-vs-uoh-sqak",
+  "game_uid": "f2765c2f-604d-5a53-b42a-6e5e7245c222",
+  "links": {
+    "cop": "https://github.com/alonengel/P2P-Police",
+    "thief": "https://github.com/alonengel/P2P-Thief"
+  },
+  "opponent_records": [
+    {
+      "commit": "8c3a3a33d2d4958ce8b5c4e547f8c24b25cf5e412d8c3ce41b323143202c02c4",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": ""
+      },
+      "nonce": "b24d9d3e6f181471cc308dfb00e7cb0b",
+      "payload": {
+        "intent": "truth",
+        "move": "S",
+        "state": {
+          "barriers": [],
+          "pos": [
+            0,
+            0
+          ]
+        },
+        "step": 1
+      }
+    },
+    {
+      "commit": "1c6af30a84b8c064d962448a97d29e245184d3b654d3c3e362e5760351bed84c",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": ""
+      },
+      "nonce": "5f5507edaf36e80a182001936e2ec286",
+      "payload": {
+        "intent": "truth",
+        "move": "S",
+        "state": {
+          "barriers": [],
+          "pos": [
+            1,
+            0
+          ]
+        },
+        "step": 2
+      }
+    },
+    {
+      "commit": "28314ac862ce50b07d5d91eb0bcc2690c0fc4cb27080e3c35557dfd88b730f4d",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": "My barriers are spent around Brooklyn Bridge. Take your time."
+      },
+      "nonce": "3be141d4f3bd11e2da154eb8577ca11a",
+      "payload": {
+        "intent": "lie",
+        "move": "S",
+        "state": {
+          "barriers": [],
+          "pos": [
+            2,
+            0
+          ]
+        },
+        "step": 3
+      }
+    },
+    {
+      "commit": "be0e0a0355973ae2cff988b770435c850ae36442b15ed369eb6edfb3d45aaaa6",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": ""
+      },
+      "nonce": "2a3415e60351914f46e6727868ea599d",
+      "payload": {
+        "intent": "truth",
+        "move": "E",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            0
+          ]
+        },
+        "step": 4
+      }
+    },
+    {
+      "commit": "e9ccd86dfc478f57e1f6af1e09e6cf9be0d2ea6d3355eded9592c34214459394",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": null,
+        "hint": ""
+      },
+      "nonce": "80b41b26e94ec43c68832798b9448968",
+      "payload": {
+        "intent": "truth",
+        "move": "E",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            1
+          ]
+        },
+        "step": 5
+      }
+    },
+    {
+      "commit": "d4c2fe943f3ba415c47e36176d8e9c3bf9eb3c0707fadbe5e144212e3662a719",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": "Heading west now; the rest of the map is yours."
+      },
+      "nonce": "1aa5df3ca95bb7cf4edc84e2b17f3289",
+      "payload": {
+        "intent": "lie",
+        "move": "E",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            2
+          ]
+        },
+        "step": 6
+      }
+    },
+    {
+      "commit": "3cbbb2b90c3bae0fe9459ced79cf6b3d4a6de5b4e50387d7dab4219c8cbeab0d",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "3960bc2815947e1d3ca5f0d3b74807a2",
+      "payload": {
+        "intent": "truth",
+        "move": "E",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 7
+      }
+    },
+    {
+      "commit": "5af6ca475ab6e7efad89ba4e4c20322f2a34d1b37b5ca4fe5cdb4edd83127e4d",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "31e0397bb6d50910f14d494c18c39a8f",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 8
+      }
+    },
+    {
+      "commit": "7635a7d556e521deeb5ddce0c4c7372ae0c4cf35a73d1a6e3ed68c314b16e6b5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "Searching the far side by Brooklyn Bridge \u2014 nothing here."
+      },
+      "nonce": "2e843ad66b9b3836380cbdb393c0b882",
+      "payload": {
+        "intent": "lie",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 9
+      }
+    },
+    {
+      "commit": "a5c0327297f92efa6a9025f9a703672ebde2626ca6cd8652f170aae5f1360c17",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "11c9668311766b1dae77473657937c7e",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 10
+      }
+    },
+    {
+      "commit": "a65a10c5ed6eb2df471c960a4abbb9b2964018fd10b7af014e6266c2a1a46649",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "e7971f73c8f6a4fab67e095ab96c08d8",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 11
+      }
+    },
+    {
+      "commit": "e562276e14b35bf935ec8e75f6788d8725b1a9e6eb55af75b8234700a177b4fa",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "Working my way still from Harlem."
+      },
+      "nonce": "45b125877a2ee6996669e986116b952b",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 12
+      }
+    },
+    {
+      "commit": "1987f5830cabb833fee21b36dde45d5f43ed40471a2e1aff70fab364f1369656",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "36b0afcbe0c0d431e6f7a08556904743",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 13
+      }
+    },
+    {
+      "commit": "956704c6a48e762571e9ae457f6fa722fc4febdea8bd64dbaaee84f3372838e6",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "c3bb3b064ee5a2e57e1b5b4d69d26e12",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 14
+      }
+    },
+    {
+      "commit": "d65519d4ba26f1d6fa2a076fc900ebf5c816a86ad52e78054c3ecdb696dd5908",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "0 streets sealed near Brooklyn Bridge. I am 0 behind."
+      },
+      "nonce": "d5447a66bdf04d7916eb08cd0ce83f3f",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 15
+      }
+    },
+    {
+      "commit": "52d212b037ad8a5b3140bc81b8620ad3bb0c8648fa8ec676d41778543d8d3d52",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "e52587231829d831b377671cdc95f4d5",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 16
+      }
+    },
+    {
+      "commit": "20d44136e3ecde300cdf279fb27970e3a6c371ac0f4955e2b05e7c3bb05b379e",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "b625e6dbecf9a64d062cda482757f616",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 17
+      }
+    },
+    {
+      "commit": "6294fdee1a0416c5bd30ebd5fe75a07b7f98ec5bbe453e754236f77f90b731e5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "Every road past Harlem is watched now."
+      },
+      "nonce": "d94865e23f2dce0829186dfdaa0d1174",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 18
+      }
+    },
+    {
+      "commit": "23d6a5252d7e6778143d3ef4a3b69db6ce364de64adccb6f3d164b48fddd6a28",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "0f6f24e199eebe22470f12fd39dac777",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 19
+      }
+    },
+    {
+      "commit": "f3181531eada740622d2e95d8e3ac9976c0cecc1444dae141c8ba8e27ed39bb2",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "784e661c52485f5909fc070b369bd24e",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 20
+      }
+    },
+    {
+      "commit": "883efb3d1a3f3cfa88f68fcf80ab1d1785e459a5cd365ef87b493931f4d45bb5",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "Closing in near Brooklyn Bridge \u2014 nowhere left to run."
+      },
+      "nonce": "34eb8148d3704c24ca5e36b4ad41134d",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 21
+      }
+    },
+    {
+      "commit": "d5cbaae482d2dcd9ca0db71e299a51a0ae6236d5dede8c6e8327889cfd0f82e9",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "02ec4538c3a491c712c4bb2e8f32a540",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 22
+      }
+    },
+    {
+      "commit": "5a98f9a3c6af841fea2625cff2d4ced171dbcf03ce096041369df2382fd1f4f1",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "625c2db60d6ede555fd11da46e573942",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 23
+      }
+    },
+    {
+      "commit": "0c7df2150aae0f294155ea84f224f5a3c609db90361610166f70d028d31face4",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "Working my way still from Harlem."
+      },
+      "nonce": "b94d53ed4bab395239c6298eea605142",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 24
+      }
+    },
+    {
+      "commit": "4ba2a4b86decbf289b2b659acb4b4a950dcf035155e893f91904d55148f4953e",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "be3d722934189305fda786e554dc988b",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 25
+      }
+    },
+    {
+      "commit": "ae8117f8413a9d2283d9c35c7a06dc81594e97c6290333bc94bb967ca5001633",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "2806cc31e40bccf689cc9a0518ebec1f",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 26
+      }
+    },
+    {
+      "commit": "1724e798c14fffa0c9346d8e2933b2f4e5f0c0136b1d7c623d67b60537df4511",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": "0 streets sealed near Brooklyn Bridge. I am 0 behind."
+      },
+      "nonce": "df21df7cf8754203414dbc5497c44e09",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 27
+      }
+    },
+    {
+      "commit": "9c797093776285f422f87f31cac3c130ef3be918e59cee4400c6bcfb775785f2",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          4
+        ],
+        "hint": ""
+      },
+      "nonce": "b02b5454db4309d2f3d251b75090d2fd",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 28
+      }
+    },
+    {
+      "commit": "b3a1bf1ad78de349181f66025f9b4091daf00f316ac9a91ed2df163938849386",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": ""
+      },
+      "nonce": "e511c59c6623db49e0c54f50d8c78d7e",
+      "payload": {
+        "intent": "truth",
+        "move": "W",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            4
+          ]
+        },
+        "step": 29
+      }
+    },
+    {
+      "commit": "745d5840b74957f0342a05034d9272d4641d5a867b471f3378151073aeed4bc4",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": "Every road past Harlem is watched now."
+      },
+      "nonce": "2b389218f3b87f5a0eccfbfa8dc698ff",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 30
+      }
+    },
+    {
+      "commit": "2a21b186083d52c74ef9478f3ed5ccf1be68b2fd1941d8eab20c709397e4725f",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": ""
+      },
+      "nonce": "8335bce15828012e650655bf998a20be",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 31
+      }
+    },
+    {
+      "commit": "d6f842c5c1a4bc5cd0725a8c4b4eb2ca262c72678ddd77d2fece1ceb8fc51d9b",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": ""
+      },
+      "nonce": "e0c8f07e1905914cff932280258f9c9c",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 32
+      }
+    },
+    {
+      "commit": "f2578fa777cb3c45aafaef8a6b219fbc08dc8df97d7fabda084eb1349166bd73",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": "Searching the far side by Brooklyn Bridge \u2014 nothing here."
+      },
+      "nonce": "0ad176104c72d40ac1aff3db911efda3",
+      "payload": {
+        "intent": "lie",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 33
+      }
+    },
+    {
+      "commit": "5b49ca22b7c2c0047a1e5e496b745c176e1d4cdd624117f53a82c0f3b35b31c1",
+      "declared": {
+        "barrier_placed": null,
+        "capture_claim": [
+          3,
+          3
+        ],
+        "hint": ""
+      },
+      "nonce": "fc184ed4b2a9806d086bcfaa0b63122b",
+      "payload": {
+        "intent": "truth",
+        "move": "STAY",
+        "state": {
+          "barriers": [],
+          "pos": [
+            3,
+            3
+          ]
+        },
+        "step": 34
+      }
+    }
+  ],
+  "records": [
+    {
+      "commit": "6219fc8fc64fef5c8e6d479fab86e7e677415eb0dda05b13b782eb7a73426abc",
+      "nonce": "96905e23ff471d9523dc165e3aa4d54c",
+      "payload": {
+        "declaration_ref": "declaration_anrbj666-vs-uoh-sqak.json",
+        "github_commit": "9347868bc21e59532bea5f6806983459c1f35c75",
+        "group_id": "anrbj666",
+        "role": "thief",
+        "step": 0,
+        "sub_game_number": 1,
+        "type": "step_zero"
+      }
+    },
+    {
+      "commit": "eb66b86f3cad0f91319499745c9f49eebe0c741bd3cb65d97f5f5a03858a47df",
+      "nonce": "d788b0438d84f7857a98bc4d3fe0c9d8",
+      "payload": {
+        "action": {
+          "move": "E",
+          "type": "move"
+        },
+        "hint": "Chasing sunrise eastward.",
+        "role": "thief",
+        "state_digest": "376f961c9be32b9164ad805324f969e2cbed9647abc1ddd678678252cda8e4e5",
+        "step": 1,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "4e7a6eb2478444f0ac9b3ebeb8585ce4a9b5aabd3e161beec931385572e175fa",
+      "nonce": "3a02e224e9e614de2ed0f3cfaf485f01",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "5aaf5dc588fd68822cd2f40eced451b89672324c7d94a8d618c891f21fe3be2d",
+        "step": 2,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "ab7a8a44b8271aab4ec4319cceaecfad9eff3d47cb00037d4eaeede2af7dd147",
+      "nonce": "0dc6f50677a1d03b0bf28644c7c76952",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "5aaf5dc588fd68822cd2f40eced451b89672324c7d94a8d618c891f21fe3be2d",
+        "step": 3,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "fed745ab1a38ea846c81d1a2e5f6434123b18215d2ae95df1d7db0f007a8febe",
+      "nonce": "ba4ca508ad31bd70786c6db315cd61ed",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "5aaf5dc588fd68822cd2f40eced451b89672324c7d94a8d618c891f21fe3be2d",
+        "step": 4,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "077acc2a75dc38e4ac2ab5445d28ebdae107a32c9e82f96e8206545e06c8375b",
+      "nonce": "24031a04eb8c286a8fb4f0ebb629fe21",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "5aaf5dc588fd68822cd2f40eced451b89672324c7d94a8d618c891f21fe3be2d",
+        "step": 5,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "f28112058466d481dbf70d00258d51a62e4ff7dad7d80f76ff48c8811eff09b1",
+      "nonce": "353750c26451db57fed78e632621bda6",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "West end, catch me if you can.",
+        "role": "thief",
+        "state_digest": "5aaf5dc588fd68822cd2f40eced451b89672324c7d94a8d618c891f21fe3be2d",
+        "step": 6,
+        "sub_game": 1,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "af5b9f3c4a045955f7dc9a8c4b2d0214c6acf97b675864a122e8b1100888ee9c",
+      "nonce": "8c818512d1df5f7b72863463013487de",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "7f3b4333cd662949fcd22bb4c5a90c1b571974f9764a36dd1256874bcf884ad8",
+        "step": 7,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "fb0ea87fe7bb0bd42381c4dc5e0fe6da038144c08781fdd75351ca10e55d589a",
+      "nonce": "d0dfaafcfee07f0f5634822f4355db09",
+      "payload": {
+        "action": {
+          "move": "W",
+          "type": "move"
+        },
+        "hint": "Fading west into the park shadows.",
+        "role": "thief",
+        "state_digest": "bbf04118cf9d49d9b4b512bfac197b06f240d39eb0de7de98bd98717b3be5dea",
+        "step": 8,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "c4ae9e834ee5bd93d31df10920c96e4ce8a8b22178dcbae60263c146cc63062a",
+      "nonce": "13a02cb26f5b32053e07ac5c7bbaec11",
+      "payload": {
+        "action": {
+          "move": "W",
+          "type": "move"
+        },
+        "hint": "Fading west into the park shadows.",
+        "role": "thief",
+        "state_digest": "1c306644757a89f083b37790e001ee75c51fea987ae47776454ea77ac84aa242",
+        "step": 9,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "ee47d9f4bddb33556b8e38c64a9e151df1fa66aa247133fa9b4b5f1a026f2858",
+      "nonce": "7d5d30f7df9b473692230ea0e4b577ff",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 10,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "6cb0696a00c851140028e385ff7674c199c2e176b6edd5ca1f4e866b10c9cae0",
+      "nonce": "21669b4952565e4a033654a7fa53ac38",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "East side alleys are friendly tonight.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 11,
+        "sub_game": 1,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "c899473172852db364a010eb3cb2208d6af61289308743481c6607c175d22a80",
+      "nonce": "ca5d2b1e8f24cf3d64d5501331a7ecba",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 12,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0b420dbf861aeee7b9709db79cf991a9ba676c9445ff17391b9af34e0b83555b",
+      "nonce": "c51bd5f3c2128c6a4b93f4f6375806d3",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 13,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "aebfedc53aac19a9338c5b42cb2b84a1d0e7aab51de096288506a5679ede0d3b",
+      "nonce": "67f10b4c42d8072078c2c4a7c5617537",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 14,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "bf5c6ba6cfedd4c8a2519a8ce6255aece1698424fc5109d92bbb3ba372ee866a",
+      "nonce": "fc798e0948b0a4844bcd7fedeba3b84f",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 15,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0b3f6fff96349d5acbce77b9740474dbbca7e5fa682f986ce5b17b4d953a4756",
+      "nonce": "d7057314bd37046e9425b8be82739415",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Chasing sunrise eastward.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 16,
+        "sub_game": 1,
+        "verdict": false
+      }
+    },
+    {
+      "commit": "528baeccd191c9506d344599c7ae0b18014f8c99ae4be3227c5d33407b1c4853",
+      "nonce": "c8a4fa1f9216fd67020c8d05616041ba",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 17,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "e8b6683b216b5bc957f61a7bf5273360885011981e3ad72fa8940d455fb5874d",
+      "nonce": "b38e54ddb1010b50d73634aa3d8c33eb",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 18,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "dc53cc9b3b8e9bdd0d6b8edb2cdda6da2605d887de1296fa959d7730ee736802",
+      "nonce": "2f2c3902a170a441c90329a0eb65f7b7",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 19,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "b496a1742031d5034b9b8da92791dd368197bd431d59a118105c3a19940bfb9e",
+      "nonce": "6aa90f95fac8d9aaf2d49f9be60c2469",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 20,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "06deb510a45c3825a86d634f45af1e516faf9b73ff731644a32c025ce6197eb9",
+      "nonce": "dabd3b1b55b490dd6464a3a30bb60923",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 21,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "4fc874bea50322739946082e0bc7f923f742abc29bbd0e0448b540e6031046d4",
+      "nonce": "0f175e4b91e9d8afc48fd641aa3905f6",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 22,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0b69f0de00399e1cfaca152d79a78e341f3edb27819f41e11f2470345fc440ec",
+      "nonce": "6aa0f79578abb5f9f87fbadcecd0038e",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 23,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "fd9f595e69341c635f9411a0442397b8388467eba17ae41bef40e983c3542962",
+      "nonce": "f9876c2977a6fe26354b0fa5188830ea",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 24,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "df6211e5be44754928aa33315a9f8ef8c77e6e34806a887ab4f981f42f07ebab",
+      "nonce": "0cc664d3ec01ddb4e71f6028ab17fa9b",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 25,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "74dd8cc5765bb091a6f3b20edd387342d8c95b30441daa19a2363f176d092584",
+      "nonce": "5f1d16446997c826214c6f8c6678ee03",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 26,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "6032b24a3727a96dd62788ab07170257e12cfe13618e43d9ebd380cdb8ecc490",
+      "nonce": "6a55782958ad3a969c86938ddcf730c3",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 27,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "5b23b03b712c6e2454838ae5402fba7c05ccbda22d774f3cb38fcc87961f41be",
+      "nonce": "dab4a932801f6cb67d18c17d7e488272",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Comfortable right where I am.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 28,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "3a9ebadd029131f6f2a52c87692974589aa288dd5a062a87a545a4b746f77074",
+      "nonce": "ef3548b78eda31f514e1131ca41afbe7",
+      "payload": {
+        "action": {
+          "move": "STAY",
+          "type": "move"
+        },
+        "hint": "Not moving an inch, promise.",
+        "role": "thief",
+        "state_digest": "fefcb7c9706e36ebde98f6b4eb869f9cb71e2efebb0f2726328245f2f34b98a3",
+        "step": 29,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "8789743027d304ca8903e37d00e90a4c7b377a9c40db024e247c6314de61fd4d",
+      "nonce": "00a31d5ca470c85926be269b078b2944",
+      "payload": {
+        "action": {
+          "move": "W",
+          "type": "move"
+        },
+        "hint": "West end, catch me if you can.",
+        "role": "thief",
+        "state_digest": "a3afbb66c0aa4b51196445d0e32027ed3f51a6c968f4752db01c1c09368c52fc",
+        "step": 30,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0d993e6389c65a007082b77727b7e225d4e5524305fc9e4bff6a7b2f273c91cb",
+      "nonce": "2c22be3d2ce29f9266326348b274fff3",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "8dc910c2d2b4e1e0a819520c19174cbee24e17bcad04a9017865b22e3e4891d8",
+        "step": 31,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "ca6138645300cf39469d95503c034cc5d83bad4eac213ebaca77ae0c26389808",
+      "nonce": "f1643de85940c226f62b9500d403fa87",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "f2b359a1154c0c36d24cb1fed1cdec0567137cb0766e326c009b04b41d13fdb7",
+        "step": 32,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "aa13cad1d90356ccc0f0cc372d56ed3457a6e8a050fb3e9760405b535daaba2d",
+      "nonce": "0e06a65cbfbf29f500fcc35d64b76849",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "North wind suits me fine today.",
+        "role": "thief",
+        "state_digest": "1d8e04f1e48f4158ce7bc7071771731272eb888dba67153fdb089dfa9061daab",
+        "step": 33,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "6cbc46ca6fd8b21edfd7fcfa2dd4d41207f4dfd4db20e4a21aa5ed4efc6e9ef1",
+      "nonce": "0d30b4526ae5ad3337b2d073be5c02f7",
+      "payload": {
+        "action": {
+          "move": "N",
+          "type": "move"
+        },
+        "hint": "Heading uptown, try to keep up.",
+        "role": "thief",
+        "state_digest": "039faeb112612eb5857a37616d686183bd6a2faf8fbd764762145b24d741f602",
+        "step": 34,
+        "sub_game": 1,
+        "verdict": true
+      }
+    },
+    {
+      "commit": "0347aa1bd5078f7c0813ae1c7ea9656db01e6924f08dac4ff3415db298587eb3",
+      "nonce": "12ee02091d3a44cd2f54e14aabcbe005",
+      "payload": {
+        "action": {
+          "move": "S",
+          "type": "move"
+        },
+        "hint": "Slipping south past the docks.",
+        "role": "thief",
+        "state_digest": "1d8e04f1e48f4158ce7bc7071771731272eb888dba67153fdb089dfa9061daab",
+        "step": 35,
+        "sub_game": 1,
+        "verdict": true
+      }
+    }
+  ],
+  "report_type": "log",
+  "schema_version": "1.00",
+  "sub_game_number": 1,
+  "summary": {
+    "audit": "Verified OK",
+    "digest_match": null,
+    "disputed_capture": null,
+    "end_state_digest": "1d8e04f1e48f4158ce7bc7071771731272eb888dba67153fdb089dfa9061daab",
+    "ended_at": "2026-08-17T20:14:58+00:00",
+    "gatekeeper": {
+      "calls_logged": 0,
+      "dos_locked": {
+        "claude": false,
+        "default": false,
+        "email": false,
+        "ollama": false,
+        "openrouter": false
+      },
+      "services": [
+        "claude",
+        "default",
+        "email",
+        "ollama",
+        "openrouter"
+      ]
+    },
+    "github_commit": "9347868bc21e59532bea5f6806983459c1f35c75",
+    "group_id": "anrbj666",
+    "opponent_group_id": "uoh-sqak",
+    "opponent_info": {
+      "identity": {
+        "counted_games_played": 2,
+        "group_id": "uoh-sqak",
+        "group_name": "uoh-sqak",
+        "llm_model": "template",
+        "mcp_servers": {
+          "police": "https://5794-176-229-164-109.ngrok-free.app/mcp"
+        },
+        "members": [
+          "Salah Qadah:323039974",
+          "Andalus Kalash:211435797"
+        ],
+        "repos": {
+          "cop": "https://github.com/salah-dev-stu/uoh-sqak-cop",
+          "thief": "https://github.com/salah-dev-stu/uoh-sqak-thief"
+        },
+        "spec": {
+          "cpu": "arm",
+          "cpu_count": 8,
+          "gpu": "Apple Silicon",
+          "os": "Darwin 25.2.0",
+          "python": "3.13.12",
+          "ram_gb": 8.6
+        }
+      },
+      "info_mode_sha256": "020947daeeb3f73494af9b04201326791742c7184085456e3517d21981ee1202",
+      "nonce": "16dc09bfe446f03e20185483b45f015f",
+      "role": "police",
+      "scent_model_sha256": "934c220d5bf62acaa3297c6c9d723ea954c220260b02292ca17f6d5daef9f4d9",
+      "signature": "cf6d7c380e30ef8d703a70b05123f6d94615299c27112a07402655f3b6d650e6",
+      "sub_game_number": 1,
+      "terms": {
+        "axis_origin_corner": "top-left",
+        "axis_start_index": 0,
+        "barriers_max": 14,
+        "board_size": 7,
+        "cop_start": [
+          0,
+          0
+        ],
+        "decay_per_step": 0.1,
+        "emit_intensity": 0.9,
+        "hint_max_words": 15,
+        "max_steps": 35,
+        "min_center_intensity": 0.5,
+        "num_games": 6,
+        "setting": "New York",
+        "smell_grid_size": 5,
+        "thief_start": [
+          3,
+          3
+        ]
+      }
+    },
+    "opponent_step_zero": {
+      "code_version": "1.00",
+      "github_commit": "ebb329bd32fb188d48d8c3cc6a9bf80cb85c3430",
+      "group_name": "uoh-sqak",
+      "model": "template",
+      "spec": {
+        "cpu": "arm",
+        "cpu_count": 8,
+        "gpu": "Apple Silicon",
+        "os": "Darwin 25.2.0",
+        "python": "3.13.12",
+        "ram_gb": 8.6
+      },
+      "step": 0,
+      "sub_game_number": 1,
+      "type": "system_spec"
+    },
+    "outcome": "survival",
+    "rival_trail_track": [
+      null,
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "role": "thief",
+    "scent_readings_refused": 0,
+    "started_at": "2026-08-17T20:14:08+00:00",
+    "step_zero_mismatch": null,
+    "steps_sealed": 36,
+    "turns_completed": 35
+  },
+  "wire_shape": "reference"
+}
