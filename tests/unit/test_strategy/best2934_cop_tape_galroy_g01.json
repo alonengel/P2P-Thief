@@ -1,0 +1,290 @@
+[
+    {
+        "move":  "MOVE:E",
+        "hint":  "Sealing the way past Chinatown. Nowhere left to go east.",
+        "state":  [
+                      0,
+                      1
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "I know you passed Chinatown. Moving south.",
+        "state":  [
+                      1,
+                      1
+                  ]
+    },
+    {
+        "move":  "BARRIER:0,1",
+        "hint":  "I know you passed Times Square. Moving nowhere.",
+        "state":  [
+                      1,
+                      1
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "I know you passed Harlem. Moving east.",
+        "state":  [
+                      1,
+                      2
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "Sweeping east from Queens. The net is closing.",
+        "state":  [
+                      1,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sweeping south from the Bowery. The net is closing.",
+        "state":  [
+                      2,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sweeping south from Chinatown. The net is closing.",
+        "state":  [
+                      3,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sealing the way past Harlem. Nowhere left to go south.",
+        "state":  [
+                      4,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "I know you passed the Bowery. Moving south.",
+        "state":  [
+                      5,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "I know you passed the East River. Moving west.",
+        "state":  [
+                      5,
+                      2
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "Sweeping west from the Bronx. The net is closing.",
+        "state":  [
+                      5,
+                      1
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "Sealing the way past Wall Street. Nowhere left to go west.",
+        "state":  [
+                      5,
+                      0
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sweeping south from Queens. The net is closing.",
+        "state":  [
+                      6,
+                      0
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sweeping north from Brooklyn Bridge. The net is closing.",
+        "state":  [
+                      5,
+                      0
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "I know you passed Harlem. Moving east.",
+        "state":  [
+                      5,
+                      1
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "I know you passed Brooklyn Bridge. Moving east.",
+        "state":  [
+                      5,
+                      2
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "Sealing the way past Central Park. Nowhere left to go east.",
+        "state":  [
+                      5,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sweeping north from the Bronx. The net is closing.",
+        "state":  [
+                      4,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sweeping north from Harlem. The net is closing.",
+        "state":  [
+                      3,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "Sealing the way past Queens. Nowhere left to go east.",
+        "state":  [
+                      3,
+                      4
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "I know you passed Grand Central. Moving east.",
+        "state":  [
+                      3,
+                      5
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sealing the way past the Bronx. Nowhere left to go south.",
+        "state":  [
+                      4,
+                      5
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sealing the way past Brooklyn Bridge. Nowhere left to go south.",
+        "state":  [
+                      5,
+                      5
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sweeping south from Harlem. The net is closing.",
+        "state":  [
+                      6,
+                      5
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "I know you passed Central Park. Moving west.",
+        "state":  [
+                      6,
+                      4
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "Sweeping west from Grand Central. The net is closing.",
+        "state":  [
+                      6,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sealing the way past Central Park. Nowhere left to go north.",
+        "state":  [
+                      5,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "I know you passed Coney Island. Moving north.",
+        "state":  [
+                      4,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sweeping north from the East River. The net is closing.",
+        "state":  [
+                      3,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "I know you passed the Bowery. Moving north.",
+        "state":  [
+                      2,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sealing the way past Queens. Nowhere left to go north.",
+        "state":  [
+                      1,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sealing the way past Central Park. Nowhere left to go north.",
+        "state":  [
+                      0,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:E",
+        "hint":  "Sweeping east from the East River. The net is closing.",
+        "state":  [
+                      0,
+                      4
+                  ]
+    },
+    {
+        "move":  "MOVE:W",
+        "hint":  "I know you passed Chinatown. Moving west.",
+        "state":  [
+                      0,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:S",
+        "hint":  "Sealing the way past the East River. Nowhere left to go south.",
+        "state":  [
+                      1,
+                      3
+                  ]
+    },
+    {
+        "move":  "MOVE:N",
+        "hint":  "Sweeping north from the Bronx. The net is closing.",
+        "state":  [
+                      0,
+                      3
+                  ]
+    }
+]
