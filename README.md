@@ -232,6 +232,14 @@ Each peer is simultaneously an MCP **server** (four dumb-door tools: `negotiate`
   [config/games/](config/games/); immutable per-team archives with byte
   manifests in [docs/evidence/counted_games/](docs/evidence/counted_games/)
   (archive commit [`9f41b7a`](https://github.com/alonengel/P2P-Thief/commit/9f41b7a)).
+  **Where each window lives (rule 41 / two-process split):** every
+  per-sub-game log and config is archived in the repo of the role that
+  played that window — this thief repo holds the windows our thief played,
+  [P2P-Police](https://github.com/alonengel/P2P-Police) holds the windows
+  our cop played, and the match-level result/declaration artifacts sit
+  in both. The two repos together are the complete six of every series;
+  a grader auditing one window starts from the repo of the role named in
+  that window's `roles` row.
 
 - **nis-yar1 pairing (2026-08-10): two clean 6-0 friendlies, cross-verified
   both directions.** After five burned attempts spanning four generations of
