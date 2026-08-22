@@ -25,27 +25,32 @@ def _exchange(role_value: str) -> HiddenExchange:
 
 def _runtime(exchange) -> SimpleNamespace:
     config = SimpleNamespace(group_id="anrbj666")
+    talk = SimpleNamespace(meter=SimpleNamespace(total=7))
     return SimpleNamespace(config=config, opponent_group_id="imreeyal",
-                           role=exchange.role, exchange=exchange)
+                           role=exchange.role, exchange=exchange, talk=talk)
 
 
 def test_step_zero_is_records_zero_in_book_shape() -> None:
-    exchange = _exchange("thief")
+    exchange = _exchange("police")
     seal_step_zero(_runtime(exchange))
     record = exchange.own_records[0]
     payload = record["payload"]
     assert set(payload) == {"step", "type", "declaration_ref", "group_id",
-                            "role", "sub_game_number", "github_commit"}
+                            "role", "sub_game_number", "github_commit",
+                            "tokens_total"}
     assert payload["step"] == 0 and payload["type"] == "step_zero"
     assert payload["declaration_ref"] == "declaration_anrbj666-vs-imreeyal.json"
-    assert payload["role"] == "thief" and payload["sub_game_number"] == 1
+    assert payload["role"] == "police" and payload["sub_game_number"] == 1
+    # cumulative usage AT SEAL TIME (the najamjad chain semantics): the
+    # rival prices our window as next window's snapshot minus this one's
+    assert payload["tokens_total"] == 7
     # sealed like a move: the commit re-verifies from payload + nonce
     assert crypto.verify_commit(payload, record["nonce"], record["commit"])
 
 
 def test_move_payloads_still_demand_the_pinned_field_set() -> None:
     try:
-        crypto.commit_hash({"step": 1, "role": "thief"}, "aa")
+        crypto.commit_hash({"step": 1, "role": "police"}, "aa")
     except ValueError as error:
         assert "missing fields" in str(error)
     else:  # pragma: no cover - the guard must hold
@@ -85,7 +90,7 @@ def test_reconstruct_skips_the_step_zero_declaration() -> None:
     thief = [_move(1, "thief", "N"), _move(2, "thief", "STAY")]
     cop = [_move(1, "police", "E")]  # the thief's 2nd step ends the game
     bare = audit.reconstruct(cop, thief, TERMS)
-    exchange = _exchange("thief")
+    exchange = _exchange("police")
     seal_step_zero(_runtime(exchange))
-    with_zero = audit.reconstruct(cop, exchange.own_records + thief, TERMS)
+    with_zero = audit.reconstruct(exchange.own_records + cop, thief, TERMS)
     assert with_zero == bare and with_zero["outcome"] == "survival"
