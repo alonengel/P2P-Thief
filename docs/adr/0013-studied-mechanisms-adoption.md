@@ -45,6 +45,28 @@ Three mechanisms adopted, each re-implemented in our own idiom:
    in code; armed at 2 in game.toml — full strategy suite green with it
    (every drill, mimic and tape).
 
+## Addendum (2026-08-22 evening): the k-wall cage forecast — adopted and armed
+
+The one mechanism the original triage skipped ("no observed failure
+mode") acquired its failure mode the same day: najamjad's cop now runs
+an 11-wall quadrant-cage script (column 3 top-down, then row 3 across —
+byte-identical across three revealed games, provably open-loop) that
+converted our fielded thief at t27, 0/15 seeds in replay. Adopted as
+`strategy/cage_forecast.py` (imreeyal's k-wall pocket forecast,
+re-implemented): enumerate every wall-SET of size min(k, live quota)
+within `reach` of each believed cop cell — sites near the cop plus
+ANCHORED cells (barrier-adjacent or rim: cuts accrete and end at rims),
+capped at the 14 nearest the landing — and price the landing by its
+worst reachable region. Measured: reach 2 and 3 still die to the script
+(belief lag + line-building put the seals beyond them); **k=4 reach=4
+survives 5/5** at ~0.9s/turn. Armed in game.toml; the full strategy
+suite (every chaser rehearsal, mimic and drill) is green armed — the
+doctrine's flee/lethal ranks above the cage term avoid imreeyal's
+measured k4-vs-interceptor trade. A plumbing bug found by the red
+fixture is fixed alongside: CertifiedThiefBrain now threads its private
+table to the doctrine layer (explicit overrides previously fell back to
+the config file silently).
+
 ## Consequences
 
 - Attribution recorded here and in module docstrings; no code crossed

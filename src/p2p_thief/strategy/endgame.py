@@ -19,7 +19,7 @@ from pathlib import Path
 from p2p_thief.domain import protocol
 from p2p_thief.domain.board import Board
 from p2p_thief.domain.primitives import Cell, Move, Role
-from p2p_thief.strategy.doctrine import DoctrineThiefBrain
+from p2p_thief.strategy.doctrine import DoctrineThiefBrain, doctrine_settings
 
 ORTHOGONAL = (Move.N, Move.S, Move.E, Move.W)
 _MOVE_RANK = {move.name: rank for rank, move in enumerate((*ORTHOGONAL, Move.STAY))}
@@ -175,7 +175,11 @@ class CertifiedThiefBrain(DoctrineThiefBrain):
     """Seam wrapper: certificate pre-check, else the doctrine+stealth brain."""
 
     def __init__(self, role: Role, rng: random.Random, private: dict | None = None) -> None:
-        super().__init__(role, rng)
+        # private threads to BOTH layers (None reads config/game.toml in
+        # each settings loader): the certificate AND the doctrine — an
+        # explicit table must never silently fall back to the file (the
+        # 2026-08-22 cage red-test ran unarmed for exactly that reason).
+        super().__init__(role, rng, doctrine=doctrine_settings(private))
         self.certificate = SurvivalCertificate(certificate_settings(private))
 
     def decide(self, engine, belief=None) -> dict:

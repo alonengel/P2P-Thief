@@ -22,6 +22,7 @@ from pathlib import Path
 
 from p2p_thief.domain.pathfind import UNREACHABLE, bfs_distances
 from p2p_thief.domain.primitives import Move, Role
+from p2p_thief.strategy.cage_forecast import k_wall_region
 from p2p_thief.strategy.doctrine_signals import fresh_evidence, top_support
 from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
@@ -44,6 +45,16 @@ DEFAULTS: dict = {
     "forecast": True,          # one-ply worst-wall probe over the support
     "forecast_top_k": 3,       # belief support size the MIN runs over
     "lethal_gate": True,       # an end-able landing loses to any safe landing
+    "forecast_walls": 0,       # k-wall CAGE forecast (cage_forecast.py): price a
+    #                            forming multi-wall cage while its gap exists.
+    #                            0 = off (byte-identical); per-pairing knob only
+    #                            (k=4 beats builders, costs vs pure interceptors
+    #                            - imreeyal's measured trade, ADR-0013)
+    "forecast_wall_reach": 4,  # wall-sets within this Manhattan reach of a cop
+    #                            (4, not 2: belief lag plus line-building means
+    #                            the seal lands ahead of where the cop reads -
+    #                            reach 3 still died to the recorded cage, 4
+    #                            survived 5/5; anchoring caps the compute)
 }
 
 
@@ -139,12 +150,21 @@ class DoctrineThiefBrain(StealthThiefBrain):
         if not (self._fresh or self._ban_stay or escaping or self._support):
             return base  # doctrine inert this turn: exactly the parent brain
         if self._ban_stay and cell == engine.positions[self.role]:
-            return (WORST,) * 6
+            return (WORST,) * 7
         if self._fresh:
             distance = distances.get(cell, UNREACHABLE)
             distance = FAR if distance == UNREACHABLE else distance
             flee = min(distance, 2 * self.safe_distance)  # real flight range
         escape = -self._escape_dist.get(cell, FAR) if escaping else 0
+        # A forming multi-wall cage outranks distance: the k-wall forecast
+        # (ADR-0013) prices the landing's room under the worst wall-SET the
+        # believed cop could still afford. 0 walls -> constant 0, inert.
+        k_room = 0
+        if self.doctrine["forecast_walls"] and self._support:
+            quota = engine.rules.max_barriers - len(engine.board.barriers)
+            k_room = k_wall_region(engine.board, cell, self._support,
+                                   self.doctrine["forecast_walls"],
+                                   self.doctrine["forecast_wall_reach"], quota)
         escapes, region = self._forecast(engine, cell)
         # A (0, 0) forecast means some believed hunter ENDS us on this landing
         # next turn — it occupies the cell or walls it (rules 46/47). That is
@@ -154,6 +174,7 @@ class DoctrineThiefBrain(StealthThiefBrain):
         # Armed escape DOMINATES (a forming seal makes distance-to-the-
         # believed-hunter the wrong metric — the far corner is the trap);
         # then survivability; then the flee term (widened, still bounded,
-        # when the hunter is provably near), then the wall forecast as the
-        # tie-break among equally-safe landings, then the stealth ties.
-        return (escape, 0 if gated else 1, flee, escapes, region, tie)
+        # when the hunter is provably near); then the CAGE forecast (room
+        # under the worst affordable wall-set — inert 0 unless armed);
+        # then the one-ply wall forecast, then the stealth ties.
+        return (escape, 0 if gated else 1, flee, k_room, escapes, region, tie)

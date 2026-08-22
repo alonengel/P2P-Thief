@@ -1516,3 +1516,23 @@ cop-side pursuit knobs live in the sibling; armed at
 0.15), barrier reserve=2 (the endgame seal stays affordable); (3) ADR-
 0013 records adoption + attribution; knobs default off in code, armed in
 game.toml beside the sweep evidence.
+
+## 2026-08-22 night - the rematch check + the cage counter
+
+Operator prompts: "check versus the last games we did against amjad if we
+would win them" / "with the new stuff". Agent work: (1) replayed the
+day's six against our REAL brains: cop side 15/15 captures of their
+recorded thief (t6-t23); thief side LOST 0/15 at t27 - their cop is a
+new 11-wall quadrant-cage script (column 3 then row 3, byte-identical
+across three revealed games = open-loop), the exact builder archetype
+whose counter we had consciously skipped that morning; (2) built the
+k-wall cage forecast (imreeyal-studied, ADR-0013 addendum): red fixture
+= the recorded script as a committed test tape; found and fixed a
+plumbing bug the fixture exposed (doctrine overrides silently fell back
+to the config file); measured reach 2 and 3 still die, k=4 reach=4
+survives 5/5; anchored+capped sites take it from 14.5s to 0.9s a turn;
+(3) armed in game.toml - the FULL strategy suite (chaser rehearsals,
+mimics, drills) is green armed, dodging imreeyal's k4-vs-interceptor
+trade because our flee/lethal ranks sit above the cage term. Projected
+rematch with the counter: 90-30 us (open-loop caveat: their live cop
+adapts; ours would too).
