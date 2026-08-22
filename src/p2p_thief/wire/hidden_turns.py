@@ -14,6 +14,7 @@ import contextlib
 
 from p2p_thief.domain.errors import GameRuleError
 from p2p_thief.domain.primitives import GamePhase, Move, Outcome, Role
+from p2p_thief.peer import floor_tolerance
 from p2p_thief.peer.deadline import Deadline, DeadlineExpiredError
 from p2p_thief.report.lookup import geometry
 from p2p_thief.wire import audit, audit_foreign, claims, codec, step_zero
@@ -171,11 +172,11 @@ def finish(rt) -> dict:
         "digest_match": digest_match,
         "audit": verdict,
         "steps_sealed": len(rt.exchange.own_records),
-        # Evidence for the mutual audit (rule 36): how many transmitted trail
-        # readings we refused as physically impossible. Zero on every honest
-        # game ever measured; non-zero is a claim a third party can check.
-        "scent_readings_refused": getattr(percep, "refused_readings", 0),
-        "scent_refused_steps": getattr(percep, "refused_steps", []),
+        # Evidence for the mutual audit (rule 36): refusal count, the exact
+        # refused rival turns, and the turns tolerated as floored
+        # serialization noise (peer/floor_tolerance.py). Zero refusals on
+        # every honest game; non-zero is a claim a third party can check.
+        **floor_tolerance.scent_evidence(percep),
         # Where the rival's OWN transmitted trail placed it each turn (the
         # emitter that solves its frame transition under the signed update
         # law). Diffed at audit against the positions it reveals: an honest

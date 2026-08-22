@@ -37,6 +37,14 @@ MOVEMENT_DEFAULTS: dict = {
 }
 
 
+PERCEPTION_DEFAULTS: dict = {
+    "floor_tolerance_eps": 0.006,  # residues at/under this may legally read 0
+    #                                (najamjad 2026-08-22: their serializer
+    #                                floors ~0.005; refusing those frames risks
+    #                                a false latch — peer/floor_tolerance.py)
+}
+
+
 def _merge(defaults: dict, block: dict) -> dict:
     """Block over defaults, coercing to the default's type so a TOML int never
     silently changes a float comparison."""
@@ -45,6 +53,12 @@ def _merge(defaults: dict, block: dict) -> dict:
         if key in block:
             merged[key] = type(default)(block[key])
     return merged
+
+
+def perception_table(private: dict) -> dict:
+    """[strategy.perception] scent-trust knobs (private, never signed terms)."""
+    return _merge(PERCEPTION_DEFAULTS,
+                  private.get("strategy", {}).get("perception", {}))
 
 
 def claim_table(private: dict) -> dict:
