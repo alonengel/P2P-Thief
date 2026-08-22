@@ -1499,3 +1499,20 @@ their emailed per-window claims digit-for-digit; (3) TDD report/peer_tokens
 summary now carry the real talk-meter total (we never declared; they filed
 our 0 by assumption); (5) the sibling additionally pinned its nisyar1 cop rehearsal against a latent wall-clock starvation in the endgame solver; no thief-side solver exists, so no pin is needed here. Paired-port
 to the sibling in the same session.
+
+## 2026-08-22 evening - imreeyal strategy study + counted hardening
+
+Operator prompts: "see if we can use some strategy imree did to improve
+our cop and thief" (owner permission for both private repos); "add all
+you think we need... make sure it all absolutely works. so we will not
+lose on stupid manner." Agent work in substance: (1) full teardown of the
+champion's cop+thief decision layers (their code credits OUR doctrine as
+"studied, no code copied" - convention returned); (2) triage vs our own
+loadout: their fresh-peak decode ~= our law-solved emitter pin, their
+room-first thief ~= our doctrine (skip both); adopt three: floored-
+residue tolerance (closes the najamjad-floor latch hazard - validated on
+the day's sealed frames: 4 refusals -> 4 floored-notes, 0 refusals),
+cop-side pursuit knobs live in the sibling; armed at
+0.15), barrier reserve=2 (the endgame seal stays affordable); (3) ADR-
+0013 records adoption + attribution; knobs default off in code, armed in
+game.toml beside the sweep evidence.
