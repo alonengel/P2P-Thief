@@ -128,15 +128,32 @@ def arm_builder_escape(brain, engine) -> None:
     if extra is None:
         return
     me = engine.positions[brain.role]
-    my_room = len(bfs_distances(_Walled(engine.board, extra - {me}), me))
-    best_room, target = my_room, None
+    # Tie-break by cop distance (live counted g02 x3, t31 each: a full
+    # column splits the rooms 21-21, a strictly-greater-room rule never
+    # armed, and the counter structurally could not fire). Equal rooms
+    # resolve AWAY from the believed cop: a cop hunting our half arms
+    # the crossing while the gaps are free; a cop in the far half arms
+    # nothing. Empty support degrades to pure room (the old rule).
+    cops = list(getattr(brain, "_support", None) or [])
+
+    def cop_gap(cell):
+        if not cops:
+            return 0
+        return min(abs(cell[0] - c[0]) + abs(cell[1] - c[1]) for c in cops)
+
+    mine = bfs_distances(_Walled(engine.board, extra - {me}), me)
+    best, target = (len(mine), cop_gap(me)), None
     for cell, _steps in sorted(bfs_distances(engine.board, me).items(),
                                key=lambda kv: kv[1]):
-        if cell in extra:
+        if cell in extra or cell in mine:
+            # never target our own projected room: the escape exists for
+            # CROSSINGS - intra-room flight is the far-corner herding the
+            # whole mechanism is built to prevent
             continue
         room = len(bfs_distances(_Walled(engine.board, extra - {cell}), cell))
-        if room > best_room:  # nearest-first scan: first strict win stays
-            best_room, target = room, cell
+        key = (room, cop_gap(cell))
+        if key > best:  # nearest-first scan: first strict win stays
+            best, target = key, cell
     if target is not None:
         brain._escape_until = (engine.turns_completed
                                + brain.doctrine["escape_turns"])
