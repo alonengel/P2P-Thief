@@ -1536,3 +1536,19 @@ mimics, drills) is green armed, dodging imreeyal's k4-vs-interceptor
 trade because our flee/lethal ranks sit above the cage term. Projected
 rematch with the counter: 90-30 us (open-loop caveat: their live cop
 adapts; ours would too).
+
+## 2026-08-23 midday - two counted attempts, two voids, the cage arms race
+
+Operator flow: counted words exchanged (T=11:25); attempt 1 voided
+(their thief door 502 mid-w3, clause 2, neither league email fired);
+attempt 2 at T=11:35 (stale-lock refusal caught and cleared - killed
+runners skip their finally-unlink, drill note); g01 our REAL cop
+captured their thief t11, g02 their cage converted our REAL thief t31
+(their counted cop = the identical 11-wall script, wall-for-wall with
+yesterday, open-loop even counted); operator halted mid-w3. Upgrades
+per operator ("add option A"): line-completion cut pricing +
+builder-escape (ADR-0013 second addendum) - the counted g02 tape
+(committed fixture) goes 0-dead to 5/5 armed; ordering experiments that
+traded separation for room were tried and REVERTED (honesty: offline
+replays pin capability, not the live outcome - their chase adapts).
+Full armed strategy suite green, no chaser regression.

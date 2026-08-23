@@ -67,6 +67,32 @@ fixture is fixed alongside: CertifiedThiefBrain now threads its private
 table to the doctrine layer (explicit overrides previously fell back to
 the config file silently).
 
+## Second addendum (2026-08-23): line-completion + builder-escape
+
+The counted g02 (t31 capture, twice live) taught what the k-forecast
+alone cannot see: a LINE-builder's seal cells sit far from the believed
+cop until the cop arrives to guard them, and the fresh-flee widening
+herds the evader into the very pocket being built. Two mechanisms,
+kit-neutral (they read only the public board):
+
+1. **Line completion** (`cage_forecast.line_completion_region`): a run
+   of 3+ colinear walls is a DECLARED CUT; every landing is priced as
+   if all such runs complete to both rims, quota-clamped. Floors the
+   k-forecast from the cut's third wall.
+2. **Builder escape** (`cage_forecast.arm_builder_escape`, doctrine
+   knob `builder_escape`, default off, armed in game.toml): while a
+   declared cut stands, the rank-1 dominant escape re-aims each turn at
+   the best cell of the largest completed-projection room. Non-builders
+   never trigger it — chaser behavior untouched by construction; the
+   full armed strategy suite is green.
+
+Measured: the counted tape that killed the fielded thief 0/15 (old) and
+live (twice) now survives 5/5 armed, full clock. HONESTY: offline
+replays are open-loop (their chase adapts live); these pin capability,
+not the live outcome — recorded beside the fixture. Ordering
+experiments that traded separation for room were tried and REVERTED
+(each shifted the death by two turns; the committed tuple stands).
+
 ## Consequences
 
 - Attribution recorded here and in module docstrings; no code crossed

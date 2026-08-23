@@ -20,7 +20,9 @@ from itertools import combinations
 
 from p2p_thief.domain.pathfind import bfs_distances
 
-NEAR_REACH = 2  # unanchored walls are feared only this close to the cop
+NEAR_REACH = 3  # unanchored walls are feared this close to the cop (counted
+#                 g02: the row-seal cells sat at distance 2-3, unanchored,
+#                 when the side still had free crossings - reach 2 missed them)
 
 
 SITE_CAP = 14  # C(14,4)=1001 wall-sets: the compute keeps a turn budget
@@ -61,14 +63,96 @@ class _Walled:
         return cell not in self._extra and self._board.is_passable(cell)
 
 
+def _runs(board):
+    """Maximal colinear barrier runs of length >= 3: a line-builder's
+    DECLARED cut (najamjad counted g02, 2026-08-23: three column walls
+    by their step 7, every crossing still free - the side gets picked
+    then, not when the last gap is guarded)."""
+    for horizontal in (False, True):
+        for i in range(board.grid_size):
+            run = 0
+            for j in range(board.grid_size + 1):
+                cell = ((i, j) if horizontal else (j, i))
+                if j < board.grid_size and board.is_barrier(cell):
+                    run += 1
+                    continue
+                if run >= 3:
+                    yield (i, horizontal)
+                run = 0
+
+
+def completion_extra(board, quota) -> frozenset | None:
+    """The hypothetical walls that finish every declared cut, or None
+    when no cut exists / the builder lacks the quota to finish."""
+    extra = set()
+    for i, horizontal in _runs(board):
+        line = [((i, j) if horizontal else (j, i))
+                for j in range(board.grid_size)]
+        extra.update(c for c in line if board.is_passable(c))
+    if not extra or len(extra) > int(quota):
+        return None
+    return frozenset(extra)
+
+
+def line_completion_region(board, landing, quota) -> int:
+    """The landing's reachable region with every declared cut COMPLETED
+    to both rims (all runs together, quota-clamped: a builder without
+    the walls to finish its lines cages nobody)."""
+    extra = completion_extra(board, quota)
+    if extra is None:
+        return len(bfs_distances(board, landing))
+    return len(bfs_distances(_Walled(board, extra - {landing}), landing))
+
+
+def doctrine_room(doctrine: dict, support, engine, cell) -> int:
+    """The doctrine's cage rank: k_wall_region under the live quota, or
+    the inert 0 when the knob is off / the support is empty."""
+    if not (doctrine["forecast_walls"] and support):
+        return 0
+    quota = engine.rules.max_barriers - len(engine.board.barriers)
+    return k_wall_region(engine.board, cell, support,
+                         doctrine["forecast_walls"],
+                         doctrine["forecast_wall_reach"], quota)
+
+
+def arm_builder_escape(brain, engine) -> None:
+    """A DECLARED CUT (3+ colinear walls) is a cage being built: aim the
+    brain's DOMINANT escape at the best cell of the largest completed-
+    projection room, re-aimed every turn while the cut stands — the side
+    gets picked while every crossing is still free (counted g02
+    2026-08-23 t31: flee alone herded us into the pocket that then
+    sealed under guard). Already standing in the largest room arms
+    nothing; non-builders never reach here."""
+    quota = engine.rules.max_barriers - len(engine.board.barriers)
+    extra = completion_extra(engine.board, quota)
+    if extra is None:
+        return
+    me = engine.positions[brain.role]
+    my_room = len(bfs_distances(_Walled(engine.board, extra - {me}), me))
+    best_room, target = my_room, None
+    for cell, _steps in sorted(bfs_distances(engine.board, me).items(),
+                               key=lambda kv: kv[1]):
+        if cell in extra:
+            continue
+        room = len(bfs_distances(_Walled(engine.board, extra - {cell}), cell))
+        if room > best_room:  # nearest-first scan: first strict win stays
+            best_room, target = room, cell
+    if target is not None:
+        brain._escape_until = (engine.turns_completed
+                               + brain.doctrine["escape_turns"])
+        brain._escape_dist = bfs_distances(engine.board, target)
+
+
 def k_wall_region(board, landing, cop_cells, k, reach, quota) -> int:
     """The landing's reachable-region size under the WORST wall-set any
     believed cop could add: MIN over support cells and over every set of
-    min(k, quota) sites within Manhattan `reach` of that cell."""
+    min(k, reach) sites within Manhattan `reach` of that cell — floored
+    by the line-completion projection (a declared cut completes)."""
+    completed = line_completion_region(board, landing, quota)
     walls = min(int(k), int(quota))
     if walls <= 0:
-        return len(bfs_distances(board, landing))
-    worst = board.grid_size * board.grid_size
+        return min(completed, len(bfs_distances(board, landing)))
+    worst = completed
     for cop in cop_cells:
         sites = [s for s in _sites(board, cop, reach, landing) if s != landing]
         for wall_set in combinations(sites, min(walls, len(sites))):

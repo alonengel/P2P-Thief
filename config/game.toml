@@ -129,6 +129,10 @@ forecast_walls = 4              # k-wall CAGE forecast (cage_forecast.py, ADR-00
                                 # the fielded thief at t27 0/15; k=4 reach=4 survives it 5/5.
                                 # reach 3 still died; anchored+capped sites keep ~0.9s/turn.
 forecast_wall_reach = 4
+builder_escape = true           # a DECLARED CUT (3+ colinear walls) aims the rank-1 escape at
+                                # the largest completed-room side while crossings are still free
+                                # (counted g02 2026-08-23 t31: flee alone herded us into the
+                                # pocket that then sealed under guard; ADR-0013 addendum)
 lethal_gate = true              # a landing ANY support cell can END next turn (occupy or wall)
                                 # ranks below every landing none of them can, however far the
                                 # doomed one looks -- the herded-corner walk-in gate

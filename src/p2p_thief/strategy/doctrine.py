@@ -22,7 +22,7 @@ from pathlib import Path
 
 from p2p_thief.domain.pathfind import UNREACHABLE, bfs_distances
 from p2p_thief.domain.primitives import Move, Role
-from p2p_thief.strategy.cage_forecast import k_wall_region
+from p2p_thief.strategy import cage_forecast
 from p2p_thief.strategy.doctrine_signals import fresh_evidence, top_support
 from p2p_thief.strategy.movement_deception import StealthThiefBrain
 
@@ -50,6 +50,11 @@ DEFAULTS: dict = {
     #                            0 = off (byte-identical); per-pairing knob only
     #                            (k=4 beats builders, costs vs pure interceptors
     #                            - imreeyal's measured trade, ADR-0013)
+    "builder_escape": False,   # a DECLARED CUT (3+ colinear walls) aims the
+    #                            rank-1 escape at the largest completed-room
+    #                            side while crossings are free (counted g02
+    #                            t31: flee alone herded us into the pocket).
+    #                            Off = byte-identical; arm per pairing.
     "forecast_wall_reach": 4,  # wall-sets within this Manhattan reach of a cop
     #                            (4, not 2: belief lag plus line-building means
     #                            the seal lands ahead of where the cop reads -
@@ -120,6 +125,8 @@ class DoctrineThiefBrain(StealthThiefBrain):
             if self.doctrine["stay_cap"]:
                 self._sync_mirror(engine)  # exposure needed even if stealth off
             self._observe_threats(engine)
+            if self.doctrine["builder_escape"]:
+                cage_forecast.arm_builder_escape(self, engine)
             self._fresh = self.doctrine["fresh_flee"] and fresh_evidence(
                 engine.scent[self.role.rival], self.doctrine["fresh_reach_max"],
                 engine.positions[self.role], self.doctrine["fresh_alert_radius"])
@@ -156,15 +163,10 @@ class DoctrineThiefBrain(StealthThiefBrain):
             distance = FAR if distance == UNREACHABLE else distance
             flee = min(distance, 2 * self.safe_distance)  # real flight range
         escape = -self._escape_dist.get(cell, FAR) if escaping else 0
-        # A forming multi-wall cage outranks distance: the k-wall forecast
-        # (ADR-0013) prices the landing's room under the worst wall-SET the
-        # believed cop could still afford. 0 walls -> constant 0, inert.
-        k_room = 0
-        if self.doctrine["forecast_walls"] and self._support:
-            quota = engine.rules.max_barriers - len(engine.board.barriers)
-            k_room = k_wall_region(engine.board, cell, self._support,
-                                   self.doctrine["forecast_walls"],
-                                   self.doctrine["forecast_wall_reach"], quota)
+        # A forming multi-wall cage outranks distance (ADR-0013): the
+        # landing's room under the worst affordable wall-set; inert 0 off.
+        k_room = cage_forecast.doctrine_room(self.doctrine, self._support,
+                                             engine, cell)
         escapes, region = self._forecast(engine, cell)
         # A (0, 0) forecast means some believed hunter ENDS us on this landing
         # next turn — it occupies the cell or walls it (rules 46/47). That is
