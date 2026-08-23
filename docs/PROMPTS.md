@@ -1552,3 +1552,34 @@ builder-escape (ADR-0013 second addendum) - the counted g02 tape
 traded separation for room were tried and REVERTED (honesty: offline
 replays pin capability, not the live outcome - their chase adapts).
 Full armed strategy suite green, no chaser regression.
+
+## 2026-08-23 night - counted2 post-mortem: the trusted-sharp bypass
+
+Operator prompt (via orchestrator): "our thief was captured at t31 in all
+three counted windows vs najamjad (seeds 260825/260827/260829, identical
+play); their cop is the open-loop 11-wall script; the armed cage
+machinery is suspected of CAUSING the death - reproduce, diagnose, fix
+TDD-style". Agent work: (1) the GameEngine replay harness did NOT
+reproduce (armed survives t35 there) - the delta is the wire itself:
+live is the reference wire (thief-first cadence, OwnState) and najamjad
+transmits its scent emitted at its POST-MOVE cell each step (verified
+byte-identical to our ScentField updated per cop step, max err 0.0 over
+all 31 recorded g02 frames), so live belief pins the peak at >=
+SHARP_BELIEF every turn; (2) a live-faithful harness (OwnState +
+recorded payloads) reproduces the t31 death move-for-move - and shows
+armed and UNARMED die identically, because the sharp peak routes scoring
+into the parent's exact-info branch whose `if exact: return base` bypassed
+the whole cage doctrine (k_room, lethal gate, builder escape never ran);
+the exact branch's wall-aversion term then walked us into the (2,4)
+dead end; (3) fix: an ARMED cage pairing keeps the LETHAL GATE over the
+whole belief support under trusted-sharp belief, ranked above the parent
+exact tuple (the peak-only one-ply probe misses the wall a neighboring
+support cell can drop); the k-wall price and the dominant escape stay
+belief-only - the escape BFS ignores the hunter and, replayed, dragged
+us onto the wall landing on the column gap, and the wall-set enumeration
+blows wall-clocked budgets on big fuzz grids (config_fuzz + --cov caught
+exactly that in an intermediate version); (4) red test = live-faithful
+replay of the counted2
+tape (frames synthesized from the verified emission model), survival
+t35 at the counted seeds + seeds 0-4, defaults-off death documented;
+full suite green armed, defaults byte-identical.
