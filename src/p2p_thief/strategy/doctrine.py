@@ -93,6 +93,7 @@ class DoctrineThiefBrain(StealthThiefBrain):
         self._escape_until, self._escape_dist = -1, {}
         self._fresh = self._ban_stay = False
         self._support: list = []
+        self._cage = False  # armed per decide(); _score must never precede it
 
     def _observe_threats(self, engine) -> None:
         """Pocket alert: a NEW rival wall within the alert radius of us arms
@@ -121,6 +122,12 @@ class DoctrineThiefBrain(StealthThiefBrain):
         return exposure >= self.doctrine["stay_exposure_threshold"]
 
     def decide(self, engine, belief=None) -> dict:
+        # Cage pairing flag: belief play with the k-wall/builder knobs armed.
+        # A SHARP peak reroutes scoring to the parent's exact-info branch
+        # (SHARP_BELIEF), which must NOT bypass an armed cage doctrine — the
+        # 2026-08-23 counted2 deaths (t31 x3) rode exactly that bypass.
+        self._cage = belief is not None and bool(
+            self.doctrine["forecast_walls"] or self.doctrine["builder_escape"])
         if belief is not None:
             if self.doctrine["stay_cap"]:
                 self._sync_mirror(engine)  # exposure needed even if stealth off
@@ -150,10 +157,28 @@ class DoctrineThiefBrain(StealthThiefBrain):
 
     def _score(self, engine, cell, distances, cop, exact) -> tuple:
         base = super()._score(engine, cell, distances, cop, exact)
-        if exact:
+        if exact and not self._cage:
             return base  # full-information arena play: parent forecast rules
-        flee, tie = base
         escaping = engine.turns_completed < self._escape_until
+        if exact:
+            # Trusted-sharp belief on an ARMED builder pairing: najamjad's
+            # saturated no-lag trail pins the peak >= SHARP_BELIEF every turn,
+            # so live play rode the exact-info scorer and the whole cage
+            # doctrine was structurally bypassed (counted2 2026-08-23: its
+            # wall-aversion term walked us into the (2,4) dead end at t31,
+            # armed and unarmed identical). The fix is the LETHAL GATE over
+            # the whole support, ranked above the parent tuple: the peak-only
+            # one-ply probe misses a wall a NEIGHBORING support cell can
+            # drop (s29: (2,4) endable from the (2,5) mass; s31: STAY died
+            # to the occupy from (1,4)). The k-wall price and the dominant
+            # escape stay belief-only: the escape BFS ignores the hunter and
+            # measurably drags us across the cop when the peak is pinned,
+            # and the wall-set enumeration blows wall-clocked turn budgets
+            # on big fuzz grids for no replayed survival gain.
+            escapes, region = self._forecast(engine, cell)
+            gated = self.doctrine["lethal_gate"] and (escapes, region) == (0, 0)
+            return (0 if gated else 1, *base)
+        flee, tie = base
         if not (self._fresh or self._ban_stay or escaping or self._support):
             return base  # doctrine inert this turn: exactly the parent brain
         if self._ban_stay and cell == engine.positions[self.role]:
@@ -165,8 +190,7 @@ class DoctrineThiefBrain(StealthThiefBrain):
         escape = -self._escape_dist.get(cell, FAR) if escaping else 0
         # A forming multi-wall cage outranks distance (ADR-0013): the
         # landing's room under the worst affordable wall-set; inert 0 off.
-        k_room = cage_forecast.doctrine_room(self.doctrine, self._support,
-                                             engine, cell)
+        k_room = cage_forecast.doctrine_room(self.doctrine, self._support, engine, cell)
         escapes, region = self._forecast(engine, cell)
         # A (0, 0) forecast means some believed hunter ENDS us on this landing
         # next turn — it occupies the cell or walls it (rules 46/47). That is
