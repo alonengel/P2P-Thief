@@ -66,6 +66,11 @@ class Perception:
         # as floored serialization noise (peer/floor_tolerance.py).
         self.refused_readings, self.refused_steps = 0, []
         self.floored_steps: list[int] = []
+        # Scent-presence census: non-empty vs empty rival frames. Silence
+        # is legal (declared-lock convention) but must be VISIBLE — a
+        # rival scenting every validation game then going silent in the
+        # counted changed wire behavior (najamjad clause, 2026-08-23).
+        self.scent_frames_seen, self.scent_frames_empty = 0, 0
         self.scent_trusted = True  # latches false on a physically impossible reading
         self._previous_field: list | None = None  # last accepted frame
         # law-break streak; unique law-solved emitter; per-turn emitter track
