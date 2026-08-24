@@ -1,0 +1,10 @@
+sha256 (of the exact bytes committed here)  |  anrbj666-vs-best2934 counted series
+--------------------------------------------------------------------
+6a826f32789eb352  config_anrbj666-vs-best2934_g02.json
+60ec1c808312f963  config_anrbj666-vs-best2934_g04.json
+af42508b5210f77d  config_anrbj666-vs-best2934_g06.json
+11b82527399a72d7  declaration_anrbj666-vs-best2934.json
+748f936c6f04509c  log_anrbj666-vs-best2934_g02.json
+36b4d84a4c538c65  log_anrbj666-vs-best2934_g04.json
+f4c4c23c4c628992  log_anrbj666-vs-best2934_g06.json
+891cbf11e87b270d  result_anrbj666-vs-best2934.json
