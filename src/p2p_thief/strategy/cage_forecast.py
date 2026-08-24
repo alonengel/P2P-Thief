@@ -28,6 +28,16 @@ NEAR_REACH = 3  # unanchored walls are feared this close to the cop (counted
 SITE_CAP = 14  # C(14,4)=1001 wall-sets: the compute keeps a turn budget
 
 
+TUNED_GRID = 9  # the counter is measured on the signed 7x7 board. Every
+#                 wall-set costs a BFS over the WHOLE board, so the price
+#                 grows with area while the tuning does not follow: on an
+#                 11x11 legal-range fuzz board it ran ~2.2s per turn and
+#                 blew the harness budget (CI, 2026-08-23) for a cage
+#                 shape it was never measured against. Above this size we
+#                 keep the CHEAP half - the line-completion projection,
+#                 which is one BFS and stays meaningful at any area.
+
+
 def _anchored(board, cell):
     """Adjacent to an existing barrier or on the rim: where a line-
     builder's next wall extends structure into a cut (imreeyal's
@@ -110,6 +120,10 @@ def doctrine_room(doctrine: dict, support, engine, cell) -> int:
     if not (doctrine["forecast_walls"] and support):
         return 0
     quota = engine.rules.max_barriers - len(engine.board.barriers)
+    if engine.board.grid_size > TUNED_GRID:
+        # Untuned AND quadratic off the signed board: price the declared cut
+        # only. Never reached in a league game (the board is 7x7 by treaty).
+        return line_completion_region(engine.board, cell, quota)
     return k_wall_region(engine.board, cell, support,
                          doctrine["forecast_walls"],
                          doctrine["forecast_wall_reach"], quota)
